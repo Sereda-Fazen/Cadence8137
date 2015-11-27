@@ -44,7 +44,8 @@ class LoginSteps extends \AcceptanceTester
 
     }
 
-    public function getHeaderMenu() {
+    public function getHeaderMenu()
+    {
 
         $I = $this;
         for ($i = 2; $i <= 5; $i++) {
@@ -57,28 +58,31 @@ class LoginSteps extends \AcceptanceTester
     {
         $I = $this;
         for ($i = 1; $i <= 3; $i++) {
+            $I->waitForElement('div.footer-primary.footer', 2);
             $I->click('div.footer-primary.footer > div:nth-of-type(1) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $i . ') > a');
-            $I->wait(2);
+
         }
     }
+
     public function getFooterMenu1()
     {
         $I = $this;
         for ($j = 1; $j <= 4; $j++) {
+            $I->waitForText('Orders', 4, 'h4');
             $I->click('div.footer-primary.footer > div:nth-of-type(2) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $j . ') > a');
-            $I->wait(2);
         }
         $I->click('ul.list.bullet.separator > li:nth-of-type(4) > a');
     }
+
     public function getFooterMenu2()
     {
         $I = $this;
         for ($k = 1; $k <= 2; $k++) {
+            $I->waitForElement('div.footer-primary.footer', 2);
             $I->click('div.footer-primary.footer > div:nth-of-type(3) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $k . ') > a');
+            $I->wait(2);
         }
     }
-
-
 
 
     public function getZoom()
@@ -97,84 +101,134 @@ class LoginSteps extends \AcceptanceTester
             }
         }
     }
-    public function inputBillingGuestData (){
+
+    public function inputBillingGuestData()
+    {
 
         $billing = '#billing\3A ';
         $I = $this;
-        $I->fillField($billing. 'firstname', 'alex');
-        $I->fillField($billing. 'lastname', 'sereda');
-        $I->fillField($billing. 'email', 'sa@itsvit.org');
+        $I->fillField($billing . 'firstname', 'alex');
+        $I->fillField($billing . 'lastname', 'sereda');
+        $I->fillField($billing . 'email', 'sa@itsvit.org');
         $I->fillField('input.input-text.required-entry.validate-length', 'Dostoevskogo street 22V');
-        $I->fillField($billing. 'city', 'Kharkov');
-        $I->fillField($billing.'postcode', '1rr354');
-        $I->fillField($billing.'postcode', '61007');
+        $I->fillField($billing . 'city', 'Kharkov');
+        $I->fillField($billing . 'postcode', '1rr354');
+        $I->fillField($billing . 'postcode', '61007');
         $I->click('//*[@id="billing:country_id"]/option[231]');
-        $I->fillField($billing.'region', 'Kharkov');
-        $I->fillField($billing.'telephone', '80934568798');
-        $I->click($billing.'use_for_shipping_yes');
+        $I->fillField($billing . 'region', 'Kharkov');
+        $I->fillField($billing . 'telephone', '80934568798');
+        $I->click($billing . 'use_for_shipping_yes');
         $I->click('#billing-buttons-container > button.button > span > span');
 
 
     }
 
-}
 
+    /*
+    public function getHeaderMenu()
+    {
 
+        $I = $this;
 
+        for ($i = 2; $i <= 9; $i++) {
+            $I->click('#nav > li:nth-of-type(' . $i . ') > a.level-top > span');
+            $rows = count($I->grabMultiple('//div/div[3]/ul'));
+            for ($r = 1; $r <= $rows; $r++) {
 
+                $cels = count($I->grabMultiple('//div/div[3]/ul[' . $r . ']/li'));
+                for ($c = 1; $c <= $cels; $c++) {
+                    $I->moveMouseOver('//div/div[3]/ul[' . $r . ']/li[' . $c . ']', 70, 150);
+                    $I->moveMouseOver('//div/div[3]/ul[' . $r . ']/li[' . $c . ']', 150, 30);
+                    $I->moveMouseOver('//div/div[3]/ul[' . $r . ']/li[' . $c . ']', 30, 70);
 
+                }
+            }
 
-
-
-/*
-public function getHeaderMenu()
-{
-
-    $I = $this;
-
-    for ($i = 2; $i <= 9; $i++) {
-        $I->click('#nav > li:nth-of-type(' . $i . ') > a.level-top > span');
+        }
+        $I->click('li.last.level-top > a.level-top > span');
         $rows = count($I->grabMultiple('//div/div[3]/ul'));
-        for ($r = 1; $r <= $rows; $r++) {
+        for ($s = 1; $s <= $rows; $s++) {
 
-            $cels = count($I->grabMultiple('//div/div[3]/ul[' . $r . ']/li'));
+            $cels = count($I->grabMultiple('//div/div[3]/ul[' . $s . ']/li'));
             for ($c = 1; $c <= $cels; $c++) {
-                $I->moveMouseOver('//div/div[3]/ul[' . $r . ']/li[' . $c . ']', 70, 150);
-                $I->moveMouseOver('//div/div[3]/ul[' . $r . ']/li[' . $c . ']', 150, 30);
-                $I->moveMouseOver('//div/div[3]/ul[' . $r . ']/li[' . $c . ']', 30, 70);
-
+                $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 70, 150);
+                $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 150, 30);
+                $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 30, 70);
             }
         }
+        $I->click('li.home > a');
 
-    }
-    $I->click('li.last.level-top > a.level-top > span');
-    $rows = count($I->grabMultiple('//div/div[3]/ul'));
-    for ($s = 1; $s <= $rows; $s++) {
+        $I->click('li.first.level-top > a.level-top > span');
+        $rows = count($I->grabMultiple('//div/div[3]/ul'));
+        for ($s = 1; $s <= $rows; $s++) {
 
-        $cels = count($I->grabMultiple('//div/div[3]/ul[' . $s . ']/li'));
-        for ($c = 1; $c <= $cels; $c++) {
-            $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 70, 150);
-            $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 150, 30);
-            $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 30, 70);
+            $cels = count($I->grabMultiple('//div/div[3]/ul[' . $s . ']/li'));
+            for ($c = 1; $c <= $cels; $c++) {
+                $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 70, 150);
+                $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 150, 30);
+                $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 30, 70);
+            }
         }
+        $I->click('li.home > a');
     }
-    $I->click('li.home > a');
+    */
 
-    $I->click('li.first.level-top > a.level-top > span');
-    $rows = count($I->grabMultiple('//div/div[3]/ul'));
-    for ($s = 1; $s <= $rows; $s++) {
+    public function mailAuth()
+    {
 
-        $cels = count($I->grabMultiple('//div/div[3]/ul[' . $s . ']/li'));
-        for ($c = 1; $c <= $cels; $c++) {
-            $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 70, 150);
-            $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 150, 30);
-            $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 30, 70);
-        }
+        $I = $this;
+        $I->wait(3);
+        $I->amOnUrl("http://mail.ru");
+        $I->fillField(['id' => 'mailbox__login'], 'fazen7');
+        $I->wait(2);
+        $I->fillField(['id' => 'mailbox__password'], 'seredafazen');
+        $I->wait(2);
+        $I->click(['id' => 'mailbox__auth__button']);
+        $I->see('fazen7@mail.ru', 'div.w-x-ph__auth__dropdown__inner');
+        $I->click('Cadence Watch Company');
+
     }
-    $I->click('li.home > a');
+
+    public function remoteWindow(){
+        $I = $this;
+        $I->click('Reset Password');
+        $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
+            $handles = $webdriver->getWindowHandles();
+            $last_window = end($handles);
+            $webdriver->switchTo()->window($last_window);
+        });
+    }
+
+    public function newPass() {
+        $I = $this;
+        $I->waitForText('Reset a Password', 15, 'h1');
+        $I->fillField('#password', '123456');
+        $I->fillField('#confirmation', '123456');
+        $I->click('Reset a Password');
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
-*/
-
 
 
 

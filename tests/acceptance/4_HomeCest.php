@@ -52,8 +52,10 @@ class HomeCest
     */
     function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
     {
-        $I->getFooterMenu();
+       // $I->getFooterMenu();
         $I->getFooterMenu1();
+      //  $I->getFooterMenu2();
+
        // $homePage->homePageFooter();
     }
 }
