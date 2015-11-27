@@ -12,9 +12,6 @@ class HomeCest
         $I->getHeaderMenu();
     }
 
-    /*
-   }
-
 
    function homeSearch(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
    {
@@ -49,7 +46,7 @@ class HomeCest
         $homePage->homePageSubscription('sa@itsvit.org');
     }
 }
-    */
+    /*
     function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
     {
        // $I->getFooterMenu();
@@ -58,6 +55,7 @@ class HomeCest
 
        // $homePage->homePageFooter();
     }
+    /*
 }
 /*
 
