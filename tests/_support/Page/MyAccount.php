@@ -35,7 +35,6 @@ class MyAccount
     public static $zip = '#zip';
     public static $state = '//*[@id="country"]/option[231]';
     public static $region = '//*[@id="region"]';
-    public static $checkBillingAddress = '#primary_billing';
     public static $saveAddress = 'div.buttons-set > button.button > span > span';
 
     /**
@@ -87,9 +86,9 @@ class MyAccount
      */
     public static $URL9 = '/giftvoucher/index/index/';
 
-    public static $viewBlock = 'a.left';
-    public static $clickHere = 'div.storecredit > div:nth-of-type(2) > a';
-    public static $redeem = 'div.button-add-list > button:nth-of-type(1) > span > span';
+    public static $viewBlock = 'button.form-button.button.addredeem > span > span';
+   // public static $clickHere = 'div.storecredit > div:nth-of-type(2) > a';
+  // public static $redeem = 'div.button-add-list > button:nth-of-type(1) > span > span';
 
     protected $tester;
 
@@ -124,7 +123,6 @@ class MyAccount
         $I->fillField(self::$zip, $zip);
         $I->click(self::$state);
         $I->fillField(self::$region, $region);
-        $I->checkOption(self::$checkBillingAddress);
         $I->click(self::$saveAddress);
     }
 
@@ -191,8 +189,8 @@ class MyAccount
 
         $I->amOnPage(self::$URL9);
         $I->click(self::$viewBlock);
-        $I->click(self::$clickHere);
-        $I->click(self::$redeem);
+      //  $I->click(self::$clickHere);
+     //   $I->click(self::$redeem);
 
     }
 

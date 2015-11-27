@@ -9,7 +9,7 @@ class LoginSteps extends \AcceptanceTester
         $I = $this;
         $I->amOnPage('/customer/account/login/');
         $I->fillField('#email', 'fazen7@mail.ru');
-        $I->fillField('#pass', '1234567');
+        $I->fillField('#pass', '123456');
         $I->click('Login');
     }
 
@@ -36,31 +36,49 @@ class LoginSteps extends \AcceptanceTester
         for ($c = 4; $c >= 0; $c--) {
             $card = rand();
             $I->fillField('#gift-voucher-code', $card);
-            $I->click('//*[@id="addredeem-giftvoucher-code"]/div/div/button[1]/span/span');
+            $I->click('div.text-left > button:nth-of-type(1) > span > span');
             $I->waitForText('Gift card "' . $card . '" is invalid.You have ' . $c . ' time(s) remaining to re-enter Gift Card code.', 3, '.error-msg');
         }
         $I->fillField('#gift-voucher-code', $card);
-        $I->click('//*[@id="addredeem-giftvoucher-code"]/div/div/button[1]/span/span');
+        $I->click('div.text-left > button:nth-of-type(1) > span > span');
 
     }
 
     public function getHeaderMenu() {
 
         $I = $this;
-        for ($i = 2; $i <= 9; $i++) {
-            $I->click('#nav > li:nth-of-type(' . $i . ') > a.level-top > span');
+        for ($i = 2; $i <= 5; $i++) {
+            $I->click('#mega-nav > li:nth-of-type(' . $i . ') > a');
         }
         $I->click('li.home > a');
-
-
     }
+
     public function getFooterMenu()
     {
         $I = $this;
-        for ($i = 1; $i <= 4; $i++) {
-            $I->click('div.footer > ul > li:nth-of-type(' . $i . ') > a');
+        for ($i = 1; $i <= 3; $i++) {
+            $I->click('div.footer-primary.footer > div:nth-of-type(1) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $i . ') > a');
+            $I->wait(2);
         }
     }
+    public function getFooterMenu1()
+    {
+        $I = $this;
+        for ($j = 1; $j <= 4; $j++) {
+            $I->click('div.footer-primary.footer > div:nth-of-type(2) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $j . ') > a');
+            $I->wait(2);
+        }
+        $I->click('ul.list.bullet.separator > li:nth-of-type(4) > a');
+    }
+    public function getFooterMenu2()
+    {
+        $I = $this;
+        for ($k = 1; $k <= 2; $k++) {
+            $I->click('div.footer-primary.footer > div:nth-of-type(3) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $k . ') > a');
+        }
+    }
+
+
 
 
     public function getZoom()

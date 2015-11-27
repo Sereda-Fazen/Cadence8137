@@ -4,33 +4,61 @@ use Step\Acceptance;
 class HomeCest
 {
 
-    function homeHeader(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
-
+    function homeHeader(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
+    {
         $homePage->homePageHeader();
-        $homePage->homePageSearch('Watch');
-        $I->getVisibleText('h1','Search results for "watch"');
-        $I->comment('Expected result: Search results for "Watch" ');
-        $homePage->homePageSearch2('Watch');
-        $I->comment('Expected result: Search auto complete is work');
+
         $homePage->homePageMainMenu();
         $I->getHeaderMenu();
-        $homePage->homePageSubscription('sa@itsvit.org');
+    }
+
+    /*
+   }
+
+
+   function homeSearch(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
+   {
+       $homePage->homePageSearch('Watch');
+       $I->getVisibleText('h1', 'Search results for "watch"');
+       $I->comment('Expected result: Search results for "Watch" ');
+   }
+
+
+   function homeCart(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
+   {
+       $homePage->homeHeaderCart();
+       $I->getVisibleText('You have no items in your shopping cart.');
+   }
+
+
+     function homeSlide(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
+        $homePage->homeSlide();
+         $I->waitForElement('div.main');
+     }
+
+
+    function homeContent(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
+    {
         $homePage->homePageContent();
-        $I->getFooterMenu();
-        $homePage->homePageFooter();
     }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+    function homeSubscription(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
+    {
+        $homePage->homePageSubscription('sa@itsvit.org');
+    }
 }
+    */
+    function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
+    {
+        $I->getFooterMenu();
+        $I->getFooterMenu1();
+       // $homePage->homePageFooter();
+    }
+}
+/*
+
+
+
+
