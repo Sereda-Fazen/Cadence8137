@@ -26,3 +26,65 @@ modules:
              platform: 'XP'
 
 
+
+
+
+
+
+env:
+    INST_8137:
+
+
+    INST_8130:
+        modules:
+            config:
+                WebDriver:
+                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8130'
+
+    INST_8137:
+        modules:
+            config:
+                WebDriver:
+                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8137'
+
+    INST_8139:
+        modules:
+            config:
+                WebDriver:
+                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8139'
+
+    INST_8142:
+        modules:
+            config:
+                WebDriver:
+                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8142'
+
+    INST_8144:
+        modules:
+            config:
+                WebDriver:
+                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8144'
+
+    INST_8145:
+        modules:
+            config:
+                WebDriver:
+                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8145'
+
+    INST_8147:
+        modules:
+            config:
+                WebDriver:
+                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8147'
+
+    INST_8149:
+        modules:
+            config:
+                WebDriver:
+                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8149'
+
+    INST_8150:
+        modules:
+            config:
+                WebDriver:
+                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8150'

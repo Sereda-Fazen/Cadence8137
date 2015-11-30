@@ -40,7 +40,6 @@ class HomeCest
           $I->getFooterMenu();
           $I->getFooterMenu1();
           $I->getFooterMenu2();
-
         }
 
         function footerFacebook(Step\Acceptance\LoginSteps $I, \Page\Home $homePage){
