@@ -213,17 +213,7 @@ class Home
         $I->click(self::$pinterest);
         $I->waitForText(self::$cadenceWatch, 4);
     }
-
-
+    
 }
-        /*
-        $I->click(self::$instagram);
-        $I->click(self::$twitter);
-        $I->click(self::$pinterest);
-
-
-        /*
-
-    }
 
 
