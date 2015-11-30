@@ -2,32 +2,40 @@
 use Step\Acceptance;
 
 class MyAccountCest
+
 {
 
-        function showUserProfile(\Step\Acceptance\LoginSteps $I) {
-            $I->StepsLoginIn();
-            $I->see('Hello, alex sereda!', 'p.hello > strong');
-        }
+    function showUserProfile(\Step\Acceptance\LoginSteps $I)
+    {
+        $I->StepsLoginIn();
+        $I->see('Hello, alex sereda!', 'p.hello > strong');
 
-        function MyAccountInfo(AcceptanceTester $I, \Page\MyAccount $myAccountPage) {
+    }
 
-            $myAccountPage->accountInfo('alex', 'sereda', 'fazen7@mail.ru', '123456', '123456', '123456');
-            $I->see('The account information has been saved.', 'li.success-msg');
-        }
+    function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccountPage)
+    {
 
-        function MyAccountInfoInvalid(AcceptanceTester $I, \Page\MyAccount $myAccountPage) {
+        $myAccountPage->accountInfo('alex', 'sereda', 'fazen7@mail.ru', '123456', '123456', '123456');
+        $I->see('The account information has been saved.', 'li.success-msg');
+    }
 
-            $myAccountPage->accountInfo('', '', '', '', '', '');
-            $I->see('This is a required field.', '#advice-required-entry-email');
-            $I->comment('Expected result: These are required fields');
+    function MyAccountInfoInvalid(AcceptanceTester $I, \Page\MyAccount $myAccountPage)
+    {
 
-        }
+        $myAccountPage->accountInfo('', '', '', '', '', '');
+        $I->see('This is a required field.', '#advice-required-entry-email');
+        $I->comment('Expected result: These are required fields');
 
-        function MyAccountAddress(AcceptanceTester $I, \Page\MyAccount $MyAccountPage) {
-            $MyAccountPage->accountAddress('alex', 'sereda', '+39063636369', 'Dostoevskogo22v', 'Kharkov', '54423', 'Kharkov');
-            $I->see('The address has been saved.', 'li.success-msg');
-            $I->comment('Expected result: The address has been saved.');
-        }
+    }
+
+    function MyAccountAddress(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage)
+    {
+
+        $MyAccountPage->accountAddress('alex', 'sereda', '+39063636369', 'Dostoevskogo22v', 'Kharkov', '54423', 'Kharkov');
+        $I->see('The address has been saved.', 'li.success-msg');
+        $I->comment('Expected result: The address has been saved.');
+    }
+
 
         function MyAccountOrders(AcceptanceTester $I, \Page\MyAccount $MyAccountPage) {
             $MyAccountPage->accountMyOrders();

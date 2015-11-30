@@ -9,7 +9,6 @@ class MyAccount
      */
 
     public static $URL = 'customer/account/edit';
-    public static $closeSub = 'html/body/div[1]/div/div[8]/span';
 
     public static $firsName = '#firstname';
     public static $lastName = '#lastname';
@@ -25,6 +24,7 @@ class MyAccount
      */
 
     public static $URL2 = 'customer/address/new/';
+
 
     public static $addressName = '#firstname';
     public static $addressLastName = '#lastname';
@@ -100,7 +100,6 @@ class MyAccount
         $I = $this->tester;
 
         $I->amOnPage(self::$URL);
-        $I->click(self::$closeSub);
         $I->fillField(self::$firsName, $fName);
         $I->fillField(self::$lastName, $lName);
         $I->fillField(self::$email, $email);
@@ -115,7 +114,7 @@ class MyAccount
         $I = $this->tester;
 
         $I->amOnPage(self::$URL2);
-
+        $I->click(self::$close);
         $I->fillField(self::$firsName, $fName);
         $I->fillField(self::$lastName, $lName);
         $I->fillField(self::$phone, $phone);
