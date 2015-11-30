@@ -9,6 +9,9 @@ modules:
         WebDriver:
             url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8137'
 
+
+      # run in browserstack
+
             #host: 'hub.browserstack.com'
             #port: 80
             browser: chrome
@@ -26,11 +29,7 @@ modules:
              platform: 'XP'
 
 
-
-
-
-
-
+    # run all instance
 env:
     INST_8137:
 
@@ -40,12 +39,6 @@ env:
             config:
                 WebDriver:
                   url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8130'
-
-    INST_8137:
-        modules:
-            config:
-                WebDriver:
-                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8137'
 
     INST_8139:
         modules:
