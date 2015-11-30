@@ -32,6 +32,7 @@ class HomeCest
 
         function homeSubscription(Step\Acceptance\LoginSteps $I, \Page\Home $homePage){
           $homePage->homePageSubscription('sa@itsvit.org');
+            $I->see('','li.success-msg');
         }
 
         function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
