@@ -58,31 +58,44 @@ class LoginSteps extends \AcceptanceTester
     {
         $I = $this;
         for ($i = 1; $i <= 3; $i++) {
-            $I->waitForElement('div.footer-primary.footer', 2);
+            $I->amOnPage('/customer/account/login/');
             $I->click('div.footer-primary.footer > div:nth-of-type(1) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $i . ') > a');
 
         }
     }
-
     public function getFooterMenu1()
     {
         $I = $this;
         for ($j = 1; $j <= 4; $j++) {
-            $I->waitForText('Orders', 4, 'h4');
+            $I->amOnPage('/customer/account/login/');
             $I->click('div.footer-primary.footer > div:nth-of-type(2) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $j . ') > a');
         }
-        $I->click('ul.list.bullet.separator > li:nth-of-type(4) > a');
-    }
 
+    }
     public function getFooterMenu2()
     {
         $I = $this;
         for ($k = 1; $k <= 2; $k++) {
-            $I->waitForElement('div.footer-primary.footer', 2);
+            $I->amOnPage('/customer/account/login/');
             $I->click('div.footer-primary.footer > div:nth-of-type(3) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $k . ') > a');
-            $I->wait(2);
+
         }
     }
+
+    public function getSecondOpen() {
+
+        $I = $this;
+        $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
+            $handles = $webdriver->getWindowHandles();
+            $last_window = end($handles);
+            $webdriver->switchTo()->window($last_window);
+        });
+
+
+    }
+
+
+
 
 
     public function getZoom()

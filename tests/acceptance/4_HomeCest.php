@@ -4,60 +4,74 @@ use Step\Acceptance;
 class HomeCest
 {
 
-    function homeHeader(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
-    {
-        $homePage->homePageHeader();
+        function homeHeader(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
+          $homePage->homePageHeader();
+          $homePage->homePageMainMenu();
+          $I->getHeaderMenu();
+        }
 
-        $homePage->homePageMainMenu();
-        $I->getHeaderMenu();
-    }
+        function homeSearch(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
+          $homePage->homePageSearch('Watch');
+          $I->getVisibleText('h1', 'Search results for "watch"');
+          $I->comment('Expected result: Search results for "Watch" ');
+        }
 
+        function homeCart(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
+          $homePage->homeHeaderCart();
+          $I->getVisibleText('You have no items in your shopping cart.');
+        }
 
-   function homeSearch(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
-   {
-       $homePage->homePageSearch('Watch');
-       $I->getVisibleText('h1', 'Search results for "watch"');
-       $I->comment('Expected result: Search results for "Watch" ');
-   }
+        function homeSlide(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
+          $homePage->homeSlide();
+          $I->waitForElement('div.main');
+        }
 
+        function homeContent(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
+          $homePage->homePageContent();
+        }
 
-   function homeCart(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
-   {
-       $homePage->homeHeaderCart();
-       $I->getVisibleText('You have no items in your shopping cart.');
-   }
+        function homeSubscription(Step\Acceptance\LoginSteps $I, \Page\Home $homePage){
+          $homePage->homePageSubscription('sa@itsvit.org');
+        }
 
+        function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
+          $homePage->homePageFooter();
+          $I->getFooterMenu();
+          $I->getFooterMenu1();
+          $I->getFooterMenu2();
 
-     function homeSlide(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
-        $homePage->homeSlide();
-         $I->waitForElement('div.main');
-     }
+        }
 
+        function footerFacebook(Step\Acceptance\LoginSteps $I, \Page\Home $homePage){
 
-    function homeContent(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
-    {
-        $homePage->homePageContent();
-    }
+          $homePage->homeFooterFacebook();
+          $I->getSecondOpen();
+          $I->comment('Expected result: Page is open - Facebook ');
+        }
 
+        function footerInstagram(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
 
+          $homePage->homeFooterInstagram();
+          $I->getSecondOpen();
+          $I->comment('Expected result: Page is open - Instargam ');
+        }
 
-    function homeSubscription(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
-    {
-        $homePage->homePageSubscription('sa@itsvit.org');
-    }
+        function footerTwitter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage){
+
+          $homePage->homeFooterTwiter();
+          $I->getSecondOpen();
+          $I->comment('Expected result: Page is open - Twitter ');
+        }
+
+        function footerPinterest(Step\Acceptance\LoginSteps $I, \Page\Home $homePage){
+
+          $homePage->homeFooterPinterest();
+          $I->getSecondOpen();
+          $I->comment('Expected result: Page is open - Pinterest ');
+        }
+
 }
-    /*
-    function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
-    {
-       // $I->getFooterMenu();
-        $I->getFooterMenu1();
-      //  $I->getFooterMenu2();
 
-       // $homePage->homePageFooter();
-    }
-    /*
-}
-/*
 
 
 

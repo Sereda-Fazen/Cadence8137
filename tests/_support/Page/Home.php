@@ -4,6 +4,7 @@ namespace Page;
 class Home
 {
     public static $URL = '/';
+    public static $URL2 = '/customer/account/login/';
 
     /**
      * Header
@@ -28,7 +29,6 @@ class Home
     public static $viewCart = '//*[@id="cart-listing"]/div[2]/button';
 
 
-
     /**
      * Main menu
      */
@@ -40,7 +40,6 @@ class Home
      */
 
     public static $slide = 'li.item > a > img';
-
 
 
     /**
@@ -61,9 +60,7 @@ class Home
     public static $featured = 'div.ShopCategories > div:nth-of-type(1) > a > img';
     public static $show = 'div.ShopCategories > div:nth-of-type(1) > div.Catdetail > a.shopNow';
 
-    public  static $winter = 'div.winterWatch.PromoHomeImg';
-
-
+    public static $winter = 'div.winterWatch.PromoHomeImg';
 
 
     /**
@@ -73,8 +70,6 @@ class Home
     public static $sub = 'div.std > div.BeforeFooterNewsletter > form > div.block-content > div.input-box > input.input-text.required-entry.validate-email';
     public static $clickSub = 'div.std > div.BeforeFooterNewsletter > form > div.block-content > div.input-box > button.button';
     public static $msg = 'li.success-msg';
-
-
 
 
     /**
@@ -88,14 +83,19 @@ class Home
     public static $twitter = 'span.icon.fa.fa-twitter';
     public static $pinterest = 'span.icon.fa.fa-pinterest';
 
+    public static $cadenceWatch = 'Cadence Watch';
+    public static $cadenceInstagram = 'cadencewatch';
+
 
     protected $tester;
 
-    public function __construct(\AcceptanceTester $I) {
+    public function __construct(\AcceptanceTester $I)
+    {
         $this->tester = $I;
     }
 
-    public function homePageHeader() {
+    public function homePageHeader()
+    {
         $I = $this->tester;
 
         $I->amOnPage(self::$URL);
@@ -105,7 +105,9 @@ class Home
 
 
     }
-    public function homePageSearch($search) {
+
+    public function homePageSearch($search)
+    {
         $I = $this->tester;
 
         $I->moveMouseOver(self::$search);
@@ -114,30 +116,39 @@ class Home
         $I->click(self::$list);
     }
 
-    public function homeHeaderCart(){
+    public function homeHeaderCart()
+    {
         $I = $this->tester;
 
         $I->moveMouseOver(self::$cart);
         $I->click(self::$viewCart);
     }
 
-    public function homePageMainMenu() {
+    public function homePageMainMenu()
+    {
         $I = $this->tester;
         $I->click(self::$men);
     }
-    public function homeSlide(){
+
+    public function homeSlide()
+    {
         $I = $this->tester;
+        $I->click(self::$logo);
         $I->click(self::$slide);
         $I->click(self::$logo);
     }
-    public function homePageSubscription($email) {
+
+    public function homePageSubscription($email)
+    {
         $I = $this->tester;
 
         $I->fillField(self::$sub, $email);
         $I->click(self::$clickSub);
         $I->waitForElement(self::$msg, 4);
     }
-    public function homePageContent() {
+
+    public function homePageContent()
+    {
         $I = $this->tester;
 
         $I->click(self::$link);
@@ -150,6 +161,7 @@ class Home
         $I->click(self::$logo);
 
     }
+
     public function homePageLinks()
     {
         $I = $this->tester;
@@ -164,14 +176,52 @@ class Home
         $I->click(self::$winter);
     }
 
-    public function homePageFooter() {
+    public function homePageFooter()
+    {
         $I = $this->tester;
+        $I->amOnPage(self::$URL);
 
+    }
+
+    public function homeFooterFacebook()
+    {
+        $I = $this->tester;
+        $I->amOnPage(self::$URL2);
         $I->click(self::$facebook);
+        $I->waitForText(self::$cadenceWatch, 4);
+    }
+    public function homeFooterInstagram()
+    {
+        $I = $this->tester;
+        $I->amOnPage(self::$URL2);
         $I->click(self::$instagram);
+        $I->waitForText(self::$cadenceInstagram, 4);
+    }
+    public function homeFooterTwiter()
+    {
+        $I = $this->tester;
+        $I->amOnPage(self::$URL2);
         $I->click(self::$twitter);
+        $I->waitForText(self::$cadenceWatch, 4);
+    }
+    public function homeFooterPinterest()
+    {
+        $I = $this->tester;
+        $I->amOnPage(self::$URL2);
         $I->click(self::$pinterest);
+        $I->waitForText(self::$cadenceWatch, 4);
     }
 
 
 }
+        /*
+        $I->click(self::$instagram);
+        $I->click(self::$twitter);
+        $I->click(self::$pinterest);
+
+
+        /*
+
+    }
+
+
