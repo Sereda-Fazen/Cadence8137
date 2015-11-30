@@ -4,14 +4,11 @@ use Step\Acceptance;
 class MyAccountCest
 {
 
-    function showUserProfile(\Step\Acceptance\LoginSteps $I)
-    {
-        $I->StepsLoginIn();
-        $I->see('Hello, alex sereda!', 'p.hello > strong');
-    }
+        function showUserProfile(\Step\Acceptance\LoginSteps $I) {
+            $I->StepsLoginIn();
+            $I->see('Hello, alex sereda!', 'p.hello > strong');
+        }
 
-
-    /*
         function MyAccountInfo(AcceptanceTester $I, \Page\MyAccount $myAccountPage) {
 
             $myAccountPage->accountInfo('alex', 'sereda', 'fazen7@mail.ru', '123456', '123456', '123456');
@@ -31,7 +28,7 @@ class MyAccountCest
             $I->see('The address has been saved.', 'li.success-msg');
             $I->comment('Expected result: The address has been saved.');
         }
-*/
+
         function MyAccountOrders(AcceptanceTester $I, \Page\MyAccount $MyAccountPage) {
             $MyAccountPage->accountMyOrders();
             $I->getVisibleText('You have placed no orders.');
@@ -57,7 +54,7 @@ class MyAccountCest
             $MyAccountPage->accountDownloads();
             $I->getVisibleText('You have not purchased any downloadable products yet.');
         }
-/*
+
         function MyAccountNewsletter(AcceptanceTester $I, \Page\MyAccount $MyAccountPage){
             $MyAccountPage->accountNewsletterSave();
             $I->see('Your profile has been updated!', 'li.success-msg');
@@ -66,7 +63,7 @@ class MyAccountCest
             $MyAccountPage->accountReturnChecks();
         }
 
-*/
+
         function MyAccountGiftCard(Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage) {
             $MyAccountPage->accountGiftCard();
             $I->giftCardEmpty();
