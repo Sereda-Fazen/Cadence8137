@@ -227,12 +227,19 @@ class LoginSteps extends \AcceptanceTester
 
     }
 
+    public function scrollDown() {
+        $I = $this;
+        $I->executeJS('window.scrollTo(0,1500);');
+    }
+
     public function linksMen() {
         $I = $this;
-        $countLinks = $this->grabMultiple('//*[@id="sidenav"]/li[1]/ul');
-        for ($i = 1; $i <=$countLinks; $i++) {
-            $I->click('#sidenav > li:nth-of-type(1) > ul > li:nth-of-type('.$i.') > a');
+        $countLinks = count($I->grabMultiple('//*[@id="sidenav"]/li[1]/ul/li'));
+        for ($index = 1; $index < $countLinks; $index++) {
+            $I->click('#sidenav > li:nth-of-type(1) > ul > li:nth-of-type('.$index.') > a');
+            $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
         }
+
     }
 
 
