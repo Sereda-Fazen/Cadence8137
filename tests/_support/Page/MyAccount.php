@@ -1,6 +1,8 @@
 <?php
 namespace Page;
 
+use Exception;
+
 class MyAccount
 {
 
@@ -18,6 +20,7 @@ class MyAccount
     public static $pass = '#password';
     public static $confirmation = '#confirmation';
     public static $submit = 'div.buttons-set > button.button > span > span';
+    public static $close = 'html/body/div[1]/div/div[5]/span';
 
     /**
      *  Address Book
@@ -35,7 +38,7 @@ class MyAccount
     public static $zip = '#zip';
     public static $state = '//*[@id="country"]/option[231]';
     public static $region = '//*[@id="region"]';
-    public static $saveAddress = 'div.buttons-set > button.button > span > span';
+    public static $submit2 = 'div.buttons-set > button.button > span > span';
 
     /**
      * My Orders
@@ -98,7 +101,6 @@ class MyAccount
 
     public function accountInfo($fName,$lName,$email,$current, $pass1, $pass2) {
         $I = $this->tester;
-
         $I->amOnPage(self::$URL);
         $I->fillField(self::$firsName, $fName);
         $I->fillField(self::$lastName, $lName);
@@ -123,7 +125,7 @@ class MyAccount
         $I->fillField(self::$zip, $zip);
         $I->click(self::$state);
         $I->fillField(self::$region, $region);
-        $I->click(self::$saveAddress);
+        $I->click(self::$submit2);
     }
 
     public function accountMyOrders() {

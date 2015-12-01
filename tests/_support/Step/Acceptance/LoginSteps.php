@@ -13,6 +13,12 @@ class LoginSteps extends \AcceptanceTester
         $I->click('Login');
     }
 
+    public function subForm(){
+        $I = $this;
+        $I->fillField('//*[@id="newsletter"]', 'fazen7@mail.ru');
+        $I->click('//*[@id="subs"]');
+    }
+
     /*
         public function StepsMyAccount()
         {

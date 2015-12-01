@@ -1,7 +1,8 @@
 <?php
-use Step\Acceptance;
 
+use Step\Acceptance;
 class MyAccountCest
+
 
 {
 
@@ -11,15 +12,17 @@ class MyAccountCest
         $I->see('Hello, alex sereda!', 'p.hello > strong');
 
     }
-
+/*
     function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccountPage)
     {
 
+        $I->subForm();
         $myAccountPage->accountInfo('alex', 'sereda', 'fazen7@mail.ru', '123456', '123456', '123456');
         $I->see('The account information has been saved.', 'li.success-msg');
     }
 
-    function MyAccountInfoInvalid(AcceptanceTester $I, \Page\MyAccount $myAccountPage)
+
+    function MyAccountInfoInvalid(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccountPage)
     {
 
         $myAccountPage->accountInfo('', '', '', '', '', '');
@@ -27,12 +30,12 @@ class MyAccountCest
         $I->comment('Expected result: These are required fields');
 
     }
-
+*/
     function MyAccountAddress(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage)
     {
 
         $MyAccountPage->accountAddress('alex', 'sereda', '+39063636369', 'Dostoevskogo22v', 'Kharkov', '54423', 'Kharkov');
-        $I->see('The address has been saved.', 'li.success-msg');
+        $I->waitForText('The address has been saved.', 10, 'li.success-msg');
         $I->comment('Expected result: The address has been saved.');
     }
 
@@ -62,7 +65,7 @@ class MyAccountCest
             $MyAccountPage->accountDownloads();
             $I->getVisibleText('You have not purchased any downloadable products yet.');
         }
-
+/*
         function MyAccountNewsletter(AcceptanceTester $I, \Page\MyAccount $MyAccountPage){
             $MyAccountPage->accountNewsletterSave();
             $I->see('Your profile has been updated!', 'li.success-msg');
@@ -70,7 +73,7 @@ class MyAccountCest
             $I->see('You have been removed from Newsletter.', 'li.success-msg');
             $MyAccountPage->accountReturnChecks();
         }
-
+*/
 
         function MyAccountGiftCard(Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage) {
             $MyAccountPage->accountGiftCard();
