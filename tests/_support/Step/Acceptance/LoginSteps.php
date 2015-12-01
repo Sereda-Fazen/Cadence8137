@@ -240,22 +240,27 @@ class LoginSteps extends \AcceptanceTester
 
     }
 
-    public function allShowingItem() {
+    public function allShowingItem()
+    {
         $I = $this;
         $show = count($I->grabMultiple('//*[@class = "category-products"]/div[1]//a[@class="show_icon "]'));
         for ($showItem = 1; $showItem <= $show; $showItem++) {
-            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type('.$showItem.')');
-
+            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(' . $showItem . ')');
+            $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
 
         }
-    }
-    public function featuredHighLow(){
-        $I = $this;
-
         $I->selectOption('.//select[@onchange]', 'Featured');
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
+    }
 
+    public function listGrid() {
+
+        $I = $this;
+        $I->click('div.category-products > div.toolbar > div.pager > p.view-mode.item-left > a.list');
+        $I->waitForElement('#products-list > li:nth-of-type(1)',2);
+        $I->click('div.category-products > div.toolbar > div.pager > p.view-mode.item-left > a.grid');
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',2);
     }
 
 
