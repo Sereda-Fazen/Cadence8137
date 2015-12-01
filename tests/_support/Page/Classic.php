@@ -7,6 +7,11 @@ class Classic
     public static $plus = 'a.full.right';
 
 
+    /**
+     * Grid
+     */
+
+
 
     protected $tester;
 
@@ -20,5 +25,7 @@ class Classic
         $I->amOnPage(self::$URL);
         $I->click(self::$plus);
     }
+
+
 
 }

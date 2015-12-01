@@ -252,16 +252,56 @@ class LoginSteps extends \AcceptanceTester
         $I->selectOption('.//select[@onchange]', 'Featured');
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
+
     }
 
-    public function listGrid() {
-
+    public function grid ()
+    {
         $I = $this;
-        $I->click('div.category-products > div.toolbar > div.pager > p.view-mode.item-left > a.list');
-        $I->waitForElement('#products-list > li:nth-of-type(1)',2);
-        $I->click('div.category-products > div.toolbar > div.pager > p.view-mode.item-left > a.grid');
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',2);
+        $classics = count($I->grabMultiple('html/body/div[1]/div/div[2]/div/div[3]/div[1]/div/ul/li'));
+        for ($c = 1; $c <= $classics; $c++) {
+            $I->moveMouseOver('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$c.') > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+
+        }
     }
+    public function checkButtonsForItems(){
+        $I = $this;
+        $I->click('div.toolbar-bottom > div.toolbar > div.pager > p.view-mode.item-left > a.list');
+        $I->scrollDown(100);
+        $I->waitForElement('#products-list > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img');
+
+        $I->click('#products-list > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img');
+        $I->waitForElement('li.product > strong');
+
+        $I->click('ul.grid_full > li:nth-of-type(3) > a');
+        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > button.button.btn-cart.ajx-cart > span > span');
+        $I->waitForElement('i.fa.fa-times');
+        $I->click('i.fa.fa-times');
+
+        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > ul.add-to-links.addto-links-icons > li.first > a.fancybox.tooltip_container > span.icon.fa.fa-search-plus');
+        $I->waitForElement('a.fancybox-item.fancybox-close');
+        $I->click('a.fancybox-item.fancybox-close');
+
+        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > div.desc.std > a.link-learn');
+        $I->waitForElement('div.main');
+        $I->click('ul.grid_full > li:nth-of-type(3) > a');
+
+        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > h2.product-name > a');
+        $I->waitForElement('h1');
+        $I->click('ul.grid_full > li:nth-of-type(3) > a');
+
+    }
+
+    public function checkForPrice(){
+        $I = $this;
+        
+    }
+
+
+
+
+
+
 
 
 
