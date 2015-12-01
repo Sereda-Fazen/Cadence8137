@@ -4,10 +4,13 @@ use Step\Acceptance;
 class ClassicCest
 {
 
-        function classicHeaderContent(Step\Acceptance\LoginSteps $I, \Page\Classic $classicPage) {
+        function classicHeaderContent(Step\Acceptance\LoginSteps $I, \Page\Classic $classicPage)
+        {
             $classicPage->classic();
-          //  $I->allShowingItem();
-            //$I->listGrid();
+        }
+            /*
+            $I->allShowingItem();
+            $I->listGrid();
         }
 
         function classicGrid(Step\Acceptance\LoginSteps $I, \Page\Classic $classicPage) {
@@ -16,9 +19,14 @@ class ClassicCest
         }
 
         function classicList(Step\Acceptance\LoginSteps $I, \Page\Classic $classicPage) {
-            $I->checkForItems();
-
+            $I->checkButtonsForItems();
         }
+*/
+            function checkForPriceItems(Step\Acceptance\LoginSteps $I, \Page\Classic $classicPage)
+            {
+                $I->checkForPriceItems();
+            }
+
 
 
 
