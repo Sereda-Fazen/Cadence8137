@@ -227,10 +227,7 @@ class LoginSteps extends \AcceptanceTester
 
     }
 
-    public function scrollDown() {
-        $I = $this;
-        $I->executeJS('window.scrollTo(0,1500);');
-    }
+
 
     public function linksMen() {
         $I = $this;

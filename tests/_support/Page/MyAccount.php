@@ -125,7 +125,7 @@ class MyAccount
         $I->fillField(self::$zip, $zip);
         $I->click(self::$state);
         $I->fillField(self::$region, $region);
-
+        $I->scrollDown();
         $I->click(self::$submit2);
     }
 

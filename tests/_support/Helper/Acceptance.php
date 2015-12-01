@@ -9,8 +9,8 @@ class Acceptance extends \Codeception\Module
         public function scrollDown($scroll_Y = null)
         {
             $driv = $this->getModule('WebDriver')->webDriver;
-            $scroll_Y = intval($scroll_Y);
-            $script = '';
+            $scroll_Y = abs(intval($scroll_Y));
+            $script= '';
       if (!$scroll_Y) {
           $script = '$heig = window.screen.availHeight; ';
       } else {
