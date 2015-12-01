@@ -12,7 +12,7 @@ class MyAccountCest
         $I->see('Hello, alex sereda!', 'p.hello > strong');
 
     }
-/*
+
     function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccountPage)
     {
 
@@ -30,7 +30,7 @@ class MyAccountCest
         $I->comment('Expected result: These are required fields');
 
     }
-*/
+
     function MyAccountAddress(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage)
     {
 

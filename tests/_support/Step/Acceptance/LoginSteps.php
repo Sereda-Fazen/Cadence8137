@@ -227,6 +227,14 @@ class LoginSteps extends \AcceptanceTester
 
     }
 
+    public function linksMen() {
+        $I = $this;
+        $countLinks = $this->grabMultiple('//*[@id="sidenav"]/li[1]/ul');
+        for ($i = 1; $i <=$countLinks; $i++) {
+            $I->click('#sidenav > li:nth-of-type(1) > ul > li:nth-of-type('.$i.') > a');
+        }
+    }
+
 
 
 

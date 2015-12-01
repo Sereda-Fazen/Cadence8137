@@ -4,7 +4,7 @@ namespace Page;
 class Men
 {
     public static $URL = '/';
-    public static $men = 'li.first.level-top > a.level-top > span';
+    public static $men = 'li.megamenu-horizontal.parent > a';
 
 
     protected $tester;
