@@ -3,8 +3,9 @@ namespace Page;
 
 class Classic
 {
-    public static $URL = '/';
-    public static $women = '#nav > li:nth-of-type(3) > a.level-top > span';
+    public static $URL = '/mens-watches/classics';
+    public static $plus = 'a.full.right';
+
 
 
     protected $tester;
@@ -17,7 +18,7 @@ class Classic
         $I = $this->tester;
 
         $I->amOnPage(self::$URL);
-        $I->click(self::$women);
+        $I->click(self::$plus);
     }
 
 }

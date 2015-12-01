@@ -6,7 +6,9 @@ class ClassicCest
 
         function classicPage(Step\Acceptance\LoginSteps $I, \Page\Classic $classicPage) {
             $classicPage->classic();
-            $I->getZoom();
+            $I->allShowingItem();
+            $I->comment('');
+            $I->featuredHighLow();
         }
 
 

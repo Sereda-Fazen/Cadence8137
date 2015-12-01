@@ -234,8 +234,27 @@ class LoginSteps extends \AcceptanceTester
         $countLinks = count($I->grabMultiple('//*[@id="sidenav"]/li[1]/ul/li'));
         for ($index = 1; $index < $countLinks; $index++) {
             $I->click('#sidenav > li:nth-of-type(1) > ul > li:nth-of-type('.$index.') > a');
-            $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
+            $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.item-left > p.amount');
+
         }
+
+    }
+
+    public function allShowingItem() {
+        $I = $this;
+        $show = count($I->grabMultiple('//*[@class = "category-products"]/div[1]//a[@class="show_icon "]'));
+        for ($showItem = 1; $showItem <= $show; $showItem++) {
+            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type('.$showItem.')');
+
+
+        }
+    }
+    public function featuredHighLow(){
+        $I = $this;
+
+        $I->selectOption('.//select[@onchange]', 'Featured');
+        $I->selectOption('.//select[@onchange]', 'Price: Low to High');
+        $I->selectOption('.//select[@onchange]', 'Price: High to Low');
 
     }
 
