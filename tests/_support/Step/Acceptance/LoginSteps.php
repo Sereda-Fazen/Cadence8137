@@ -299,7 +299,7 @@ class LoginSteps extends \AcceptanceTester
 
 
     public function checkWomenListButtonsForItems(){
-        $I = $this;
+        $I = $this; 
         $I->click('div.toolbar-bottom > div.toolbar > div.pager > p.view-mode.item-left > a.list');
         $I->scrollDown(100);
         $I->waitForElement('#products-list > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img');
