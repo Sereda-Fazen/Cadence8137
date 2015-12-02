@@ -1,7 +1,6 @@
 <?php
 
 use Step\Acceptance;
-$scenario->group('account');
 class HomeCest
 {
 

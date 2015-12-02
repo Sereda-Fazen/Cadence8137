@@ -8,8 +8,11 @@ class CheckoutGuest
      */
 
     public static $URL = '/';
-    public static $addToCart = 'ul.products-grid.first.odd > li.item.first > div.actions > button.button.btn-cart > span > span';
-    public static $wait = 'li.success-msg';
+    public static $addToCart = 'div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span';
+    public static $showCart = '';
+    public static $continue = 'a.close.continue';
+    public static $gotoCart = 'a.close.cart';
+    public static $see = 'button.button.btn-proceed-checkout.btn-checkout > span > span';
 
     /**
      *  Choose Guest
@@ -54,8 +57,39 @@ class CheckoutGuest
 
         $I->amOnPage(self::$URL);
         $I->click(self::$addToCart);
-        $I->waitForElement(self::$wait, 2);
+        $I->waitForElement(self::$showCart);
     }
+    public function checkoutAddToCart() {
+        $I = $this->tester;
+
+        $I->amOnPage(self::$URL);
+        $I->click(self::$addToCart);
+        $I->waitForElement(self::$showCart);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function checkoutChooseGuest() {
         $I = $this->tester;

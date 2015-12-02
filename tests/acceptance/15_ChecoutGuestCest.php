@@ -9,7 +9,7 @@ class CheckoutGuestCest
             $I->comment('Expected result: Product was added to your shopping cart.');
         }
 
-        function checkoutChooseGuest(AcceptanceTester  $I, \Page\CheckoutGuest $guestPage) {
+        function checkoutShoppingCart(AcceptanceTester  $I, \Page\CheckoutGuest $guestPage) {
             $guestPage->checkoutChooseGuest();
             $I->comment('Expected result: Go to the Billing Information');
         }
