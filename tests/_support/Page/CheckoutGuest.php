@@ -8,13 +8,11 @@ class CheckoutGuest
      */
 
     public static $URL = '/';
-    public static $page = '/checkout/cart/';
 
     public static $addToCart = 'div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span';
     public static $cart = 'span.icon-cart.first';
     public static $continue = 'a.close.continue';
     public static $showBlock = 'div.block-cart.dropdown-menu';
-
 
 
     /**
@@ -27,27 +25,37 @@ class CheckoutGuest
 
     public static $waitBilling = '#checkout-step-billing';
 
-    /**
-     * Shopping functional links
-     */
-
-    public static $clickImg = 'tr.first.last.odd > td:nth-of-type(1) > a.product-image > img';
-    public static $clickName = 'h2.product-name > a';
 
     /**
-     * Shopping edit delete
+     * Order
      */
 
-    public static $clickEdit = 'td.last > a.btn-edit';
+    public static $order = 'button.button.btn-proceed-checkout.btn-checkout > span > span';
+    public static $waitOrder = '#opc-login > div.step-title';
+
+
+
+    public static $ship = '#checkout-step-shipping_method';
+    public static $back = '#shipping-method-buttons-container > button.button.continueRed > span > span';
+    public static $waitShipping = '#checkout-step-payment';
 
     /**
      * Payment Information
      */
 
-    public static $useGiffCard = '#giftvoucher';
+    public static $wait = 'dt.form-group.giftvoucher';
+    public static $useGiffCard = 'dt.form-group.giftvoucher > label';
     public static $giffVoucher = '#giftvoucher_code';
     public static $giffAddClick = '#giftvoucher_add > span > span';
-    public static $waitMsg = '#ul.success-msg';
+    public static $waitMsg = 'ul.success-msg';
+    public static $clickPay = '#payment-buttons-container > button.button.continueRed > span > span';
+
+    /**
+     * Order
+     */
+
+    public static $waitOrderView = '#opc-review';
+    public static $clickOrder = 'button.button.btn-checkout > span > span';
 
     protected $tester;
 
@@ -60,93 +68,89 @@ class CheckoutGuest
 
         $I->amOnPage(self::$URL);
         $I->click(self::$addToCart);
+        $I->wait(2);
         $I->click(self::$continue);
         $I->moveMouseOver(self::$cart);
         $I->waitForElement(self::$showBlock);
     }
+
     public function checkoutShoppingCart() {
         $I = $this->tester;
 
         $I->click(self::$viewInBlock);
         $I->waitForElement(self::$shopping);
-       // $I->waitForElement(self::$showCart);
+
     }
 
-    public function checkShoppingCart() {
+    public function checkout(){
         $I = $this->tester;
 
-        $I->click(self::$clickImg);
-        $I->moveBack();
-        $I->click(self::$clickName);
-        $I->moveBack();
+        $I->click(self::$order);
+        $I->waitForElement(self::$waitOrder);
     }
 
-    public function checkEdit(){
-        $I = $this->tester;
-
-        $I->click(self::$clickEdit);
-
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public function checkoutChooseGuest() {
-        $I = $this->tester;
-
-        $I->click(self::$processOrder);
-        $I->click(self::$checkForGuest);
-        $I->click(self::$continue);
-        $I->waitForElement(self::$waitBilling, 5);
-    }
-
-    public function billingInfo () {
-        $I = $this->tester;
-
-        $I->waitForElementVisible(self::$billingInfo, 5);
-    }
     public function shippingMethod () {
         $I = $this->tester;
 
-        $I->click(self::$shippingMethod);
-        $I->waitForElementVisible(self::$waitShipping, 5);
+        $I->waitForElement(self::$ship);
+        $I->waitForElementVisible(self::$back, 5);
+        $I->click(self::$back);
+        $I->waitForElement(self::$waitShipping, 3);
     }
+
     public function paymentInformation ($numGiffCard) {
         $I = $this->tester;
 
+
+        $I->waitForElement(self::$wait,3);
         $I->click(self::$useGiffCard);
-        $I->waitForElementVisible(self::$giffVoucher, 3);
+        $I->waitForElementVisible(self::$giffVoucher, 5);
         $I->fillField(self::$giffVoucher, $numGiffCard);
         $I->click(self::$giffAddClick);
-        $I->waitForElementVisible(self::$waitMsg);
+        $I->waitForElement(self::$waitMsg);
+        $I->click(self::$clickPay);
+        $I->waitForElementVisible(self::$waitOrderView,5);
     }
+
+    public function orderView(){
+        $I = $this->tester;
+
+        $I->waitForElementVisible(self::$clickOrder, 5);
+        $I->scrollDown(250);
+        $I->click(self::$clickOrder);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
