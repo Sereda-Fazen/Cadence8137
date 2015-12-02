@@ -3,9 +3,9 @@ namespace Page;
 
 class Women
 {
-    public static $URL = '/';
-    public static $women = '#nav > li:nth-of-type(2) > a.level-top > span';
+    public static $URL = '/women/';
 
+    public static $returnPage;
 
     protected $tester;
 
@@ -15,9 +15,11 @@ class Women
 
     public function women() {
         $I = $this->tester;
-
         $I->amOnPage(self::$URL);
-        $I->click(self::$women);
+    }
+    public function returnToWomen(){
+        $I = $this->$this;
+        $I->click(self::returnPage);
     }
 
 }
