@@ -327,9 +327,6 @@ class LoginSteps extends \AcceptanceTester
     }
 
 
-
-
-
     public function checkForPriceItems(){
         $I = $this;
         $I->scrollDown(50);
@@ -338,6 +335,32 @@ class LoginSteps extends \AcceptanceTester
         $I->click('dt.block-title > strong > span');
         $I->waitForElement('ol > li');
 
+
+    }
+
+    public function checkCountsForItem(){
+        $I = $this;
+
+        for ($p = 1; $p <= 10; $p++ ) {
+            $I->click('a.next.quantity');
+            $I->click('button.button.btn-update > span > span');
+        }
+        for ($p = 10; $p > 0; $p-- ) {
+            $I->click('a.prev.quantity');
+        }
+        $I->click('button.button.btn-update > span > span');
+    }
+
+    public function checkImgItem(){
+        $I = $this;
+        for ($i = 1; $i <= 5; $i++) {
+            $I->click('#more-images-slider > li:nth-of-type('.$i.')');
+            $this->waitForElement('img.gallery-image.visible',1);
+        }
+        $I->moveMouseOver('img.gallery-image.visible', 10,50);
+        $I->waitForElement('div.zoomLens',2);
+        $I->moveMouseOver('img.gallery-image.visible', 30,10);
+        $I->waitForElement('div.zoomLens',2);
 
     }
 
