@@ -255,7 +255,7 @@ class LoginSteps extends \AcceptanceTester
 
     }
 
-    public function grid ()
+    public function checkGridButtonsForItems ()
     {
         $I = $this;
         $classics = count($I->grabMultiple('html/body/div[1]/div/div[2]/div/div[3]/div[1]/div/ul/li'));
@@ -264,7 +264,7 @@ class LoginSteps extends \AcceptanceTester
 
         }
     }
-    public function checkButtonsForItems(){
+    public function checkListButtonsForItems(){
         $I = $this;
         $I->click('div.toolbar-bottom > div.toolbar > div.pager > p.view-mode.item-left > a.list');
         $I->scrollDown(100);
