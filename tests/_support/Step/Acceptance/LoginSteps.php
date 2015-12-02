@@ -292,6 +292,8 @@ class LoginSteps extends \AcceptanceTester
         $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > h2.product-name > a');
         $I->waitForElement('h1');
         $I->click('ul.grid_full > li:nth-of-type(3) > a');
+        $I->scrollDown(50);
+        $I->click('div.category-products > div.toolbar > div.pager > p.view-mode.item-left > a.grid');
 
     }
 

@@ -1,6 +1,5 @@
 <?php
 use Step\Acceptance;
-
 class ChronosCest
 {
 
