@@ -4,14 +4,6 @@ namespace Page;
 class Classic
 {
     public static $URL = '/mens-watches/classics';
-    public static $plus = 'a.full.right';
-
-
-    /**
-     * Grid
-     */
-
-
 
     protected $tester;
 
@@ -21,9 +13,8 @@ class Classic
 
     public function classic() {
         $I = $this->tester;
-
         $I->amOnPage(self::$URL);
-        $I->click(self::$plus);
+
     }
 
 

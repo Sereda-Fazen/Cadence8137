@@ -258,6 +258,7 @@ class LoginSteps extends \AcceptanceTester
     public function checkGridButtonsForItems ()
     {
         $I = $this;
+        $I->click('a.full.right');
         $classics = count($I->grabMultiple('html/body/div[1]/div/div[2]/div/div[3]/div[1]/div/ul/li'));
         for ($c = 1; $c <= $classics; $c++) {
             $I->moveMouseOver('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$c.') > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');

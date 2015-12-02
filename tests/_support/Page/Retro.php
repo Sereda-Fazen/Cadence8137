@@ -3,9 +3,7 @@ namespace Page;
 
 class Retro
 {
-    public static $URL = '/';
-    public static $retro = '#nav > li:nth-of-type(6) > a.level-top > span';
-
+    public static $URL = '/mens-watches/retro';
 
     protected $tester;
 
@@ -17,7 +15,6 @@ class Retro
         $I = $this->tester;
 
         $I->amOnPage(self::$URL);
-        $I->click(self::$retro);
     }
 
 }

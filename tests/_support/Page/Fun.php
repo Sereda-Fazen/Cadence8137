@@ -3,9 +3,7 @@ namespace Page;
 
 class Fun
 {
-    public static $URL = '/';
-    public static $fun = '#nav > li:nth-of-type(7) > a.level-top > span';
-
+    public static $URL = '/mens-watches/fun';
 
     protected $tester;
 
@@ -17,7 +15,6 @@ class Fun
         $I = $this->tester;
 
         $I->amOnPage(self::$URL);
-        $I->click(self::$fun);
     }
 
 }
