@@ -295,10 +295,8 @@ class LoginSteps extends \AcceptanceTester
     public function checkForPriceItems(){
         $I = $this;
         $I->scrollDown(50);
-        $I->fillField('[name="pricesliderleft"]', 50);
-        $I->waitForElement('div.block-content > div:nth-of-type(1) > ol > li');
-        $I->fillField('[name="pricesliderright"]', 80);
-        $I->waitForElement('div.block-content > div:nth-of-type(1) > ol > li');
+        $I->dragAndDrop('div.ui-rangeSlider-handle.ui-rangeSlider-leftHandle','div.ui-rangeSlider-handle.ui-rangeSlider-rightHandle');
+
 
 
 
