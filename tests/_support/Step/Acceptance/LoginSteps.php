@@ -274,6 +274,7 @@ class LoginSteps extends \AcceptanceTester
         $I->waitForElement('li.product > strong');
 
         $I->click('ul.grid_full > li:nth-of-type(3) > a');
+        $I->scrollDown(100);
         $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > button.button.btn-cart.ajx-cart > span > span');
         $I->waitForElement('i.fa.fa-times');
         $I->click('i.fa.fa-times');
@@ -282,6 +283,7 @@ class LoginSteps extends \AcceptanceTester
         $I->waitForElement('a.fancybox-item.fancybox-close');
         $I->click('a.fancybox-item.fancybox-close');
 
+        $I->scrollDown(100);
         $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > div.desc.std > a.link-learn');
         $I->waitForElement('div.main');
         $I->click('ul.grid_full > li:nth-of-type(3) > a');
