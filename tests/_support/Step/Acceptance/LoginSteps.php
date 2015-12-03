@@ -251,12 +251,10 @@ class LoginSteps extends \AcceptanceTester
 
         }
 
-        $I->selectOption('.//select[@onchange]', 'Featured');
-        $I->wait(2);
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
-        $I->wait(2);
+        $I->waitForText('Price: Low to High',2);
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
-        $I->wait(2);
+        $I->waitForText('Price: High to Low',2);
 
     }
 

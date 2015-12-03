@@ -68,7 +68,7 @@ class CheckoutGuestGiffCard
 
         $I->amOnPage(self::$URL);
         $I->click(self::$addToCart);
-        $I->wait(2);
+        $I->waitForElement(self::$continue, 2);
         $I->click(self::$continue);
         $I->moveMouseOver(self::$cart);
         $I->waitForElement(self::$showBlock);
@@ -118,6 +118,7 @@ class CheckoutGuestGiffCard
         $I->waitForElementVisible(self::$clickOrder, 8);
         $I->scrollDown(250);
         $I->click(self::$clickOrder);
+
 
     }
 
