@@ -6,6 +6,13 @@ use Step\Acceptance;
 class CheckoutGuestGiffCardCest
 {
 
+
+        /**
+         * @param Acceptance\LoginSteps $I
+         * @param \Page\CheckoutGuestGiffCard $guestPage
+         * Giff Card
+         */
+
         function addToCartPage(Step\Acceptance\LoginSteps  $I, \Page\CheckoutGuestGiffCard $guestPage) {
             $I->processAddToCart();
 
@@ -20,7 +27,6 @@ class CheckoutGuestGiffCardCest
             $guestPage->orderView();
             $I->comment('Expected result: Your order’s grand total is zero now. No need to add any more Gift code');
         }
-
 
 
 

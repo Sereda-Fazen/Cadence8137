@@ -5,38 +5,71 @@ use Step\Acceptance;
  */
 class CheckoutGuestCreditCardCest
 {
+    /**
+     * @param Acceptance\LoginSteps $I
+     * @param \Page\CheckoutGuestCreditCard $guestPage/
+     * American Express
+     **/
 
-        function addToCartPage(AcceptanceTester $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
-            $creditCardPage->checkoutAddToCart();
-            $I->comment('Expected result: Product was added to your shopping cart.');
+        function addToCartPageAmericanExpress(Step\Acceptance\LoginSteps  $I) {
+            $I->processAddToCart();
+
         }
 
-        function checkoutShoppingCart(AcceptanceTester  $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
-            $creditCardPage->checkoutShoppingCart();
-            $I->comment('Expected result: Open page shopping cart');
-        }
-
-        function checkoutOrder (Step\Acceptance\LoginSteps  $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
-            $creditCardPage->checkout();
-            $I->checkBilling();
-            $I->comment('Expected result: Go to the Shipping Method');
-        }
-
-        function shippingMethodInfo (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPage)
-        {
-            $creditCardPage->shippingMethod();
-            $I->comment('Expected result: Go to the Payment information');
-        }
-
-        function paymentInfo (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
+        function paymentInfoAmericanExpress (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
             $creditCardPage->creditCard();
-            $I->checkCreditCardAmericanExpress();
+            $I->checkAmericanExpress();
 
         }
-        function orderInfo (AcceptanceTester  $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
+        function orderInfoAmericanExpress (AcceptanceTester  $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
             $creditCardPage->orderView();
             $I->comment('Expected result: Your order’s grand total is zero now. No need to add any more Gift code');
         }
+
+    /**
+     * @param Acceptance\LoginSteps $I
+     * @param \Page\CheckoutGuestCreditCard $creditCardPage
+     * Visa
+     */
+
+    function addToCartPageVisa(Step\Acceptance\LoginSteps  $I) {
+        $I->processAddToCart();
+
+    }
+
+    function paymentInfoVisa (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
+        $creditCardPage->creditCard();
+        $I->checkVisa();
+
+    }
+    function orderInfoVisa (AcceptanceTester  $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
+        $creditCardPage->orderView();
+        $I->comment('Expected result: ');
+    }
+
+
+    /**
+     * @param Acceptance\LoginSteps $I
+     * @param \Page\CheckoutGuestCreditCard $creditCardPage
+     * Master Card
+     */
+
+    function addToCartPageMasterCard(Step\Acceptance\LoginSteps  $I) {
+        $I->processAddToCart();
+
+    }
+
+    function paymentInfoMasterCard (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
+        $creditCardPage->creditCard();
+        $I->checkMasterCard();
+
+    }
+    function orderInfoMasterCard (AcceptanceTester  $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
+        $creditCardPage->orderView();
+        $I->comment('Expected result: Y');
+    }
+
+
 
 
 
