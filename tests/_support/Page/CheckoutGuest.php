@@ -115,7 +115,7 @@ class CheckoutGuest
     public function orderView(){
         $I = $this->tester;
 
-        $I->waitForElementVisible(self::$clickOrder, 5);
+        $I->waitForElementVisible(self::$clickOrder, 8);
         $I->scrollDown(250);
         $I->click(self::$clickOrder);
 

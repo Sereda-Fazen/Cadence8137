@@ -48,6 +48,7 @@ class LoginSteps extends \AcceptanceTester
         $I->fillField('#gift-voucher-code', $card);
         $I->click('div.text-left > button:nth-of-type(1) > span > span');
 
+
     }
 
     public function getHeaderMenu()
@@ -64,7 +65,7 @@ class LoginSteps extends \AcceptanceTester
     {
         $I = $this;
         for ($i = 1; $i <= 3; $i++) {
-            $I->amOnPage('/customer/account/login/');
+            $I->scrollDown(1000);
             $I->click('div.footer-primary.footer > div:nth-of-type(1) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $i . ') > a');
 
         }
@@ -73,7 +74,7 @@ class LoginSteps extends \AcceptanceTester
     {
         $I = $this;
         for ($j = 1; $j <= 4; $j++) {
-            $I->amOnPage('/customer/account/login/');
+            $I->scrollDown(1000);
             $I->click('div.footer-primary.footer > div:nth-of-type(2) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $j . ') > a');
         }
 
@@ -82,7 +83,7 @@ class LoginSteps extends \AcceptanceTester
     {
         $I = $this;
         for ($k = 1; $k <= 2; $k++) {
-            $I->amOnPage('/customer/account/login/');
+            $I->scrollDown(1000);
             $I->click('div.footer-primary.footer > div:nth-of-type(3) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $k . ') > a');
 
         }
