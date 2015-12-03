@@ -250,12 +250,10 @@ class LoginSteps extends \AcceptanceTester
             $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
 
         }
+
         $I->selectOption('.//select[@onchange]', 'Featured');
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',2);
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > span.regular-price > span.price',2);
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > span:nth-of-type(2) > span.price',2);
 
     }
 
