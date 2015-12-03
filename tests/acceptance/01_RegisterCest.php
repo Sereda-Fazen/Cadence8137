@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @group account
+ */
 class RegisterCest
 {
 

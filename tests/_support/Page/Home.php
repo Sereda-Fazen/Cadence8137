@@ -99,11 +99,13 @@ class Home
     {
         $I = $this->tester;
 
+        $I->resetCookie(self::$URL);
         $I->amOnPage(self::$URL);
         $I->click(self::$closeSub);
         $I->click(self::$logo);
         $I->click(self::$myAcc);
         $I->click(self::$logIn);
+
 
 
     }

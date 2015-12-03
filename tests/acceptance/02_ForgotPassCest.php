@@ -1,6 +1,8 @@
 <?php
 use \Step\Acceptance;
-
+/**
+ * @group account
+ */
 class ForgotPassCest {
 
     function forgotSuccess(AcceptanceTester $I, \Page\ForgotPass $forgotPage){

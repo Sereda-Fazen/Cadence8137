@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @group account
+ */
 class LoginCest
 {
         function loginSuccess(AcceptanceTester $I, \Page\Login $loginPage) {

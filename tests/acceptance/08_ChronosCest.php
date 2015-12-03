@@ -1,5 +1,8 @@
 <?php
 use Step\Acceptance;
+/**
+ * @group category
+ */
 class ChronosCest
 {
 

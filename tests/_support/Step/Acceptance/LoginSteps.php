@@ -294,7 +294,9 @@ class LoginSteps extends \AcceptanceTester
         $I->waitForElement('h1');
         $I->click('ul.grid_full > li:nth-of-type(3) > a');
         $I->scrollDown(50);
+
         $I->click('div.category-products > div.toolbar > div.pager > p.view-mode.item-left > a.grid');
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
 
     }
 
@@ -314,6 +316,7 @@ class LoginSteps extends \AcceptanceTester
         $I->waitForElement('i.fa.fa-times');
         $I->click('i.fa.fa-times');
 
+        $I->scrollDown(100);
         $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > ul.add-to-links.addto-links-icons > li.first > a.fancybox.tooltip_container > span.icon.fa.fa-search-plus');
         $I->waitForElement('a.fancybox-item.fancybox-close');
         $I->click('a.fancybox-item.fancybox-close');
@@ -326,6 +329,11 @@ class LoginSteps extends \AcceptanceTester
         $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > h2.product-name > a');
         $I->waitForElement('h1');
         $I->click('ul.grid_full > li:nth-of-type(2) > a');
+
+        $I->click('div.category-products > div.toolbar > div.pager > p.view-mode.item-left > a.grid');
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
+
+
 
     }
 
