@@ -1,7 +1,7 @@
 <?php
 namespace Page;
 
-class CheckoutGuest
+class CheckoutGuestGiffCard
 {
     /**
      * Add to cart

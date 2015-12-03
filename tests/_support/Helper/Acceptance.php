@@ -18,6 +18,21 @@ class Acceptance extends \Codeception\Module
         $driv->executeScript($script);
     }
 
+    public function waitAlertAndCancel($timeout = 5, $interval = 200)
+    {
+        $driv = $this->getModule('WebDriver')->webDriver;
+        $alert = $driv->wait($timeout, $interval)->until(function($driv) {
+            try {
+                $alert = $driv->switchTo()->alert();
+                $alert->getText();
+                return $alert;
+            } catch (NoAlertOpenException $e) {
+                return null;
+            }
+        });
+        $alert->dismiss();
+    }
+
 
 
 

@@ -251,8 +251,11 @@ class LoginSteps extends \AcceptanceTester
 
         }
         $I->selectOption('.//select[@onchange]', 'Featured');
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',2);
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > span.regular-price > span.price',2);
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > span:nth-of-type(2) > span.price',2);
 
     }
 
@@ -394,6 +397,49 @@ class LoginSteps extends \AcceptanceTester
         $I->click('#billing-buttons-container > button.button.continueRed > span > span');
 
     }
+
+    public function checkCreditCard(){
+        $I = $this;
+
+        $I->click('#p_method_paypal_direct');
+
+       // for ($card = 1; $card <= 5; $card++) {
+
+            // Cards
+            $I->click('#paypal_direct_cc_type');
+            $I->click('//*[@id="paypal_direct_cc_type"]/option[2]');
+            $I->fillField('#paypal_direct_cc_number', '378282246310005');
+            //  month
+            $I->click('#paypal_direct_expiration');
+            $I->click('//*[@id="paypal_direct_expiration"]/option[2]');
+            //year
+            $I->click('#paypal_direct_expiration_yr');
+            $I->click('//*[@id="paypal_direct_expiration_yr"]/option[3]');
+            //what is this
+            $I->click('a.cvv-what-is-this');
+            $I->waitForElement('div.tool-tip-content > img');
+            $I->click('#payment-tool-tip-close');
+            $I->fillField('#paypal_direct_cc_cid', '1234');
+            //continue
+            $I->scrollDown(500);
+            $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+
+
+           // $I->click('//*[@id="paypal_direct_cc_type"]/option[3]');
+          //  $I->click('//*[@id="paypal_direct_cc_type"]/option[4]');
+         //   $I->click('//*[@id="paypal_direct_cc_type"]/option[5]');
+
+
+    }
+
+
+
+
+
+
+
+
+
 
 
 
