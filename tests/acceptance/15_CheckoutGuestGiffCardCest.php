@@ -6,26 +6,9 @@ use Step\Acceptance;
 class CheckoutGuestGiffCardCest
 {
 
-        function addToCartPage(AcceptanceTester $I, \Page\CheckoutGuestGiffCard $guestPage) {
-            $guestPage->checkoutAddToCart();
-            $I->comment('Expected result: Product was added to your shopping cart.');
-        }
+        function addToCartPage(Step\Acceptance\LoginSteps  $I, \Page\CheckoutGuestGiffCard $guestPage) {
+            $I->processAddToCart();
 
-        function checkoutShoppingCart(AcceptanceTester  $I, \Page\CheckoutGuestGiffCard $guestPage) {
-            $guestPage->checkoutShoppingCart();
-            $I->comment('Expected result: Open page shopping cart');
-        }
-
-        function checkoutOrder (Step\Acceptance\LoginSteps  $I, \Page\CheckoutGuestGiffCard $guestPage) {
-            $guestPage->checkout();
-            $I->checkBilling();
-            $I->comment('Expected result: Go to the Shipping Method');
-        }
-
-        function shippingMethodInfo (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestGiffCard $guestPage)
-        {
-            $guestPage->shippingMethod();
-            $I->comment('Expected result: Go to the Payment information');
         }
 
         function paymentInfo (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestGiffCard $guestPage) {

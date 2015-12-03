@@ -377,8 +377,31 @@ class LoginSteps extends \AcceptanceTester
 
     }
 
-    public function checkBilling(){
+
+    public function processAddToCart(){
         $I = $this;
+        $I->amOnPage('/');
+        $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+        $I->waitForElement('a.close.continue', 2);
+        $I->click('a.close.continue');
+        $I->moveMouseOver('span.icon-cart.first');
+        $I->waitForElement('div.block-cart.dropdown-menu');
+        $I->comment('Expected result: Product was added to your shopping cart.');
+
+    //checkoutShoppingCart
+
+        $I->click('//*[@id="cart-listing"]/div[3]/button[1]');
+        $I->waitForElement('div.main');
+        $I->comment('Expected result: Open page shopping cart');
+
+    // checkout
+
+        $I->click('button.button.btn-proceed-checkout.btn-checkout > span > span');
+        $I->waitForElement('#opc-login > div.step-title');
+
+
+    // checkBilling
+
         $I->click('#onepage-guest-register-button > span > span');
 
         $billing = '#billing\3A ';
@@ -394,15 +417,23 @@ class LoginSteps extends \AcceptanceTester
         $I->fillField($billing.'telephone', '80934568798');
         $I->click($billing.'use_for_shipping_yes');
         $I->click('#billing-buttons-container > button.button.continueRed > span > span');
+        $I->comment('Expected result: Go to the Shipping Method');
+
+    // shippingMethod
+
+        $I->waitForElement('#checkout-step-shipping_method');
+        $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span', 5);
+        $I->click('#shipping-method-buttons-container > button.button.continueRed > span > span');
+        $I->waitForElement('#checkout-step-payment', 3);
+        $I->comment('Expected result: Go to the Payment information');
 
     }
 
-    public function checkCreditCard(){
+
+    public function checkAmericanExpress(){
         $I = $this;
 
         $I->click('#p_method_paypal_direct');
-
-       // for ($card = 1; $card <= 5; $card++) {
 
             // Cards
             $I->click('#paypal_direct_cc_type');
@@ -423,47 +454,59 @@ class LoginSteps extends \AcceptanceTester
             $I->scrollDown(500);
             $I->click('#payment-buttons-container > button.button.continueRed > span > span');
 
+    }
 
-           // $I->click('//*[@id="paypal_direct_cc_type"]/option[3]');
-          //  $I->click('//*[@id="paypal_direct_cc_type"]/option[4]');
-         //   $I->click('//*[@id="paypal_direct_cc_type"]/option[5]');
+    public function checkVisa(){
+        $I = $this;
 
+        $I->click('#p_method_paypal_direct');
 
+        // Cards
+        $I->click('#paypal_direct_cc_type');
+        $I->click('//*[@id="paypal_direct_cc_type"]/option[3]');
+        $I->fillField('#paypal_direct_cc_number', '4012888888881881');
+        //  month
+        $I->click('#paypal_direct_expiration');
+        $I->click('//*[@id="paypal_direct_expiration"]/option[2]');
+        //year
+        $I->click('#paypal_direct_expiration_yr');
+        $I->click('//*[@id="paypal_direct_expiration_yr"]/option[3]');
+        //what is this
+        $I->click('a.cvv-what-is-this');
+        $I->waitForElement('div.tool-tip-content > img');
+        $I->click('#payment-tool-tip-close');
+        $I->fillField('#paypal_direct_cc_cid', '123');
+        //continue
+        $I->scrollDown(500);
+        $I->click('#payment-buttons-container > button.button.continueRed > span > span');
     }
 
 
+    public function checkMasterCard()
+    {
+        $I = $this;
 
+        $I->click('#p_method_paypal_direct');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // Cards
+        $I->click('#paypal_direct_cc_type');
+        $I->click('//*[@id="paypal_direct_cc_type"]/option[4]');
+        $I->fillField('#paypal_direct_cc_number', '5105105105105100');
+        //  month
+        $I->click('#paypal_direct_expiration');
+        $I->click('//*[@id="paypal_direct_expiration"]/option[2]');
+        //year
+        $I->click('#paypal_direct_expiration_yr');
+        $I->click('//*[@id="paypal_direct_expiration_yr"]/option[3]');
+        //what is this
+        $I->click('a.cvv-what-is-this');
+        $I->waitForElement('div.tool-tip-content > img');
+        $I->click('#payment-tool-tip-close');
+        $I->fillField('#paypal_direct_cc_cid', '957');
+        //continue
+        $I->scrollDown(500);
+        $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+    }
 
 
 }
