@@ -18,7 +18,7 @@ class Acceptance extends \Codeception\Module
         $driv->executeScript($script);
     }
 
-    public function waitAlertAndCancel($timeout = 5, $interval = 200)
+    public function waitAlertAndAccept($timeout = 5, $interval = 200)
     {
         $driv = $this->getModule('WebDriver')->webDriver;
         $alert = $driv->wait($timeout, $interval)->until(function($driv) {
@@ -30,7 +30,7 @@ class Acceptance extends \Codeception\Module
                 return null;
             }
         });
-        $alert->dismiss();
+        $alert->accept();
     }
 
 

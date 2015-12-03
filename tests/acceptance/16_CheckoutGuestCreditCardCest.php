@@ -34,9 +34,9 @@ class CheckoutGuestCreditCardCest
 
         }
 
-        function orderInfo (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
+        function orderInfo (Helper\Acceptance $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
             $creditCardPage->orderView();
-            $I->waitAlertAndCancel();
+            $I->waitAlertAndAccept(15);
           //  $I->comment('Expected result: Your order’s grand total is zero now. No need to add any more Gift code');
         }
 
