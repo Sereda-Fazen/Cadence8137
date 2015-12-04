@@ -83,7 +83,7 @@ env:
                   url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8150'
 
 
-     denimio:
+    denimio:
             modules:
                 config:
                     WebDriver:
