@@ -73,10 +73,12 @@ class LoginSteps extends \AcceptanceTester
     public function getFooterMenu1()
     {
         $I = $this;
-        for ($j = 1; $j <= 4; $j++) {
+        for ($j = 1; $j <= 3; $j++) {
             $I->scrollDown(1000);
             $I->click('div.footer-primary.footer > div:nth-of-type(2) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $j . ') > a');
+
         }
+        $I->click('ul.list.bullet.separator > li:nth-of-type(4) > a');
 
     }
     public function getFooterMenu2()
