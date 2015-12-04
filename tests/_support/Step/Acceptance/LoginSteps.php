@@ -343,8 +343,8 @@ class LoginSteps extends \AcceptanceTester
     public function checkForPriceItems(){
         $I = $this;
         $I->scrollDown(50);
-        $I->fillField('[name="pricesliderleft"]', 32);
-        $I->fillField('[name="pricesliderright"]', 10);
+        $I->fillField('[name="pricesliderleft"]', 10);
+        $I->fillField('[name="pricesliderright"]', 30);
         $I->click('dt.block-title > strong > span');
         $I->waitForElement('ol > li',2);
 
