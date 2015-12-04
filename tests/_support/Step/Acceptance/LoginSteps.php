@@ -344,7 +344,9 @@ class LoginSteps extends \AcceptanceTester
         $I = $this;
         $I->scrollDown(50);
         $I->fillField('[name="pricesliderleft"]', 10);
+        $I->waitForElement('dt.block-title > strong > span',2);
         $I->fillField('[name="pricesliderright"]', 30);
+        $I->waitForElement('dt.block-title > strong > span',2);
         $I->click('dt.block-title > strong > span');
         $I->waitForElement('ol > li',2);
 
