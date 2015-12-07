@@ -405,29 +405,54 @@ class LoginSteps extends \AcceptanceTester
     public function checkNewItem(){
         $I = $this;
         $I->scrollDown(1500);
-        $I->waitForElement('div.product-view > div.box-additional',1);
-        if ($I->waitForElementVisible('div.owl-prev') == true && $I->waitForElementVisible('div.owl-next') == true ) {
-            $I->click('div.owl-prev');
-            $I->waitForElement('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
-            $I->click('div.owl-next');
-            $I->waitForElement('div.owl-wrapper > div:nth-of-type(5) > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
-            $I->moveMouseOver('div.owl-wrapper > div:nth-of-type(4) > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-            $I->click('div.owl-wrapper > div:nth-of-type(4) > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-            $I->waitForElement('a.close.cart', 2);
-            $I->click('a.close.cart');
-            $I->waitForElement('div.main', 2);
-        } else  {
-
-            $I->moveMouseOver('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-            $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-            $I->waitForElement('a.close.cart', 2);
-            $I->click('a.close.cart');
-            $I->waitForElement('div.main', 2);
-        }
-
+        $count = count($I->grabMultiple('//*[@id="upsell"]/div[1]/div/div'));
+            if ($count <= 4){
+                $I->moveMouseOver('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+                $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+                $I->waitForElement('a.close.cart', 2);
+                $I->click('a.close.cart');
+                $I->waitForElement('div.main', 2);
+            }
+            else if ($count > 4){
+                $I->click('div.owl-prev');
+                $I->waitForElement('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
+                $I->click('div.owl-next');
+                $I->waitForElement('div.owl-wrapper > div:nth-of-type(5) > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
+                $I->moveMouseOver('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+                $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+                $I->waitForElement('a.close.cart', 2);
+                $I->click('a.close.cart');
+                $I->waitForElement('div.main', 2);
+            }
 
 
     }
+
+        /*
+if ($I->waitForElementVisible('div.owl-prev') == true && $I->waitForElementVisible('div.owl-next') == true ) {
+    $I->click('div.owl-prev');
+    $I->waitForElement('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
+    $I->click('div.owl-next');
+    $I->waitForElement('div.owl-wrapper > div:nth-of-type(5) > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
+}
+
+    $I->moveMouseOver('div.owl-wrapper > div:nth-of-type(4) > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+    $I->click('div.owl-wrapper > div:nth-of-type(4) > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+    $I->waitForElement('a.close.cart', 2);
+    $I->click('a.close.cart');
+    $I->waitForElement('div.main', 2);
+} else  {
+
+    $I->moveMouseOver('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+    $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+    $I->waitForElement('a.close.cart', 2);
+    $I->click('a.close.cart');
+    $I->waitForElement('div.main', 2);
+}
+*/
+
+
+
 
 
     public function processAddToCart(){
