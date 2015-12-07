@@ -8,15 +8,12 @@ class ProductCard
 
     public static $clickImg = 'tr.first.last.odd > td:nth-of-type(1) > a.product-image > img';
     public static $clickName = 'h2.product-name > a';
-    public static $clickEdit = 'td.last > a.btn-edit';
+
     public static $waitOrderView = '#opc-review';
     public static $clickOrder = 'button.button.btn-checkout > span > span';
 
     //add new Items in product cart
 
-    public static $clickEdit = 'td.last > a.btn-edit';
-    public static $waitOrderView = '#opc-review';
-    public static $clickOrder = 'button.button.btn-checkout > span > span';
 
     protected $tester;
 
@@ -40,16 +37,8 @@ class ProductCard
         $I->moveBack();
     }
 
-    public function checkEdit(){
-        $I = $this->tester;
-        $I->click(self::$clickEdit);
-    }
 
-    public function checkNewItem(){
-        $I = $this->tester;
 
-        $I->click(self::$clickEdit);
-    }
 
 
 

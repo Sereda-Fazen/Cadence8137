@@ -18,23 +18,8 @@ class ProductCardCest
     }
 
     function checkAddForYourItem(Step\Acceptance\LoginSteps  $I, \Page\ProductCard $productCart){
-        $productCart->checkNewItem();
+        $I->checkNewItem();
 
-    }
-
-    function checkFunctionalShoppingCart(AcceptanceTester  $I, \Page\ProductCard $productCart) {
-        $productCart->checkShoppingCart();
-        $I->comment('Expected result: Links are working');
-    }
-
-    function CheckAddCountsInCart(Step\Acceptance\LoginSteps  $I) {
-        $I->checkCountsForItem();
-        $I->comment('Expected result: Count is working plus and minus');
-    }
-
-    function CheckEditAndDelete(Step\Acceptance\LoginSteps  $I, \Page\ProductCard $productCart) {
-        $productCart->checkEdit();
-        $I->comment('Expected result: Page is open "Edit" items');
     }
 
 }
