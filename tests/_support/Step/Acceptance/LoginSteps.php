@@ -78,7 +78,7 @@ class LoginSteps extends \AcceptanceTester
             $I->click('div.footer-primary.footer > div:nth-of-type(2) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $j . ') > a');
 
         }
- 
+
 
     }
     public function getFooterMenu2()
@@ -254,9 +254,11 @@ class LoginSteps extends \AcceptanceTester
         }
 
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
-        $I->waitForText('Price: Low to High',2);
+        $I->waitForText('Price: Low to High',3);
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
-        $I->waitForText('Price: High to Low',2);
+        $I->waitForText('Price: High to Low',3);
+        $I->click('div.category-products > div.toolbar > div.sorter > div.sort-by.item-right > a > i.fa');
+        $I->waitForText('Price: High to Low',3);
 
     }
 
@@ -267,6 +269,7 @@ class LoginSteps extends \AcceptanceTester
         $classics = count($I->grabMultiple('html/body/div[1]/div/div[2]/div/div[3]/div[1]/div/ul/li'));
         for ($c = 1; $c <= $classics; $c++) {
             $I->moveMouseOver('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$c.') > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+            $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(2) > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span',2);
 
         }
     }
@@ -355,6 +358,17 @@ class LoginSteps extends \AcceptanceTester
 
     }
 
+    //Product card
+
+    public function productCart()
+    {
+        $I = $this;
+        $I->amOnPage('/');
+        $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl');
+        $I->waitForElement('div.main', 2);
+
+    }
+
     public function checkCountsForItem(){
         $I = $this;
 
@@ -370,14 +384,20 @@ class LoginSteps extends \AcceptanceTester
 
     public function checkImgItem(){
         $I = $this;
-        for ($i = 1; $i <= 5; $i++) {
+        $countImg = count($I->grabMultiple('//*[@id="more-images-slider"]/li'));
+        for ($i = 1; $i <= $countImg; $i++) {
             $I->click('#more-images-slider > li:nth-of-type('.$i.')');
             $this->waitForElement('img.gallery-image.visible',1);
         }
         $I->moveMouseOver('img.gallery-image.visible', 10,50);
         $I->waitForElement('div.zoomLens',2);
-        $I->moveMouseOver('img.gallery-image.visible', 30,10);
+        $I->moveMouseOver('img.gallery-image.visible', 100,200);
         $I->waitForElement('div.zoomLens',2);
+        $I->moveMouseOver('img.gallery-image.visible', 50,10);
+        $I->waitForElement('div.zoomLens',2);
+        $I->moveMouseOver('img.gallery-image.visible', 30,200);
+        $I->waitForElement('div.zoomLens',2);
+
 
     }
 
@@ -431,7 +451,9 @@ class LoginSteps extends \AcceptanceTester
         $I->waitForElement('#checkout-step-payment', 3);
         $I->comment('Expected result: Go to the Payment information');
 
+
     }
+
 
 
     public function checkAmericanExpress(){

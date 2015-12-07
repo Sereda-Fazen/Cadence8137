@@ -13,8 +13,7 @@ class WomenCest
 
     function womenPageCheckGrid(Step\Acceptance\LoginSteps $I) {
         $I->checkGridButtonsForItems();
-        $I->waitForText('ADD TO CART', 1);
-        $I->comment('Expected result: In the grid the buttons is active');
+        $I->comment('Expected result: In the grid the buttons are active');
     }
 
     function womenPageCheckList(Step\Acceptance\LoginSteps $I) {
