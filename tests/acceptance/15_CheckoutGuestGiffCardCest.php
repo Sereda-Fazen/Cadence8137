@@ -22,7 +22,8 @@ class CheckoutGuestGiffCardCest
 
         function orderInfo (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestGiffCard $guestPage) {
             $guestPage->orderView();
-            $I->comment('Expected result: Your order has been issued');
+            $I->testAcceptPopup();
+            $I->comment('Expected result: There was an error processing your order');
         }
 
 

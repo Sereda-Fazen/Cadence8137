@@ -65,8 +65,9 @@ class LoginSteps extends \AcceptanceTester
 
     public  function invalidURL(){
         $I = $this;
-        $I->amOnUrl('/testWrong/');
+        $I->amOnPage('/testWrong/');
         $I->waitForElement('h3',3);
+        $I->moveBack();
 
 
     }
@@ -373,6 +374,7 @@ class LoginSteps extends \AcceptanceTester
     public function productCart()
     {
         $I = $this;
+
         $I->amOnPage('/');
         $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl');
         $I->waitForElement('div.main', 2);
@@ -437,29 +439,13 @@ class LoginSteps extends \AcceptanceTester
 
 
     }
-
-        /*
-if ($I->waitForElementVisible('div.owl-prev') == true && $I->waitForElementVisible('div.owl-next') == true ) {
-    $I->click('div.owl-prev');
-    $I->waitForElement('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
-    $I->click('div.owl-next');
-    $I->waitForElement('div.owl-wrapper > div:nth-of-type(5) > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
-}
-
-    $I->moveMouseOver('div.owl-wrapper > div:nth-of-type(4) > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-    $I->click('div.owl-wrapper > div:nth-of-type(4) > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-    $I->waitForElement('a.close.cart', 2);
-    $I->click('a.close.cart');
-    $I->waitForElement('div.main', 2);
-} else  {
-
-    $I->moveMouseOver('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-    $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-    $I->waitForElement('a.close.cart', 2);
-    $I->click('a.close.cart');
-    $I->waitForElement('div.main', 2);
-}
-*/
+    public function testAcceptPopup() {
+        $I = $this;
+        $I->amOnPage('/checkout/onepage/');
+        $I->click('button.button.btn-checkout > span > span');
+        $I->acceptPopup();
+        $I->see('OK');
+    }
 
 
 

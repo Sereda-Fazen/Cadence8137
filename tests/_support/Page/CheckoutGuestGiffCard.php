@@ -22,6 +22,8 @@ class CheckoutGuestGiffCard
     public static $waitOrderView = '#opc-review';
     public static $clickOrder = 'button.button.btn-checkout > span > span';
 
+    public static $alertPop = 'There was an error processing your order.';
+
     protected $tester;
 
     public function __construct(\AcceptanceTester $I) {
@@ -39,7 +41,7 @@ class CheckoutGuestGiffCard
         $I->click(self::$giffAddClick);
         $I->waitForElement(self::$waitMsg);
         $I->click(self::$clickPay);
-        $I->waitForElementVisible(self::$waitOrderView,5);
+        $I->waitForElementVisible(self::$waitOrderView,10);
     }
 
     public function orderView(){
