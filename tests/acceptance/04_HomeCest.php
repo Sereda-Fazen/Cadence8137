@@ -11,7 +11,12 @@ class HomeCest
           $homePage->homePageMainMenu();
           $I->getHeaderMenu();
         }
-/*
+
+        function invalidUrl(Step\Acceptance\LoginSteps $I){
+            $I->invalidURL();
+            $I->comment('Expected result: Whoops, our bad...');
+        }
+
         function homeSearch(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
           $homePage->homePageSearch('Watch');
           $I->getVisibleText('h1', 'Search results for "watch"');
@@ -36,7 +41,7 @@ class HomeCest
           $homePage->homePageSubscription('sa@itsvit.org');
           $I->see('Thank you for your subscription.','li.success-msg');
         }
-*/
+
         function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
           $homePage->homePageFooter();
           $I->getFooterMenu();

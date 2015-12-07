@@ -51,6 +51,8 @@ class LoginSteps extends \AcceptanceTester
 
     }
 
+    //Header
+
     public function getHeaderMenu()
     {
 
@@ -59,6 +61,14 @@ class LoginSteps extends \AcceptanceTester
             $I->click('#mega-nav > li:nth-of-type(' . $i . ') > a');
         }
         $I->click('li.home > a');
+    }
+
+    public  function invalidURL(){
+        $I = $this;
+        $I->amOnUrl('/testWrong/');
+        $I->waitForElement('h3',3);
+
+
     }
 
     public function getFooterMenu()
