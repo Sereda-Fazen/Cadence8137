@@ -20,7 +20,6 @@ class ProductCardCest
     function checkAddForYourItem(Step\Acceptance\LoginSteps  $I, \Page\ProductCard $productCart){
         $productCart->checkNewItem();
 
-
     }
 
     function checkFunctionalShoppingCart(AcceptanceTester  $I, \Page\ProductCard $productCart) {

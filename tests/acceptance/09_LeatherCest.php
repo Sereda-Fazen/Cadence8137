@@ -14,7 +14,6 @@ class LeatherCest
 
         function leatherCheckGrid(Step\Acceptance\LoginSteps $I) {
             $I->checkGridButtonsForItems();
-            $I->waitForText('ADD TO CART',1);
             $I->comment('Expected result: In the grid the buttons is active');
         }
 

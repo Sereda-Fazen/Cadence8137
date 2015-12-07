@@ -14,7 +14,6 @@ class ChronosCest
 
     function chronosCheckGrid(Step\Acceptance\LoginSteps $I, \Page\Chronos $chronosPage) {
         $I->checkGridButtonsForItems();
-        $I->waitForText('ADD TO CART',1);
         $I->comment('Expected result: In the grid the buttons is active');
     }
 
