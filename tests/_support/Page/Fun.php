@@ -13,8 +13,7 @@ class Fun
 
     public function fun() {
         $I = $this->tester;
-
-        $I->amOnPage(self::$fun);
+        $I->click(self::$fun);
     }
 
 }

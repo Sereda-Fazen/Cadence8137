@@ -7,7 +7,7 @@ class RetroCest
 {
 
         function retroPage(Step\Acceptance\LoginSteps $I, \Page\Retro $retroPage) {
-
+            $I->menLinks();
             $retroPage->retro();
             $I->allShowingItem();
             $I->comment('Expected result: Showing products and check select options');

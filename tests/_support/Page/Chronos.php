@@ -15,7 +15,6 @@ class Chronos
 
     public function chronos() {
         $I = $this->tester;
-
         $I->click(self::$chronos);
 
     }
