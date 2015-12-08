@@ -83,8 +83,8 @@ env:
                   url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8150'
 
 
-   INST_8153:
-           modules:
-               config:
-                   WebDriver:
-                     url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8153'
+    INST_8153:
+        modules:
+            config:
+                WebDriver:
+                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8153'
