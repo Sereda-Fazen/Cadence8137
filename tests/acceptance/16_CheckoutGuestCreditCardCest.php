@@ -7,7 +7,6 @@ class CheckoutGuestCreditCardCest
 {
     /**
      * @param Acceptance\LoginSteps $I
-     * @param \Page\CheckoutGuestCreditCard $guestPage/
      * American Express
      **/
 
@@ -21,14 +20,14 @@ class CheckoutGuestCreditCardCest
             $I->checkAmericanExpress();
 
         }
-        function orderInfoAmericanExpress (AcceptanceTester  $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
+        function orderInfoAmericanExpress (AcceptanceTester  $I, Helper\Acceptance $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
             $creditCardPage->orderView();
+            $I->waitAlertAndAccept();
             $I->comment('Expected result: Your order’s grand total is zero now. No need to add any more Gift code');
         }
 
     /**
      * @param Acceptance\LoginSteps $I
-     * @param \Page\CheckoutGuestCreditCard $creditCardPage
      * Visa
      */
 
@@ -50,7 +49,6 @@ class CheckoutGuestCreditCardCest
 
     /**
      * @param Acceptance\LoginSteps $I
-     * @param \Page\CheckoutGuestCreditCard $creditCardPage
      * Master Card
      */
 
