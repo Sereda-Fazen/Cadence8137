@@ -280,25 +280,34 @@ class LoginSteps extends \AcceptanceTester
         $show = count($I->grabMultiple('//*[@class = "category-products"]/div[1]//a[@class="show_icon "]'));
         for ($showItem = 1; $showItem <= $show; $showItem++) {
             $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(' . $showItem . ')');
+            $I->wait(2);
             $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)',2);
 
         }
 
-        $I->selectOption('.//select[@onchange]', 'Price: Low to High');
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',3);
-        $I->selectOption('.//select[@onchange]', 'Position');
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',3);
+
         $I->selectOption('.//select[@onchange]', 'Name');
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',3);
-        $I->selectOption('.//select[@onchange]', 'Band Type');
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',3);
+        $I->wait(2);
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img',3);
+
+        $I->selectOption('.//select[@onchange]', 'Price: Low to High');
+        $I->wait(2);
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img',3);
+
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',3);
+        $I->wait(2);
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img',3);
+
+        $I->selectOption('.//select[@onchange]', 'Band Type');
+        $I->wait(2);
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img',3);
+
         $I->selectOption('.//select[@onchange]', 'size');
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',3);
+        $I->wait(2);
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img',3);
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.sort-by.item-right > a > i.fa');
-        $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.sort-by.item-right > a > i.fa');
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd', 4);
 
 
 
