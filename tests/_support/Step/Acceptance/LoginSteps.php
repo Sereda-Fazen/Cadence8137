@@ -4,6 +4,16 @@ namespace Step\Acceptance;
 class LoginSteps extends \AcceptanceTester
 {
 
+
+    public function deleteCookies(){
+        $I= $this;
+        $I->seeCookie('dev1.cadencewatch.com');
+        $I->resetCookie('dev1.cadencewatch.com');
+        $I->reloadPage();
+    }
+
+
+
     public function StepsLoginIn()
     {
         $I = $this;
@@ -11,10 +21,12 @@ class LoginSteps extends \AcceptanceTester
         $I->fillField('#email', 'fazen7@mail.ru');
         $I->fillField('#pass', '123456');
         $I->click('Login');
+
     }
 
     public function subForm(){
         $I = $this;
+
         $I->fillField('//*[@id="newsletter"]', 'fazen7@mail.ru');
         $I->click('//*[@id="subs"]');
     }
@@ -268,22 +280,23 @@ class LoginSteps extends \AcceptanceTester
         $show = count($I->grabMultiple('//*[@class = "category-products"]/div[1]//a[@class="show_icon "]'));
         for ($showItem = 1; $showItem <= $show; $showItem++) {
             $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(' . $showItem . ')');
-            $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',2);
+            $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)',2);
 
         }
 
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
-        $I->waitForText('Price: Low to High',3);
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',3);
         $I->selectOption('.//select[@onchange]', 'Position');
-        $I->waitForText('Position',3);
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',3);
         $I->selectOption('.//select[@onchange]', 'Name');
-        $I->waitForText('Name',3);
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',3);
         $I->selectOption('.//select[@onchange]', 'Band Type');
-        $I->waitForText('Band Type',3);
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',3);
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
-        $I->waitForText('Price: High to Low',3);
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',3);
         $I->selectOption('.//select[@onchange]', 'size');
-        $I->waitForText('size',3);
+        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',3);
+
         $I->click('div.category-products > div.toolbar > div.sorter > div.sort-by.item-right > a > i.fa');
         $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.sort-by.item-right > a > i.fa');
 
@@ -299,7 +312,7 @@ class LoginSteps extends \AcceptanceTester
         $classics = count($I->grabMultiple('html/body/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/ul/li'));
         for ($c = 1; $c <= $classics; $c++) {
             $I->moveMouseOver('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$c.') > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-            $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(2) > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span',2);
+            $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$c.') > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span',2);
 
         }
     }
@@ -393,7 +406,6 @@ class LoginSteps extends \AcceptanceTester
     public function productCart()
     {
         $I = $this;
-        $I->resetCookie('dev1.cadencewatch.com');
         $I->amOnPage('/');
         $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl');
         $I->waitForElement('div.main', 2);
@@ -443,6 +455,8 @@ class LoginSteps extends \AcceptanceTester
                 $I->waitForElement('a.close.cart', 2);
                 $I->click('a.close.cart');
                 $I->waitForElement('div.main', 2);
+                $I->deleteCookies();
+
             }
             else if ($count > 4){
                 $I->click('div.owl-prev');
@@ -454,7 +468,10 @@ class LoginSteps extends \AcceptanceTester
                 $I->waitForElement('a.close.cart', 2);
                 $I->click('a.close.cart');
                 $I->waitForElement('div.main', 2);
+                $I->deleteCookies();
+
             }
+
 
 
     }

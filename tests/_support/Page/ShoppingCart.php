@@ -54,8 +54,9 @@ class ShoppingCart
     public function checkShoppingCart() {
         $I = $this->tester;
 
-        $I->resetCookie(self::$cookie);
+
         $I->amOnPage(self::$URL);
+
         $I->click(self::$clickItem);
         $I->waitForElement(self::$goToCart,2);
         $I->click(self::$goToCart);

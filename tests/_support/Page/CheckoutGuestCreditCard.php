@@ -33,10 +33,9 @@ class CheckoutGuestCreditCard
     public function orderView(){
         $I = $this->tester;
 
-        $I->waitForElementVisible(self::$clickOrder);
+        $I->waitForElementVisible(self::$clickOrder,20);
         $I->scrollDown(250);
         $I->click(self::$clickOrder);
-        $I->amOnPage(self::$URL);
     }
 
 
