@@ -3,7 +3,9 @@ namespace Page;
 
 class Chronos
 {
-    public static $URL = '/mens-watches/chronos';
+
+    public static $chronos = '#sidenav > li:nth-of-type(1) > ul > li:nth-of-type(2) > a';
+
 
     protected $tester;
 
@@ -14,7 +16,7 @@ class Chronos
     public function chronos() {
         $I = $this->tester;
 
-        $I->amOnPage(self::$URL);
+        $I->click(self::$chronos);
 
     }
 

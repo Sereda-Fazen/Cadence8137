@@ -7,6 +7,7 @@ class LeatherCest
 {
 
         function leatherPage(Step\Acceptance\LoginSteps $I, \Page\Leather $leatherPage) {
+            $I->menLinks();
             $leatherPage->leather();
             $I->allShowingItem();
             $I->comment('Expected result: Showing products and check select options');

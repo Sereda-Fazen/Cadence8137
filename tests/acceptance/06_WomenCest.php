@@ -8,6 +8,7 @@ class WomenCest
 
     function womenPage(Step\Acceptance\LoginSteps $I, \Page\Women $womenPage) {
         $womenPage->women();
+        $I->allShowingItem();
         $I->comment('Expected result: Showing products and check select options');
     }
 

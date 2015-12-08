@@ -7,6 +7,7 @@ class ClassicCest
 {
 
         function classicHeaderContent(Step\Acceptance\LoginSteps $I, \Page\Classic $classicPage) {
+            $I->menLinks();
             $classicPage->classic();
             $I->allShowingItem();
             $I->comment('Expected result: Showing products and check select options');

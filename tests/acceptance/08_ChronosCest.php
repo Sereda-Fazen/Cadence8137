@@ -7,6 +7,7 @@ class ChronosCest
 {
 
     function chronosHeaderContent(Step\Acceptance\LoginSteps $I, \Page\Chronos $chronosPage) {
+        $I->menLinks();
         $chronosPage->chronos();
         $I->allShowingItem();
         $I->comment('Expected result: Showing products and check select options');

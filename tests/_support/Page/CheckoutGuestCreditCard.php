@@ -8,6 +8,7 @@ class CheckoutGuestCreditCard
      * Payment Information
      */
 
+    public static $URL = '/';
     public static $creditCard = 'dl.sp-methods > dl.sp-methods';
 
 
@@ -35,13 +36,25 @@ class CheckoutGuestCreditCard
         $I->waitForElementVisible(self::$clickOrder);
         $I->scrollDown(250);
         $I->click(self::$clickOrder);
-
-        /**
-         * Unexpected alert window
-         */
-       // $I->waitAlertAndAccept(10);
-      //  $I->acceptPopup();
+        $I->amOnPage(self::$URL);
     }
+
+
+    public function orderViewMasterCard(){
+        $I = $this->tester;
+
+        $I->waitForElementVisible(self::$clickOrder);
+        $I->scrollDown(250);
+        $I->click(self::$clickOrder);
+    }
+    public function orderViewVisa(){
+        $I = $this->tester;
+
+        $I->waitForElementVisible(self::$clickOrder);
+        $I->scrollDown(250);
+        $I->click(self::$clickOrder);
+    }
+
 
 
 

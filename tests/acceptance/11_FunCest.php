@@ -7,6 +7,7 @@ class FunCest
 {
 
         function funPage(Step\Acceptance\LoginSteps $I, \Page\Fun $funPage) {
+            $I->menLinks();
             $funPage->fun();
             $I->allShowingItem();
             $I->comment('Expected result: Showing products and check select options');

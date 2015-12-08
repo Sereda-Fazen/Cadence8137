@@ -3,7 +3,8 @@ namespace Page;
 
 class Classic
 {
-    public static $URL = '/mens-watches/classics';
+
+    public static $classic = '#sidenav > li:nth-of-type(1) > ul > li:first-child > a';
 
     protected $tester;
 
@@ -13,7 +14,7 @@ class Classic
 
     public function classic() {
         $I = $this->tester;
-        $I->amOnPage(self::$URL);
+        $I->click(self::$classic);
 
     }
 

@@ -3,7 +3,7 @@ namespace Page;
 
 class Leather
 {
-    public static $URL = '/mens-watches/leather/';
+    public static $leather = '#sidenav > li:nth-of-type(1) > ul > li:nth-of-type(3) > a';
 
     protected $tester;
 
@@ -13,7 +13,7 @@ class Leather
 
     public function leather() {
         $I = $this->tester;
-        $I->amOnPage(self::$URL);
+        $I->amOnPage(self::$leather);
     }
 
 }
