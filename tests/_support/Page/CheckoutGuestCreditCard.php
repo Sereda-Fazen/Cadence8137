@@ -32,9 +32,15 @@ class CheckoutGuestCreditCard
     public function orderView(){
         $I = $this->tester;
 
-        $I->waitForElementVisible(self::$clickOrder, 20);
+        $I->waitForElementVisible(self::$clickOrder);
         $I->scrollDown(250);
         $I->click(self::$clickOrder);
+
+        /**
+         * Unexpected alert window
+         */
+       // $I->waitAlertAndAccept(10);
+      //  $I->acceptPopup();
     }
 
 

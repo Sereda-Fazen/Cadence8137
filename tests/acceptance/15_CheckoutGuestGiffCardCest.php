@@ -7,7 +7,6 @@ class CheckoutGuestGiffCardCest
 {
         /**
          * @param Acceptance\LoginSteps $I
-         * @param \Page\CheckoutGuestGiffCard $guestPage
          * Giff Card
          */
         function addToCartPage(Step\Acceptance\LoginSteps  $I) {

@@ -266,10 +266,19 @@ class LoginSteps extends \AcceptanceTester
 
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
         $I->waitForText('Price: Low to High',3);
+        $I->selectOption('.//select[@onchange]', 'Position');
+        $I->waitForText('Position',3);
+        $I->selectOption('.//select[@onchange]', 'Name');
+        $I->waitForText('Name',3);
+        $I->selectOption('.//select[@onchange]', 'Band Type');
+        $I->waitForText('Band Type',3);
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
         $I->waitForText('Price: High to Low',3);
+        $I->selectOption('.//select[@onchange]', 'size');
+        $I->waitForText('size',3);
         $I->click('div.category-products > div.toolbar > div.sorter > div.sort-by.item-right > a > i.fa');
         $I->waitForText('Price: High to Low',3);
+
 
     }
 
