@@ -21,7 +21,7 @@ class CheckoutGuestVisaCest
 
     }
     function orderInfoVisa  (AcceptanceTester  $I, Helper\Acceptance $I, \Page\CheckoutGuestCreditCard $creditVisa) {
-        $creditVisa->orderViewVisa();
+        $creditVisa->orderView();
         // $I->comment('Expected result: Your order’s grand total is zero now. No need to add any more Gift code');
     }
 

@@ -40,20 +40,7 @@ class CheckoutGuestCreditCard
     }
 
 
-    public function orderViewMasterCard(){
-        $I = $this->tester;
 
-        $I->waitForElementVisible(self::$clickOrder);
-        $I->scrollDown(250);
-        $I->click(self::$clickOrder);
-    }
-    public function orderViewVisa(){
-        $I = $this->tester;
-
-        $I->waitForElementVisible(self::$clickOrder);
-        $I->scrollDown(250);
-        $I->click(self::$clickOrder);
-    }
 
 
 

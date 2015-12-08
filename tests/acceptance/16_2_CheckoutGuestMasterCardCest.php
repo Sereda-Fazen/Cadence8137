@@ -22,7 +22,7 @@ class CheckoutGuestMasterCardCest
 
     }
     function orderInfoMasterCard  (AcceptanceTester  $I, Helper\Acceptance $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
-        $creditCardPage->orderViewMasterCard();
+        $creditCardPage->orderView();
         // $I->comment('Expected result: Your order’s grand total is zero now. No need to add any more Gift code');
     }
 

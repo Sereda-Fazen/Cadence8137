@@ -268,7 +268,7 @@ class LoginSteps extends \AcceptanceTester
         $show = count($I->grabMultiple('//*[@class = "category-products"]/div[1]//a[@class="show_icon "]'));
         for ($showItem = 1; $showItem <= $show; $showItem++) {
             $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(' . $showItem . ')');
-            $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
+            $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd',2);
 
         }
 
@@ -284,6 +284,9 @@ class LoginSteps extends \AcceptanceTester
         $I->waitForText('Price: High to Low',3);
         $I->selectOption('.//select[@onchange]', 'size');
         $I->waitForText('size',3);
+        $I->click('div.category-products > div.toolbar > div.sorter > div.sort-by.item-right > a > i.fa');
+        $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.sort-by.item-right > a > i.fa');
+
 
 
 
@@ -390,7 +393,7 @@ class LoginSteps extends \AcceptanceTester
     public function productCart()
     {
         $I = $this;
-
+        $I->resetCookie('dev1.cadencewatch.com');
         $I->amOnPage('/');
         $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl');
         $I->waitForElement('div.main', 2);
