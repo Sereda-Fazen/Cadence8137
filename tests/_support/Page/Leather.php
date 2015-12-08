@@ -13,7 +13,7 @@ class Leather
 
     public function leather() {
         $I = $this->tester;
-        $I->amOnPage(self::$leather);
+        $I->click(self::$leather);
     }
 
 }
