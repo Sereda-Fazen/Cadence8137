@@ -1,9 +1,9 @@
 <?php
 use Step\Acceptance;
 /**
- * @group checkoutGuestGiffCard
+ * @group checkoutGuestPayPal
  */
-class CheckoutGuestGiffCardCest
+class CheckoutPayPalCest
 {
         /**
          * @param Acceptance\LoginSteps $I
@@ -14,13 +14,14 @@ class CheckoutGuestGiffCardCest
 
         }
 
-        function paymentInfo (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestGiffCard $guestPage) {
-            $guestPage->paymentInformation('GIFT-ADFA-12NF0O');
+        function paymentInfo (Step\Acceptance\LoginSteps $I, \Page\CheckoutPayPal $guestPage) {
+            $guestPage->payPal();
             $I->comment('Expected result: Your order’s grand total is zero now. No need to add any more Gift code');
         }
 
-        function orderInfo (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestGiffCard $guestPage) {
-            $guestPage->orderView();
+        function orderOfPayPal (Step\Acceptance\LoginSteps $I, \Page\CheckoutPayPal $guestPage) {
+            $guestPage->payPalSite();
+            $I->comment('Expected result: You are have your order in PayPal');
 
         }
 
