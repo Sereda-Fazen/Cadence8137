@@ -16,7 +16,6 @@ class CheckoutPayPalCest
 
         function paymentInfo (Step\Acceptance\LoginSteps $I, \Page\CheckoutPayPal $guestPage) {
             $guestPage->payPal();
-            $I->comment('Expected result: Your order’s grand total is zero now. No need to add any more Gift code');
         }
 
         function orderOfPayPal (Step\Acceptance\LoginSteps $I, \Page\CheckoutPayPal $guestPage) {
