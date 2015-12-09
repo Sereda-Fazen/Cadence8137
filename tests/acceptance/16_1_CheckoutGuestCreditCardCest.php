@@ -20,9 +20,9 @@ class CheckoutGuestCreditCardCest
             $I->checkAmericanExpress();
 
         }
-        function orderInfoAmericanExpress (AcceptanceTester  $I, Helper\Acceptance $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
+        function orderInfoAmericanExpress (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
             $creditCardPageVisa->orderView();
-           // $I->comment('Expected result: Your order’s grand total is zero now. No need to add any more Gift code');
+
         }
 
 

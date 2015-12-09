@@ -1,7 +1,7 @@
 <?php
 use Step\Acceptance;
 /**
- * @group checkoutGuestGiffCard
+ * @group checkoutGuest
  */
 class CheckoutGuestGiffCardCest
 {

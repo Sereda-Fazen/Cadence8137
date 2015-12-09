@@ -21,9 +21,9 @@ class CheckoutGuestMasterCardCest
         $I->checkMasterCard();
 
     }
-    function orderInfoMasterCard ( \Page\CheckoutGuestCreditCard $creditCardPage) {
-        $creditCardPage->orderView();
-        // $I->comment('Expected result: Your order’s grand total is zero now. No need to add any more Gift code');
+    function orderInfoAmericanExpress (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
+        $creditCardPageVisa->orderView();
+        $I->deleteCookies();
     }
 
 
