@@ -13,7 +13,7 @@ class RetroCest
             $I->comment('Expected result: Showing products and check select options');
         }
 
-        function womenSelect(Step\Acceptance\LoginSteps $I) {
+        function retroSelect(Step\Acceptance\LoginSteps $I) {
             $I->checkSortBy();
             $I->comment('Expected result: Sort is working');
         }

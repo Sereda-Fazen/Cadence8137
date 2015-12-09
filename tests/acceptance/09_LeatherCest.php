@@ -13,7 +13,7 @@ class LeatherCest
             $I->comment('Expected result: Showing products and check select options');
         }
 
-        function womenSelect(Step\Acceptance\LoginSteps $I) {
+        function leatherSelect(Step\Acceptance\LoginSteps $I) {
             $I->checkSortBy();
             $I->comment('Expected result: Sort is working');
         }

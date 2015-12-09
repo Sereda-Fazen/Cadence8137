@@ -4,7 +4,7 @@ namespace Page;
 class ShoppingCart
 {
 
-    public static $cookie = '';
+
     public static $URL = '/';
 
     public static $clickItem = 'div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span';

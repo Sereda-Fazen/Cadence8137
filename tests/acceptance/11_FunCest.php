@@ -13,7 +13,7 @@ class FunCest
             $I->comment('Expected result: Showing products and check select options');
         }
 
-        function womenSelect(Step\Acceptance\LoginSteps $I) {
+        function funSelect(Step\Acceptance\LoginSteps $I) {
             $I->checkSortBy();
             $I->comment('Expected result: Sort is working');
         }
