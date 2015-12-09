@@ -545,6 +545,13 @@ class LoginSteps extends \AcceptanceTester
 
     }
 
+    public function checkOnValidationCreditCard(){
+        $I = $this;
+
+
+
+    }
+
 
 
     public function checkAmericanExpress(){
