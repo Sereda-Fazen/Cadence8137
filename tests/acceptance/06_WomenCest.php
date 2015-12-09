@@ -11,6 +11,10 @@ class WomenCest
         $I->allShowingItem();
         $I->comment('Expected result: Showing products and check select options');
     }
+    function womenSelect(Step\Acceptance\LoginSteps $I, \Page\Women $womenPage) {
+            $I->checkSortBy();
+            $I->comment('Expected result: Sort is working');
+    }
 
     function womenPageCheckGrid(Step\Acceptance\LoginSteps $I) {
         $I->checkGridButtonsForItems();

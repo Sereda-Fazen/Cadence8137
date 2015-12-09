@@ -10,7 +10,7 @@ class Home
      * Header
      */
     public static $closeSub = 'html/body/div[1]/div/div[8]/span';
-    public static $logo = 'img';
+    public static $logo = 'div.logo > a > img';
     public static $myAcc = 'My Account';
     public static $logIn = 'li.last > a';
 
@@ -34,7 +34,7 @@ class Home
      * Main menu
      */
 
-    public static $men = 'li.megamenu-horizontal.parent > a';
+    public static $men = 'li.parent > a';
 
     /**
      * Slide
@@ -99,15 +99,10 @@ class Home
     {
         $I = $this->tester;
 
-        $I->resetCookie(self::$URL);
         $I->amOnPage(self::$URL);
-        $I->click(self::$closeSub);
         $I->click(self::$logo);
         $I->click(self::$myAcc);
         $I->click(self::$logIn);
-
-
-
     }
 
     public function homePageSearch($search)

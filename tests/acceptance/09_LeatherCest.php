@@ -13,6 +13,11 @@ class LeatherCest
             $I->comment('Expected result: Showing products and check select options');
         }
 
+        function womenSelect(Step\Acceptance\LoginSteps $I) {
+            $I->checkSortBy();
+            $I->comment('Expected result: Sort is working');
+        }
+
         function leatherCheckGrid(Step\Acceptance\LoginSteps $I) {
             $I->checkGridButtonsForItems();
             $I->comment('Expected result: In the grid the buttons is active');

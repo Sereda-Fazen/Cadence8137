@@ -280,44 +280,40 @@ class LoginSteps extends \AcceptanceTester
         $show = count($I->grabMultiple('//*[@class = "category-products"]/div[1]//a[@class="show_icon "]'));
         for ($showItem = 1; $showItem <= $show; $showItem++) {
             $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(' . $showItem . ')');
-            $I->wait(2);
-            $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)',2);
+            $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.item-left > p.amount', 2);
 
         }
-
-
+    }
+    public function checkSortBy()
+    {
+        $I = $this;
         $I->selectOption('.//select[@onchange]', 'Name');
-        $I->wait(2);
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img',3);
+        $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
 
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
-        $I->wait(2);
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img',3);
+        $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
 
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
-        $I->wait(2);
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img',3);
+        $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
 
         $I->selectOption('.//select[@onchange]', 'Band Type');
-        $I->wait(2);
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img',3);
+        $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
 
         $I->selectOption('.//select[@onchange]', 'size');
-        $I->wait(2);
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img',3);
+        $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.sort-by.item-right > a > i.fa');
         $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd', 4);
-
-
-
-
     }
+
+
+
+
+
 
     public function checkGridButtonsForItems ()
     {
         $I = $this;
-        $I->click('a.full.right');
         $classics = count($I->grabMultiple('html/body/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/ul/li'));
         for ($c = 1; $c <= $classics; $c++) {
             $I->moveMouseOver('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$c.') > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
@@ -464,7 +460,7 @@ class LoginSteps extends \AcceptanceTester
                 $I->waitForElement('a.close.cart', 2);
                 $I->click('a.close.cart');
                 $I->waitForElement('div.main', 2);
-                $I->deleteCookies();
+
 
             }
             else if ($count > 4){
@@ -477,7 +473,7 @@ class LoginSteps extends \AcceptanceTester
                 $I->waitForElement('a.close.cart', 2);
                 $I->click('a.close.cart');
                 $I->waitForElement('div.main', 2);
-                $I->deleteCookies();
+
 
             }
 
