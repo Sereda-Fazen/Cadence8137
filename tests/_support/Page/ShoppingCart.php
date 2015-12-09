@@ -11,7 +11,7 @@ class ShoppingCart
     public static $goToCart = 'a.close.cart';
     public static $shoppingCart  = 'div.main';
 
-    public static $clickEdit = 'td.last > a.btn-edit';
+    public static $clickEdit = 'tr.first.odd > td.last > a.btn-edit';
 
 
     //coupon

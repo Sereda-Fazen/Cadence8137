@@ -291,23 +291,29 @@ class LoginSteps extends \AcceptanceTester
             $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.item-left > p.amount', 2);
 
         }
+
     }
     public function checkSortBy()
     {
         $I = $this;
         $I->selectOption('.//select[@onchange]', 'Name');
-        $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
+        $I->waitForAjax(5);
+        $I->waitForElement('', 3);
 
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
+        $I->waitForAjax(5);
         $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
 
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
+        $I->waitForAjax(5);
         $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
 
         $I->selectOption('.//select[@onchange]', 'Band Type');
+        $I->waitForAjax(5);
         $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
 
         $I->selectOption('.//select[@onchange]', 'size');
+        $I->waitForAjax(5);
         $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.sort-by.item-right > a > i.fa');
@@ -428,16 +434,13 @@ class LoginSteps extends \AcceptanceTester
 
     public function checkCountsForItem(){
         $I = $this;
-
-        for ($p = 1; $p <= 10; $p++ ) {
-            $I->click('a.next.quantity');
+            $I->click('tr.first.odd > td:nth-of-type(4) > div.quantity_counter > a.next.quantity');
+            $I->click('button.button.btn-update > span > span');
+            $I->click('tr.first.odd > td:nth-of-type(4) > div.quantity_counter > a.prev.quantity');
             $I->click('button.button.btn-update > span > span');
         }
-        for ($p = 10; $p > 0; $p-- ) {
-            $I->click('a.prev.quantity');
-        }
-        $I->click('button.button.btn-update > span > span');
-    }
+
+
 
     public function checkImgItem(){
         $I = $this;

@@ -34,6 +34,15 @@ class Acceptance extends \Codeception\Module
     }
 
 
+    public function waitForAjax($timeout = 15, $interval = 200)
+    {
+        $driv = $this->getModule('WebDriver')->webDriver;
+        $driv->wait($timeout, $interval)->until(function($driv) {
+            $condition = 'return (jQuery.active == 0);';
+            return $driv->executeScript($condition);
+        });
+    }
+
 
 
 

@@ -4,7 +4,6 @@ namespace Page;
 class Home
 {
     public static $URL = '/';
-    public static $URL2 = '/customer/account/login/';
 
     /**
      * Header
@@ -85,7 +84,7 @@ class Home
     public static $pinterest = 'span.icon.fa.fa-pinterest';
 
     public static $cadenceWatch = 'Cadence Watch';
-    public static $cadenceInstagram = 'h1';
+    public static $cadenceInstagram = 'cadencewatch';
 
 
     protected $tester;
@@ -185,7 +184,6 @@ class Home
     public function homeFooterFacebook()
     {
         $I = $this->tester;
-        $I->amOnPage(self::$URL2);
         $I->click(self::$facebook);
         $I->waitForText(self::$cadenceWatch, 4);
         $I->reloadPage();
@@ -193,16 +191,16 @@ class Home
     public function homeFooterInstagram()
     {
         $I = $this->tester;
-        $I->amOnPage(self::$URL2);
+        $I->scrollDown(500);
         $I->click(self::$instagram);
-        $I->waitForText(self::$cadenceInstagram, 10);
+        $I->waitForText(self::$cadenceInstagram, 4);
         $I->reloadPage();
 
     }
     public function homeFooterTwiter()
     {
         $I = $this->tester;
-        $I->amOnPage(self::$URL2);
+        $I->scrollDown(500);
         $I->click(self::$twitter);
         $I->waitForText(self::$cadenceWatch, 4);
         $I->reloadPage();
@@ -210,7 +208,7 @@ class Home
     public function homeFooterPinterest()
     {
         $I = $this->tester;
-        $I->amOnPage(self::$URL2);
+        $I->scrollDown(500);
         $I->click(self::$pinterest);
         $I->waitForText(self::$cadenceWatch, 4);
         $I->reloadPage();
