@@ -4,6 +4,7 @@ namespace Page;
 class Home
 {
     public static $URL = '/';
+    public static $URL2 = '/customer/account/login/';
 
     /**
      * Header
@@ -184,34 +185,30 @@ class Home
     public function homeFooterFacebook()
     {
         $I = $this->tester;
+        $I->amOnPage(self::$URL2);
         $I->click(self::$facebook);
         $I->waitForText(self::$cadenceWatch, 4);
-        $I->reloadPage();
     }
     public function homeFooterInstagram()
     {
         $I = $this->tester;
-        $I->scrollDown(500);
+        $I->amOnPage(self::$URL2);
         $I->click(self::$instagram);
         $I->waitForText(self::$cadenceInstagram, 4);
-        $I->reloadPage();
-
     }
     public function homeFooterTwiter()
     {
         $I = $this->tester;
-        $I->scrollDown(500);
+        $I->amOnPage(self::$URL2);
         $I->click(self::$twitter);
         $I->waitForText(self::$cadenceWatch, 4);
-        $I->reloadPage();
     }
     public function homeFooterPinterest()
     {
         $I = $this->tester;
-        $I->scrollDown(500);
+        $I->amOnPage(self::$URL2);
         $I->click(self::$pinterest);
         $I->waitForText(self::$cadenceWatch, 4);
-        $I->reloadPage();
     }
     
 }

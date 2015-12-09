@@ -293,33 +293,31 @@ class LoginSteps extends \AcceptanceTester
         }
 
     }
+    /*
     public function checkSortBy()
     {
         $I = $this;
-        $I->selectOption('.//select[@onchange]', 'Name');
-        $I->waitForAjax(5);
-        $I->waitForElement('', 3);
 
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
         $I->waitForAjax(5);
-        $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
+
+        $I->selectOption('.//select[@onchange]', 'Name');
+        $I->waitForElement('', 3);
 
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
         $I->waitForAjax(5);
-        $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
 
         $I->selectOption('.//select[@onchange]', 'Band Type');
         $I->waitForAjax(5);
-        $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
+
 
         $I->selectOption('.//select[@onchange]', 'size');
         $I->waitForAjax(5);
-        $I->waitForElement('div.col-left.sidebar > div:nth-of-type(3)', 3);
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.sort-by.item-right > a > i.fa');
         $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd', 4);
     }
-
+*/
 
 
 

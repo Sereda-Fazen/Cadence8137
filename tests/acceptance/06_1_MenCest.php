@@ -3,31 +3,27 @@ use Step\Acceptance;
 /**
  * @group category
  */
-class WomenCest
+class MenCest
 {
 
-    function womenPage(Step\Acceptance\LoginSteps $I, \Page\Women $womenPage) {
-        $womenPage->women();
+    function menPage(Step\Acceptance\LoginSteps $I, \Page\Men $menPage) {
+        $menPage->men();
         $I->allShowingItem();
         $I->comment('Expected result: Showing products and check select options');
     }
-/*
-    function womenSelect(Step\Acceptance\LoginSteps $I, \Page\Women $womenPage) {
-            $I->checkSortBy();
-            $I->comment('Expected result: Sort is working');
-    }
-*/
-    function womenPageCheckGrid(Step\Acceptance\LoginSteps $I) {
+
+
+    function menPageCheckGrid(Step\Acceptance\LoginSteps $I) {
         $I->checkGridButtonsForItems();
         $I->comment('Expected result: In the grid the buttons are active');
     }
 
-    function womenPageCheckList(Step\Acceptance\LoginSteps $I) {
+    function menPageCheckList(Step\Acceptance\LoginSteps $I) {
         $I->checkWomenListButtonsForItems();
         $I->comment('Expected result: In the list the buttons is active');
     }
 
-    function womenPageForPriceItems(Step\Acceptance\LoginSteps $I) {
+    function menPageForPriceItems(Step\Acceptance\LoginSteps $I) {
         $I->checkForPriceItems();
         $I->comment('Expected result: Chose the price');
     }
