@@ -38,6 +38,7 @@ class CheckoutGuestCreditCard
         $I->waitForElement(self::$clickOrder);
 
 
+
     }
 
 

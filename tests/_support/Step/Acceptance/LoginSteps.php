@@ -7,7 +7,7 @@ class LoginSteps extends \AcceptanceTester
 
     public function deleteCookies(){
         $I= $this;
-        $I->seeCookie('dev1.cadencewatch.com');
+        $I->seeCookie('PHPSESSID');
         $I->resetCookie('dev1.cadencewatch.com');
         $I->reloadPage();
     }

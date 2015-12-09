@@ -23,7 +23,7 @@ class CheckoutGuestMasterCardCest
     }
     function orderInfoAmericanExpress (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
         $creditCardPageVisa->orderView();
-        $I->deleteCookies();
+
     }
 
 
