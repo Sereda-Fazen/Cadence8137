@@ -85,7 +85,7 @@ class Home
     public static $pinterest = 'span.icon.fa.fa-pinterest';
 
     public static $cadenceWatch = 'Cadence Watch';
-    public static $cadenceInstagram = 'cadencewatch';
+    public static $cadenceInstagram = 'h1';
 
 
     protected $tester;

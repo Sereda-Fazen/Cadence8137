@@ -9,8 +9,8 @@ class MainPages
      */
     public static $URL = '/';
     public static $men = 'li.parent > a';
-    public static $sell = '#sidenav > li:nth-of-type(1) > ul > li:nth-of-type(7) > a';
-    public static $msg = 'li.note-msg';
+    public static $sell = '#sidenav > li:nth-of-type(4) > a > span:nth-of-type(2)';
+    public static $msg = 'div.category-description.std > h3:nth-of-type(1) > img:nth-of-type(2)';
 
     /**
      * Women
