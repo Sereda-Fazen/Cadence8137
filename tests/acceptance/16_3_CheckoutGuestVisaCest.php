@@ -20,7 +20,7 @@ class CheckoutGuestVisaCest
         $I->checkVisa();
 
     }
-    function orderInfoAmericanExpress (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
+    function orderInfoVisa (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
         $creditCardPageVisa->orderView();
     }
 

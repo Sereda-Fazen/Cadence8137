@@ -21,7 +21,7 @@ class CheckoutGuestMasterCardCest
         $I->checkMasterCard();
 
     }
-    function orderInfoAmericanExpress (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
+    function orderInfoMasterCard (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
         $creditCardPageVisa->orderView();
 
     }

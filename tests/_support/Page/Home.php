@@ -188,6 +188,7 @@ class Home
         $I->amOnPage(self::$URL2);
         $I->click(self::$facebook);
         $I->waitForText(self::$cadenceWatch, 4);
+        $I->reloadPage();
     }
     public function homeFooterInstagram()
     {
@@ -195,6 +196,8 @@ class Home
         $I->amOnPage(self::$URL2);
         $I->click(self::$instagram);
         $I->waitForText(self::$cadenceInstagram, 10);
+        $I->reloadPage();
+
     }
     public function homeFooterTwiter()
     {
@@ -202,6 +205,7 @@ class Home
         $I->amOnPage(self::$URL2);
         $I->click(self::$twitter);
         $I->waitForText(self::$cadenceWatch, 4);
+        $I->reloadPage();
     }
     public function homeFooterPinterest()
     {
@@ -209,6 +213,7 @@ class Home
         $I->amOnPage(self::$URL2);
         $I->click(self::$pinterest);
         $I->waitForText(self::$cadenceWatch, 4);
+        $I->reloadPage();
     }
     
 }
