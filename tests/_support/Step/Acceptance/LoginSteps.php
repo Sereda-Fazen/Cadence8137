@@ -12,6 +12,13 @@ class LoginSteps extends \AcceptanceTester
         $I->reloadPage();
     }
 
+    public function logOut(){
+        $I= $this;
+        $I->amOnPage('/');
+        $I->click('ul.links > li.last > a');
+
+    }
+
 
 
     public function StepsLoginIn()
@@ -492,7 +499,7 @@ class LoginSteps extends \AcceptanceTester
 
 
 
-
+    //GUEST
 
     public function processAddToCart(){
         $I = $this;
@@ -548,6 +555,8 @@ class LoginSteps extends \AcceptanceTester
 
     public function checkOnValidationCreditCard(){
         $I = $this;
+
+
 
 
 

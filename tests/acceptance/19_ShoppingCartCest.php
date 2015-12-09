@@ -7,8 +7,9 @@ use Step\Acceptance;
 class ShoppingCartCest
 {
 
-    function checkFunctionalShoppingCart(AcceptanceTester $I, \Page\ShoppingCart $shoppingCart)
+    function checkFunctionalShoppingCart(Step\Acceptance\LoginSteps  $I, \Page\ShoppingCart $shoppingCart)
     {
+        $I->logOut();
         $shoppingCart->checkShoppingCart();
         $I->comment('Expected result: Links are working');
     }

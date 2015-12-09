@@ -81,6 +81,9 @@ class MyAccountCest
             $MyAccountPage->accountGiftCard();
             $I->giftCardEmpty();
             $I->getVisibleText('The maximum number of times to enter gift card code is 5!', '.error-msg');
+            $I->logOut();
         }
+
+
 }
 
