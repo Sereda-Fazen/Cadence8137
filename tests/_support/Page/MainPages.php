@@ -8,7 +8,7 @@ class MainPages
      * Men
      */
     public static $URL = '/';
-    public static $men = 'li.megamenu-horizontal.parent > a';
+    public static $men = 'li.parent > a';
     public static $sell = '#sidenav > li:nth-of-type(1) > ul > li:nth-of-type(7) > a';
     public static $msg = 'li.note-msg';
 

@@ -194,7 +194,7 @@ class Home
         $I = $this->tester;
         $I->amOnPage(self::$URL2);
         $I->click(self::$instagram);
-        $I->waitForText(self::$cadenceInstagram, 4);
+        $I->waitForText(self::$cadenceInstagram, 10);
     }
     public function homeFooterTwiter()
     {
