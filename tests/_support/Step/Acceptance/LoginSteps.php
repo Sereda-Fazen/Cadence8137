@@ -112,6 +112,7 @@ class LoginSteps extends \AcceptanceTester
             $I->click('div.footer-primary.footer > div:nth-of-type(3) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $k . ') > a');
 
         }
+        $I->click('span.closeNewsletter');
     }
 
     public function getSecondOpen() {
