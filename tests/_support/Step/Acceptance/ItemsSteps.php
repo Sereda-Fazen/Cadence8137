@@ -34,37 +34,53 @@ class ItemsSteps extends \AcceptanceTester
     public function allShowingItem()
     {
         $I = $this;
-        $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(1)');
-        if ($I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(1)') == true) {
-            $I->waitForJS(3);
+            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(1)');
+            $I->waitForAjax(5);
             $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
-        }
-        if ($I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(2)') == true) {
+            $I->comment('Expected result: Showing of 12 items on one page ');
 
+            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(2)');
+            $I->waitForAjax(5);
             $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
-        }
-        if ($I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)') == true) {
+            $I->comment('Expected result: Showing of 24 items on one page ');
 
+            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)');
+            $I->waitForAjax(5);
             $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
-        }
-        if ($I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(4)') == true) {
+            $I->comment('Expected result: Showing of 32 items on one page ');
 
+            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(4)');
+            $I->waitForAjax(5);
             $I->waitForElementNotVisible('div.category-products > div.toolbar > div.pager > div.pages');
-        }
+            $I->comment('Expected result: Showing of 64 items on one page ');
+
+            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(5)');
+            $I->waitForAjax(5);
+            $I->waitForElementNotVisible('div.category-products > div.toolbar > div.pager > div.pages');
+            $I->comment('Expected result: Showing all items one page ');
+
     }
 
 
 
-    /*
+/*
     public function checkSortBy()
     {
         $I = $this;
 
+        $I->selectOption('.//select[@onchange]', 'Name');
+        $I->waitForAjax(5);
+        $I->scrollDown(50);
+        $I->waitForText('A', 4, 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
+
+
+
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
         $I->waitForAjax(5);
-
-        $I->selectOption('.//select[@onchange]', 'Name');
-        $I->waitForElement('', 3);
+        $I->scrollDown(50);
+        $I->waitForText('9.', 3, 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > p.special-price > span.price');
+    }
+/*
 
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
         $I->waitForAjax(5);
@@ -72,15 +88,14 @@ class ItemsSteps extends \AcceptanceTester
         $I->selectOption('.//select[@onchange]', 'Band Type');
         $I->waitForAjax(5);
 
-
         $I->selectOption('.//select[@onchange]', 'size');
         $I->waitForAjax(5);
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.sort-by.item-right > a > i.fa');
         $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd', 4);
     }
-*/
 
+*/
 
 
 

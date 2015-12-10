@@ -9,8 +9,13 @@ class MenCest
     function menPage(Step\Acceptance\ItemsSteps $I, \Page\Men $menPage)
     {
         $menPage->men();
-        $I->allShowingItem();
+        //$I->allShowingItem();
         $I->comment('Expected result: Showing products and check select options');
+    }
+
+    function menSelect(Step\Acceptance\ItemsSteps $I) {
+        $I->checkSortBy();
+        $I->comment('Expected result: Sort is working');
     }
 
 /*
