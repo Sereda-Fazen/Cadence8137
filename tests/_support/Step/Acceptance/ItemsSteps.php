@@ -18,11 +18,11 @@ class ItemsSteps extends \AcceptanceTester
         }
 
     }
-
+/*
     public function allShowingItem()
     {
         $I = $this;
-        $show = count($I->grabMultiple('//*[@class = "category-products"]/div[1]//a[@class="show_icon "]'));
+        $show = count($I->grabMultiple('//*[@class = "category-products"]/div[1]//a[@class="show_icon"]'));
         for ($showItem = 1; $showItem <= $show; $showItem++) {
             $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(' . $showItem . ')');
             $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.item-left > p.amount', 2);
@@ -30,6 +30,31 @@ class ItemsSteps extends \AcceptanceTester
         }
 
     }
+*/
+    public function allShowingItem()
+    {
+        $I = $this;
+        $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(1)');
+        if ($I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(1)') == true) {
+            $I->waitForJS(3);
+            $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
+        }
+        if ($I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(2)') == true) {
+
+            $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
+        }
+        if ($I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)') == true) {
+
+            $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
+        }
+        if ($I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(4)') == true) {
+
+            $I->waitForElementNotVisible('div.category-products > div.toolbar > div.pager > div.pages');
+        }
+    }
+
+
+
     /*
     public function checkSortBy()
     {

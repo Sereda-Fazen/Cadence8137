@@ -13,7 +13,7 @@ class MenCest
         $I->comment('Expected result: Showing products and check select options');
     }
 
-
+/*
     function menPageCheckGrid(Step\Acceptance\ItemsSteps $I)
     {
         $I->checkGridButtonsForItems();
@@ -60,7 +60,7 @@ class MenCest
             $I->comment('Expected result: Check the price');
         }
 
-
+*/
 
 
 
