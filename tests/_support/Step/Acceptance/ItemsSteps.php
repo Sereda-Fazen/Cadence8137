@@ -63,7 +63,7 @@ class ItemsSteps extends \AcceptanceTester
 
 
 
-/*
+
     public function checkSortBy()
     {
         $I = $this;
@@ -74,11 +74,11 @@ class ItemsSteps extends \AcceptanceTester
         $I->waitForText('A', 4, 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
 
 
-
+        $price = preg_match('/[^0-9.]*/','',$I->grabTextFrom('//li[1]//p[@class="special-price"]/span[@class="price"]'));
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
         $I->waitForAjax(5);
         $I->scrollDown(50);
-        $I->waitForText('9.', 3, 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > p.special-price > span.price');
+        $I->waitForText($price, 3, '//li[1]//p[@class="special-price"]/span[@class="price"]');
     }
 /*
 
