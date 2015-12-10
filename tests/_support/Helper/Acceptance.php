@@ -6,6 +6,12 @@ namespace Helper;
 class Acceptance extends \Codeception\Module
 {
 
+
+
+
+
+
+
     public function scrollDown($scroll_Y = null) {
         $driv = $this->getModule('WebDriver')->webDriver;
         $scroll_Y = abs(intval($scroll_Y));

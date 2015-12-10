@@ -7,7 +7,8 @@ class HomeCest
 {
 
         function homeHeader(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
-          $homePage->homePageHeader();
+          $homePage->homePageHeader();}
+            /*
           $homePage->homePageMainMenu();
           $I->getHeaderMenu();
         }
@@ -48,7 +49,7 @@ class HomeCest
           $I->getFooterMenu1();
           $I->getFooterMenu2();
         }
-
+*/
         function footerFacebook(Step\Acceptance\LoginSteps $I, \Page\Home $homePage){
 
           $homePage->homeFooterFacebook();
@@ -56,12 +57,7 @@ class HomeCest
           $I->comment('Expected result: Page is open - Facebook ');
         }
 
-        function footerInstagram(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
 
-          $homePage->homeFooterInstagram();
-          $I->getSecondOpen();
-          $I->comment('Expected result: Page is open - Instargam ');
-        }
 
         function footerTwitter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage){
 
@@ -76,6 +72,13 @@ class HomeCest
           $I->getSecondOpen();
           $I->comment('Expected result: Page is open - Pinterest ');
         }
+
+    function footerInstagram(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
+
+        $homePage->homeFooterInstagram();
+        $I->getSecondOpen();
+        $I->comment('Expected result: Page is open - Instargam ');
+    }
 
 }
 

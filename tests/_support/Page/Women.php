@@ -19,9 +19,6 @@ class Women
         $I->amOnPage(self::$URL);
         $I->click(self::$women);
     }
-    public function returnToWomen(){
-        $I = $this->$this;
-        $I->click(self::returnPage);
-    }
+
 
 }
