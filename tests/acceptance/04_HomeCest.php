@@ -7,8 +7,8 @@ class HomeCest
 {
 
         function homeHeader(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
-          $homePage->homePageHeader();}
-            /*
+          $homePage->homePageHeader();
+
           $homePage->homePageMainMenu();
           $I->getHeaderMenu();
         }
@@ -49,7 +49,7 @@ class HomeCest
           $I->getFooterMenu1();
           $I->getFooterMenu2();
         }
-*/
+
         function footerFacebook(Step\Acceptance\LoginSteps $I, \Page\Home $homePage){
 
           $homePage->homeFooterFacebook();

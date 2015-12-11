@@ -10,13 +10,13 @@ settings:
     colors: false
     memory_limit: 1024M
     strict_xml: true
-extensions:
-    enabled:
-        - Codeception\Extension\RunFailed
-        - Codeception\Extension\Recorder
-    config:
-        Codeception\Extension\Recorder:
-            delete_successful: true
+#extensions:
+  #  enabled:
+   #     - Codeception\Extension\RunFailed
+   #     - Codeception\Extension\Recorder
+   # config:
+    #    Codeception\Extension\Recorder:
+     #       delete_successful: true
 
 modules:
     config:

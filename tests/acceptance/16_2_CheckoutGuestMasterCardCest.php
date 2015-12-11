@@ -11,7 +11,7 @@ class CheckoutGuestMasterCardCest
      * Master Card
      */
 
-    function addToCartPageMasterCard(Step\Acceptance\LoginSteps  $I) {
+    function addToCartPageMasterCard(Step\Acceptance\ItemsSteps  $I) {
         $I->processAddToCart();
 
     }

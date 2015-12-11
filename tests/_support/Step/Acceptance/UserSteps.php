@@ -16,6 +16,7 @@ class UserSteps extends \AcceptanceTester
         $I->moveMouseOver('div.summary-container > span.price');
         $I->click('//*[@class="actions"]/button[2]');
         $I->waitForElement('#billing-address-select');
+        $I->scrollDown(500);
 
 
 
@@ -29,19 +30,22 @@ class UserSteps extends \AcceptanceTester
         $I->waitForElement('#checkout-step-shipping_method');
         $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span', 5);
         $I->click('#shipping-method-buttons-container > button.button.continueRed > span > span');
-        $I->waitForElementVisible('#opc-payment', 10);
+        $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 10);
+        $I->scrollDown(100);
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
-      //  $I->waitAlertWindow();
+        $I->wait(5);
+        $I->seeInPopup('Please specify payment method.');
+        $I->acceptPopup();
 
 
     }
     /*
         $I->click('#shipping-method-buttons-container > button.button.continueRed > span > span');
-        $I->waitForElement('#opc-payment', 2);
+        $I->waitForElement('#opc-payment'
+    , 2);
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
         $I->waitAlertWindow();
     */
-
 
 
 

@@ -49,12 +49,6 @@ class Acceptance extends \Codeception\Module
         });
     }
 
-    public function waitAlertWindow () {
-        $driv = $this->getModule('WebDriver')->webDriver;
-            $driv->click('#payment-buttons-container > button.button.continueRed > span > span');
-            $driv->acceptPopup();
-            $driv->wait(1);
-        }
 
 
 }
