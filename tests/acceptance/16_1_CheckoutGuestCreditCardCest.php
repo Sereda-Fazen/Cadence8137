@@ -10,17 +10,17 @@ class CheckoutGuestCreditCardCest
      * American Express
      **/
 
-        function addToCartPageAmericanExpress(Step\Acceptance\LoginSteps  $I) {
+        function addToCartPageAmericanExpress(Step\Acceptance\ItemsSteps  $I) {
             $I->processAddToCart();
 
         }
 
-        function paymentInfoAmericanExpress (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
+        function paymentInfoAmericanExpress (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
             $creditCardPageVisa->creditCard();
             $I->checkAmericanExpress();
 
         }
-        function orderInfoAmericanExpress (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
+        function orderInfoAmericanExpress (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
             $creditCardPageVisa->orderView();
 
         }

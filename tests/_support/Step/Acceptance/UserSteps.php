@@ -4,7 +4,6 @@ namespace Step\Acceptance;
 class UserSteps extends \AcceptanceTester
 {
 
-
     public function userProcessCheckout()
     {
         $I = $this;

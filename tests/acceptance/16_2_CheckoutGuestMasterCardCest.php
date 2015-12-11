@@ -11,20 +11,25 @@ class CheckoutGuestMasterCardCest
      * Master Card
      */
 
-    function addToCartPageMasterCard(Step\Acceptance\ItemsSteps  $I) {
+    function addToCartPageMasterCard(Step\Acceptance\ItemsSteps $I)
+    {
         $I->processAddToCart();
 
     }
 
-    function paymentInfoMasterCard (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPage) {
+    function paymentInfoMasterCard(Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPage)
+    {
         $creditCardPage->creditCard();
         $I->checkMasterCard();
 
     }
-    function orderInfoMasterCard (Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
+
+    function orderInfoMasterCard(Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa)
+    {
         $creditCardPageVisa->orderView();
 
     }
+
 
 
 

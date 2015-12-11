@@ -329,19 +329,18 @@ class ItemsSteps extends \AcceptanceTester
 
     //GUEST
 
-    public function processAddToCart(){
+    public function processAddToCart()
+    {
         $I = $this;
         $I->amOnPage('/');
         $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
         $I->waitForElement('a.close.continue', 2);
-        $I->click('a.close.continue');
-        $I->moveMouseOver('span.icon-cart.first');
-        $I->waitForElement('div.block-cart.dropdown-menu');
+        $I->click('a.close.cart');
         $I->comment('Expected result: Product was added to your shopping cart.');
 
     //checkoutShoppingCart
 
-        $I->click('//*[@id="cart-listing"]/div[3]/button[1]');
+
         $I->waitForElement('div.main');
         $I->comment('Expected result: Open page shopping cart');
 
