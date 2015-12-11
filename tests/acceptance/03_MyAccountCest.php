@@ -10,7 +10,7 @@ class MyAccountCest
 
     function showUserProfile(\Step\Acceptance\LoginSteps $I)
     {
-        $I->StepsLoginIn();
+        $I->stepsLoginIn();
         $I->see('Hello, alex sereda!', 'p.hello > strong');
 
     }
