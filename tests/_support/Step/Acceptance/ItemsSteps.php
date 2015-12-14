@@ -5,6 +5,12 @@ class ItemsSteps extends \AcceptanceTester
 {
 
 
+    public function subForm(){
+        $I = $this;
+
+        $I->fillField('//*[@id="newsletter"]', 'fazen7@mail.ru');
+        $I->click('//*[@id="subs"]');
+    }
 
     public function linksMen() {
         $I = $this;
