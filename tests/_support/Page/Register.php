@@ -5,13 +5,13 @@ class Register
 {
     public static $URL = '/customer/account/login/';
 
-    public static $createAccount = 'div.new-users > div.buttons-set > button.button.validation-passed > span > span';
+    public static $createAccount = 'Create an Account';
     public static $firsName = '#firstname';
     public static $lastName = '#lastname';
     public static $email = '#email_address';
     public static $pass = '#password';
     public static $confirmation = '#confirmation';
-    public static $submit = 'div.buttons-set > button.button > span > span';
+    public static $submit = 'Submit';
     public static $logout = 'ul.links > li.last > a';
 
     protected $tester;
