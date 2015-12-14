@@ -26,6 +26,38 @@ class CheckoutGuestCreditCardCest
 
 
 
+        function paymentInfoMasterCard(Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPage)
+        {
+            $creditCardPage->creditCard();
+            $I->checkMasterCard();
+
+        }
+        function orderInfoMasterCard (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
+            $creditCardPageVisa->orderView();
+            $I->comment('Expected result: PayPal gateway has rejected request.');
+        }
+
+
+
+
+
+        function paymentInfoVisa (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditVisa) {
+            $creditVisa->creditCard();
+            $I->checkVisa();
+
+        }
+
+        function orderInfoVisa (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
+            $creditCardPageVisa->orderViewAlert();
+            $I->comment('Expected result: PayPal gateway has rejected request.');
+        }
+
+
+
+
+
+
+
 
 
 

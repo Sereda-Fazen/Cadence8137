@@ -25,11 +25,11 @@ class UserSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->click('#billing-buttons-container > button.button.continueRed > span > span');
-        $I->waitForElementVisible('#opc-shipping_method', 10);
+        $I->waitForElementVisible('#opc-shipping_method', 20);
         $I->waitForElement('#checkout-step-shipping_method');
-        $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span', 10);
+        $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span', 20);
         $I->click('#shipping-method-buttons-container > button.button.continueRed > span > span');
-        $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 10);
+        $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 20);
         $I->scrollDown(100);
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
         $I->wait(5);

@@ -6,8 +6,6 @@ class ItemsSteps extends \AcceptanceTester
 
 
 
-
-
     public function linksMen() {
         $I = $this;
         $countLinks = count($I->grabMultiple('//*[@id="sidenav"]/li[1]/ul/li'));
@@ -351,6 +349,7 @@ class ItemsSteps extends \AcceptanceTester
 
     // checkout
 
+        $I->scrollDown(100);
         $I->click('button.button.btn-proceed-checkout.btn-checkout > span > span');
         $I->waitForElement('#opc-login > div.step-title',10);
 
@@ -376,7 +375,7 @@ class ItemsSteps extends \AcceptanceTester
 
     // shippingMethod
 
-        $I->waitForElement('#checkout-step-shipping_method',10);
+
         $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span', 10);
         $I->click('#shipping-method-buttons-container > button.button.continueRed > span > span');
         $I->waitForElement('#checkout-step-payment', 10);
@@ -395,7 +394,6 @@ class ItemsSteps extends \AcceptanceTester
 
         //check is not chosen Payment
         $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 10);
-        $I->scrollDown(200);
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
         $I->wait(2);
         $I->acceptPopup();
@@ -479,7 +477,6 @@ class ItemsSteps extends \AcceptanceTester
             $I->click('#payment-tool-tip-close');
             $I->fillField('#paypal_direct_cc_cid', '1234');
             //continue
-            $I->scrollDown(500);
             $I->click('#payment-buttons-container > button.button.continueRed > span > span');
 
     }
@@ -505,7 +502,6 @@ class ItemsSteps extends \AcceptanceTester
         $I->click('#payment-tool-tip-close');
         $I->fillField('#paypal_direct_cc_cid', '123');
         //continue
-        $I->scrollDown(500);
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
     }
 
@@ -532,7 +528,6 @@ class ItemsSteps extends \AcceptanceTester
         $I->click('#payment-tool-tip-close');
         $I->fillField('#paypal_direct_cc_cid', '957');
         //continue
-        $I->scrollDown(500);
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
     }
 

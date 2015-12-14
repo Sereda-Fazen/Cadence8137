@@ -7,6 +7,7 @@ class CheckoutGuestGiffCardCest
 {
 
         function addToCartPageForPayPal(Step\Acceptance\ItemsSteps  $I) {
+
             $I->processAddToCart();
 
         }
