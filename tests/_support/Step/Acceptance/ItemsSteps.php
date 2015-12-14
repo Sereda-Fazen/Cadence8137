@@ -336,7 +336,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->amOnPage('/');
         $I->scrollDown(100);
         $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-        $I->waitForElement('a.close.continue', 2);
+        $I->waitForElement('a.close.continue');
         $I->click('a.close.cart');
         $I->comment('Expected result: Product was added to your shopping cart.');
 
