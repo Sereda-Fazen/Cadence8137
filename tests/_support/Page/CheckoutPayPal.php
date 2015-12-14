@@ -32,7 +32,7 @@ class CheckoutPayPal
         $I = $this->tester;
 
 
-        $I->waitForElement(self::$waitPayPal,3);
+        $I->waitForElement(self::$waitPayPal,10);
         $I->click(self::$waitPayPal);
         $I->waitForText(self::$payPalInfo);
 
