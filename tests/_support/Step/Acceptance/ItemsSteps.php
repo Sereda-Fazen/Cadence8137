@@ -374,7 +374,7 @@ class ItemsSteps extends \AcceptanceTester
     // shippingMethod
 
         $I->waitForElement('#checkout-step-shipping_method');
-        $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span', 5);
+        $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span', 10);
         $I->click('#shipping-method-buttons-container > button.button.continueRed > span > span');
         $I->waitForElement('#checkout-step-payment', 3);
         $I->comment('Expected result: Go to the Payment information');

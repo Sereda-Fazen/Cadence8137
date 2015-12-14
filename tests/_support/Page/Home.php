@@ -68,8 +68,8 @@ class Home
      * Subscription
      */
 
-    public static $sub = 'div.std > div.BeforeFooterNewsletter > form > div.block-content > div.input-box > input.input-text.required-entry.validate-email';
-    public static $clickSub = 'div.std > div.BeforeFooterNewsletter > form > div.block-content > div.input-box > button.button';
+    public static $sub = '//*[@id="newsletter"]';
+    public static $clickSub = '//*[@id="newsletter-validate-detail"]/div/div/button';
     public static $msg = 'li.success-msg';
 
 
@@ -141,7 +141,7 @@ class Home
     {
         $I = $this->tester;
 
-        $I->scrollDown(200);
+        $I->wait(4);
         $I->fillField(self::$sub, $email);
         $I->click(self::$clickSub);
         $I->waitForElement(self::$msg, 4);
