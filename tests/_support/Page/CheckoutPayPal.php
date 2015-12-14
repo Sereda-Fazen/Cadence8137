@@ -32,19 +32,19 @@ class CheckoutPayPal
         $I = $this->tester;
 
 
-        $I->waitForElement(self::$waitPayPal,10);
+        $I->waitForElement(self::$waitPayPal,20);
         $I->click(self::$waitPayPal);
         $I->waitForText(self::$payPalInfo);
 
         $I->click(self::$clickPay);
-        $I->waitForElement(self::$payPalCart,10);
+        $I->waitForElement(self::$payPalCart,20);
 
     }
 
     public function payPalSite(){
         $I = $this->tester;
 
-        $I->moveMouseOver(self::$payPalCart,10);
+        $I->moveMouseOver(self::$payPalCart,20);
         $I->click(self::$payPalCart);
         $I->waitForElement(self::$showCartPayPal);
 
