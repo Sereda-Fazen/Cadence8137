@@ -38,7 +38,7 @@ class CheckoutGuestCreditCard
         $I->scrollDown(250);
         $I->waitForElement(self::$clickOrder);
         $I->click(self::$clickOrder);
-        $I->wait(10);
+        $I->wait(15);
         $I->acceptPopup();
     }
 

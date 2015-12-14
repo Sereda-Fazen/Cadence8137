@@ -154,7 +154,7 @@ class ItemsSteps extends \AcceptanceTester
 
         $I->scrollDown(50);
         $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > ul.add-to-links.addto-links-icons > li.first > a.fancybox.tooltip_container > span.icon.fa.fa-search-plus');
-        $I->waitForElement('a.fancybox-item.fancybox-close');
+        $I->waitForElement('body',7);
         $I->click('a.fancybox-item.fancybox-close');
         $I->scrollDown(50);
     }
@@ -394,7 +394,8 @@ class ItemsSteps extends \AcceptanceTester
         $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 3);
         $I->scrollDown(200);
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
-        $I->waitAlertAndAccept(10);
+        $I->wait(2);
+        $I->acceptPopup();
 
     }
 
