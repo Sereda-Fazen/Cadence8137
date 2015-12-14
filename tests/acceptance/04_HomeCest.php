@@ -37,12 +37,12 @@ class HomeCest
         function homeContent(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
           $homePage->homePageContent();
         }
-/*
+
         function homeSubscription(Step\Acceptance\LoginSteps $I, \Page\Home $homePage){
           $homePage->homePageSubscription('sa@itsvit.org');
           $I->see('Thank you for your subscription.','li.success-msg');
         }
-*/
+
         function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage) {
           $homePage->homePageFooter();
           $I->getFooterMenu();

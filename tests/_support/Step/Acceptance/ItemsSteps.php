@@ -63,13 +63,13 @@ class ItemsSteps extends \AcceptanceTester
     public function checkSortBy()
     {
         $I = $this;
-
+/*
         $I->selectOption('.//select[@onchange]', 'Name');
         $I->waitForAjax(10);
         $I->scrollDown(50);
         $I->waitForText('A', 4, 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
         $I->comment('Show category when - Name from A');
-
+*/
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
         $I->waitForAjax(10);
         $I->scrollDown(50);
@@ -81,7 +81,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->scrollDown(50);
         $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > span:nth-of-type(2) > span.price');
         $I->comment('Show category when - Price begins - max');
-
+/*
         $I->selectOption('.//select[@onchange]', 'Band Type');
         $I->waitForAjax(10);
         $I->scrollDown(50);
@@ -94,7 +94,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->scrollDown(50);
         $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
         $I->comment('Show category when - size');
-
+*/
     }
 
 
@@ -334,8 +334,8 @@ class ItemsSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/');
-        $I->scrollDown(50);
-        $I->click('//*[@class="btn-cart"]//span');
+        $I->scrollDown(150);
+        $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
         $I->waitForElement('a.close.continue');
         $I->click('a.close.cart');
         $I->comment('Expected result: Product was added to your shopping cart.');
@@ -343,13 +343,13 @@ class ItemsSteps extends \AcceptanceTester
     //checkoutShoppingCart
 
 
-        $I->waitForElement('div.main');
+        $I->waitForElement('div.main',10);
         $I->comment('Expected result: Open page shopping cart');
 
     // checkout
 
         $I->click('button.button.btn-proceed-checkout.btn-checkout > span > span');
-        $I->waitForElement('#opc-login > div.step-title');
+        $I->waitForElement('#opc-login > div.step-title',10);
 
 
     // checkBilling
@@ -373,10 +373,10 @@ class ItemsSteps extends \AcceptanceTester
 
     // shippingMethod
 
-        $I->waitForElement('#checkout-step-shipping_method');
+        $I->waitForElement('#checkout-step-shipping_method',10);
         $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span', 10);
         $I->click('#shipping-method-buttons-container > button.button.continueRed > span > span');
-        $I->waitForElement('#checkout-step-payment', 3);
+        $I->waitForElement('#checkout-step-payment', 10);
         $I->comment('Expected result: Go to the Payment information');
 
 
