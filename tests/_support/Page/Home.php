@@ -69,7 +69,7 @@ class Home
      */
 
     public static $sub = '//*[@id="newsletter"]';
-    public static $clickSub = '//*[@id="newsletter-validate-detail"]/div/div/button';
+    public static $clickSub = '//*[@id="subs"]';
     public static $msg = 'li.success-msg';
 
 

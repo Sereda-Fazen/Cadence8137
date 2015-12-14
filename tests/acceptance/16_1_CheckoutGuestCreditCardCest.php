@@ -10,7 +10,7 @@ class CheckoutGuestCreditCardCest
      **/
 
         function addToCartPageAmericanExpress(Step\Acceptance\ItemsSteps  $I) {
-            $I->subForm();
+
             $I->processAddToCart();
 
         }

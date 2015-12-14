@@ -8,6 +8,7 @@ class CheckoutGuestGiffCard
      * Payment Information
      */
 
+    public static $checkBox = '#giftvoucher';
     public static $wait = 'dt.form-group.giftvoucher';
     public static $useGiffCard = 'dt.form-group.giftvoucher > label';
     public static $giffVoucher = '#giftvoucher_code';
@@ -34,7 +35,9 @@ class CheckoutGuestGiffCard
         $I = $this->tester;
 
 
-        $I->waitForElement(self::$wait,3);
+        $I->click(self::$checkBox);
+        $I->waitForElement(self::$giffVoucher,3);
+        $I->waitForElement(self::$wait,5);
         $I->click(self::$useGiffCard);
         $I->waitForElementVisible(self::$giffVoucher, 5);
         $I->fillField(self::$giffVoucher, $numGiffCard);

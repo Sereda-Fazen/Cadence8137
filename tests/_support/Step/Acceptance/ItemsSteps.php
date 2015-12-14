@@ -341,6 +341,7 @@ class ItemsSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/');
+        $I->subForm();
         $I->scrollDown(150);
         $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
         $I->waitForElement('a.close.continue');
@@ -382,9 +383,9 @@ class ItemsSteps extends \AcceptanceTester
     // shippingMethod
 
 
-        $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span', 10);
+        $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span');
         $I->click('#shipping-method-buttons-container > button.button.continueRed > span > span');
-        $I->waitForElement('#checkout-step-payment', 10);
+        $I->waitForElement('#checkout-step-payment');
         $I->comment('Expected result: Go to the Payment information');
 
 
