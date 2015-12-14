@@ -44,7 +44,7 @@ class CheckoutPayPal
     public function payPalSite(){
         $I = $this->tester;
 
-        $I->moveMouseOver(self::$payPalCart, 3);
+        $I->moveMouseOver(self::$payPalCart,10);
         $I->click(self::$payPalCart);
         $I->waitForElement(self::$showCartPayPal);
 
