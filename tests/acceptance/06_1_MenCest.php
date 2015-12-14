@@ -35,10 +35,6 @@ class MenCest
         $I->comment('Expected result: Form is open');
     }
 
-    function menPageCheckQuickView(Step\Acceptance\ItemsSteps $I) {
-        $I->clickQuickView();
-        $I->comment('Expected result: Quick view is open ');
-    }
 
     function menPageCheckNameItem(Step\Acceptance\ItemsSteps $I) {
         $I->clickNameItem();

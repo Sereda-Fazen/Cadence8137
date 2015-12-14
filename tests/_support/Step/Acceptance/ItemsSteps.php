@@ -152,8 +152,8 @@ class ItemsSteps extends \AcceptanceTester
     public function clickQuickView() {
         $I = $this;
 
-        $I->scrollDown(50);
-        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > ul.add-to-links.addto-links-icons > li.first > a.fancybox.tooltip_container > span.icon.fa.fa-search-plus');
+        $I->scrollDown(100);
+        $I->click('//*[@class="icon fa fa-search-plus"]');
         $I->waitForElement('div.product-name',10);
         $I->click('a.fancybox-item.fancybox-close');
         $I->scrollDown(50);
@@ -177,10 +177,10 @@ class ItemsSteps extends \AcceptanceTester
     public function clickNameItem() {
         $I = $this;
 
+        $I->scrollDown(50);
         $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > h2.product-name > a');
         $I->waitForElement('h1');
         $I->moveBack();
-        //$I->click('ul.grid_full > li:nth-of-type(3) > a');
         $I->scrollDown(50);
 
     }
@@ -334,7 +334,7 @@ class ItemsSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/');
-        $I->scrollDown(100);
+        $I->scrollDown(50);
         $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
         $I->waitForElement('a.close.continue');
         $I->click('a.close.cart');

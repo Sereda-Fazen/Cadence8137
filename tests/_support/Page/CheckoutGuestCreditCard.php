@@ -29,7 +29,7 @@ class CheckoutGuestCreditCard
     public function creditCard(){
         $I = $this->tester;
 
-        $I->waitForElementVisible(self::$creditCard,5);
+        $I->waitForElementVisible(self::$creditCard,10);
     }
     public function orderView(){
         $I = $this->tester;
