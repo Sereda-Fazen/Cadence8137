@@ -7,7 +7,6 @@ class CheckoutGuestMasterCardCest
 {
 
     /**
-     * @param Acceptance\LoginSteps $I
      * Master Card
      */
 
@@ -24,7 +23,7 @@ class CheckoutGuestMasterCardCest
 
     }
 
-    function orderInfoMasterCard(Step\Acceptance\LoginSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa)
+    function orderInfoMasterCard(Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa)
     {
         $creditCardPageVisa->orderView();
         $I->comment('Expected result: PayPal gateway has rejected request');

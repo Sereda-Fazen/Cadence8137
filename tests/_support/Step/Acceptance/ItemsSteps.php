@@ -35,24 +35,24 @@ class ItemsSteps extends \AcceptanceTester
     {
         $I = $this;
             $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(1)');
-            $I->waitForAjax(5);
+            $I->waitForAjax(10);
             $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
             $I->comment('Expected result: Showing of 12 items on one page ');
 
             $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(2)');
-            $I->waitForAjax(5);
+            $I->waitForAjax(10);
             $I->comment('Expected result Is not visible block with navigation');
 
             $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)');
-            $I->waitForAjax(5);
+            $I->waitForAjax(10);
             $I->comment('Expected result Is not block with navigation');
 
             $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(4)');
-            $I->waitForAjax(5);
+            $I->waitForAjax(10);
             $I->comment('Expected result: Showing of 64 items on one page ');
 
             $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(5)');
-            $I->waitForAjax(5);
+            $I->waitForAjax(10);
             $I->waitForElementNotVisible('div.category-products > div.toolbar > div.pager > div.pages');
             $I->comment('Expected result: Showing all items one page ');
 
@@ -154,7 +154,7 @@ class ItemsSteps extends \AcceptanceTester
 
         $I->scrollDown(50);
         $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > ul.add-to-links.addto-links-icons > li.first > a.fancybox.tooltip_container > span.icon.fa.fa-search-plus');
-        $I->waitForElement('body',7);
+        $I->waitForElement('div.product-name',10);
         $I->click('a.fancybox-item.fancybox-close');
         $I->scrollDown(50);
     }
@@ -391,7 +391,7 @@ class ItemsSteps extends \AcceptanceTester
         $I = $this;
 
         //check is not chosen Payment
-        $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 3);
+        $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 10);
         $I->scrollDown(200);
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
         $I->wait(2);
