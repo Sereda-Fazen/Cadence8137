@@ -151,14 +151,16 @@ class Home
         $I = $this->tester;
 
         $I->click(self::$link);
-        $I->click(self::$logo);
+        $I->moveBack();
+
+        $I->scrollDown(100);
         $I->click(self::$addToCart);
         $I->waitForElement(self::$cancel, 2);
         $I->click(self::$cancel);
-        $I->click(self::$logo);
+        $I->moveBack();
+        $I->scrollDown(100);
         $I->click(self::$zoom);
-        $I->click(self::$logo);
-
+        $I->moveBack();
     }
 
     public function homePageLinks()

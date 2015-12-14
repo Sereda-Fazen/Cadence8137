@@ -1,7 +1,7 @@
 <?php
 namespace Page;
 
-class CheckoutGuestCreditCard
+class CheckoutValidationOnCreditCard
 {
 
     /**
@@ -38,8 +38,8 @@ class CheckoutGuestCreditCard
         $I->scrollDown(250);
         $I->waitForElement(self::$clickOrder);
         $I->click(self::$clickOrder);
-        $I->wait(7);
-        $I->acceptPopup();
+        $I->wait(5);
+        $I->seeInPopup(self::$alertMsg);
     }
 
 

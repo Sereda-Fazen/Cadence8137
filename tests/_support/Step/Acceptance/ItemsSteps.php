@@ -333,6 +333,7 @@ class ItemsSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/');
+        $I->scrollDown(100);
         $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
         $I->waitForElement('a.close.continue', 2);
         $I->click('a.close.cart');
@@ -380,15 +381,76 @@ class ItemsSteps extends \AcceptanceTester
 
     }
 
-    public function checkOnValidationCreditCard(){
+    /**
+     * Check on validation
+     */
+
+    public function checkWithoutPayment()
+    {
         $I = $this;
 
-
-
-
+        //check is not chosen Payment
+        $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 3);
+        $I->scrollDown(200);
+        $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        $I->waitAlertAndAccept(10);
 
     }
 
+    public function checkCardType()
+    {
+        $I = $this;
+
+        //check empty all fields
+        $I->click('#p_method_paypal_direct');
+        $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 3);
+        $I->scrollDown(200);
+        $I->see('This is a required field.', '#advice-required-entry-paypal_direct_cc_type');
+    }
+    public function checkEmptyNumberCard()
+    {
+        $I = $this;
+        // check only one field - card type
+
+        $I->click('#paypal_direct_cc_type');
+        $I->click('//*[@id="paypal_direct_cc_type"]/option[2]');
+        $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        $I->see('Card type does not match credit card number.', '#advice-validate-cc-type-select-paypal_direct_cc_type');
+    }
+
+    public function checkInvalidCardType()
+    {
+        $I = $this;
+        //check number invalid
+        $I->fillField('#paypal_direct_cc_number', '1234567');
+        $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        $I->see('Please enter a valid credit card number.', '#advice-validate-cc-number-paypal_direct_cc_number');
+    }
+
+    public function checkInvalidMonthWithYear()
+    {
+        $I = $this;
+
+        // check month and year
+        $I->click('#paypal_direct_expiration');
+        $I->click('//*[@id="paypal_direct_expiration"]/option[2]');
+        $I->click('#paypal_direct_expiration_yr');
+        $I->click('//*[@id="paypal_direct_expiration_yr"]/option[2]');
+        $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        $I->see('Incorrect credit card expiration date.', '#advice-validate-cc-exp-paypal_direct_expiration');
+    }
+
+    public function checkInvalidVerificationNumber()
+    {
+        $I = $this;
+
+        //check card verify
+
+        $I->fillField('#paypal_direct_cc_cid', 'test');
+        $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        $I->see('Please enter a valid credit card verification number.', '#advice-validate-cc-cvn-paypal_direct_cc_cid');
+    }
 
 
     public function checkAmericanExpress(){

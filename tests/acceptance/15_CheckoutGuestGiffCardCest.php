@@ -1,14 +1,11 @@
 <?php
 use Step\Acceptance;
 /**
- * @group checkoutGuest
+ * @group checkoutGuestGiffCard
  */
 class CheckoutGuestGiffCardCest
 {
-        /**
-         * @param Acceptance\LoginSteps $I
-         * Giff Card
-         */
+
         function addToCartPage(Step\Acceptance\ItemsSteps  $I) {
             $I->processAddToCart();
 

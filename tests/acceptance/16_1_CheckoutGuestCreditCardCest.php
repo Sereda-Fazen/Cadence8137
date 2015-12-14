@@ -6,7 +6,6 @@ use Step\Acceptance;
 class CheckoutGuestCreditCardCest
 {
     /**
-     * @param Acceptance\LoginSteps $I
      * American Express
      **/
 
@@ -22,7 +21,7 @@ class CheckoutGuestCreditCardCest
         }
         function orderInfoAmericanExpress (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
             $creditCardPageVisa->orderView();
-
+            $I->comment('Expected result: PayPal gateway has rejected request.');
         }
 
 

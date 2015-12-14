@@ -20,13 +20,7 @@ class CheckoutUserCest
             function paymentDidNotChoose (Step\Acceptance\UserSteps $I) {
                 $I->processCheckout();
             }
-    /*
-            function orderOfPayPal (Step\Acceptance\LoginSteps $I, \Page\CheckoutUser $userPage) {
-                $userPage->payPalSite();
-                $I->comment('Expected result: ');
 
-            }
-    */
 
 
 

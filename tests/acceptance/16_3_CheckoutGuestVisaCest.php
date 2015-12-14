@@ -7,7 +7,6 @@ class CheckoutGuestVisaCest
 {
 
     /**
-     * @param Acceptance\LoginSteps $I
      * Visa
      */
 
@@ -22,6 +21,7 @@ class CheckoutGuestVisaCest
     }
     function orderInfoVisa (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
         $creditCardPageVisa->orderView();
+        $I->comment('Expected result: PayPal gateway has rejected request.');
     }
 
 
