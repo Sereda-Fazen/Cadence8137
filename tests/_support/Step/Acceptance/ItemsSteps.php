@@ -155,7 +155,11 @@ class ItemsSteps extends \AcceptanceTester
         $I = $this;
 
         $I->scrollDown(100);
-
+        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > ul.add-to-links.addto-links-icons > li.first > a.fancybox.tooltip_container > span.icon.fa.fa-search-plus');
+        $I->waitForAjax(10);
+        $I->waitForElement('div.product-name',10);
+        $I->click('a.fancybox-item.fancybox-close');
+        $I->scrollDown(50);
     }
 
     public function clickLearnMore() {
