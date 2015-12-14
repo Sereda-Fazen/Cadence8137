@@ -34,7 +34,11 @@ class MenCest
         $I->clickAddToCart();
         $I->comment('Expected result: Form is open');
     }
-
+/*
+    function menPageCheckQuickView(Step\Acceptance\ItemsSteps $I) {
+        $I->clickQuickView();
+        $I->comment('Expected result: Quick view is open ');
+    }
 
     function menPageCheckNameItem(Step\Acceptance\ItemsSteps $I) {
         $I->clickNameItem();
@@ -45,7 +49,7 @@ class MenCest
         $I->clickLearnMore();
         $I->comment('Expected result: Navigate to product card ');
     }
-
+*/
     function menPageCheckReturnToGrid(Step\Acceptance\ItemsSteps $I) {
         $I->clickGrid();
         $I->comment('Expected result: List is changing on the grid ');

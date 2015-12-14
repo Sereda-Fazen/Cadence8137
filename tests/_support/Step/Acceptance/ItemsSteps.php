@@ -162,7 +162,7 @@ class ItemsSteps extends \AcceptanceTester
     public function clickLearnMore() {
         $I = $this;
 
-        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > div.desc.std > a.link-learn');
+        $I->click('//*[@class="desc std"]//a');
         $I->waitForElement('div.main');
        // $I->click('ul.grid_full > li:nth-of-type(3) > a');
         $I->moveBack();
@@ -335,7 +335,7 @@ class ItemsSteps extends \AcceptanceTester
         $I = $this;
         $I->amOnPage('/');
         $I->scrollDown(50);
-        $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+        $I->click('//*[@class="btn-cart"]//span');
         $I->waitForElement('a.close.continue');
         $I->click('a.close.cart');
         $I->comment('Expected result: Product was added to your shopping cart.');
