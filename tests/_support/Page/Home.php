@@ -141,6 +141,7 @@ class Home
     {
         $I = $this->tester;
 
+        $I->scrollDown(200);
         $I->fillField(self::$sub, $email);
         $I->click(self::$clickSub);
         $I->waitForElement(self::$msg, 4);
@@ -152,7 +153,6 @@ class Home
 
         $I->click(self::$link);
         $I->moveBack();
-
         $I->scrollDown(100);
         $I->click(self::$addToCart);
         $I->waitForElement(self::$cancel, 2);

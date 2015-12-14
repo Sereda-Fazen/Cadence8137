@@ -152,6 +152,7 @@ class ItemsSteps extends \AcceptanceTester
     public function clickQuickView() {
         $I = $this;
 
+        $I->scrollDown(50);
         $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > ul.add-to-links.addto-links-icons > li.first > a.fancybox.tooltip_container > span.icon.fa.fa-search-plus');
         $I->waitForElement('a.fancybox-item.fancybox-close');
         $I->click('a.fancybox-item.fancybox-close');
