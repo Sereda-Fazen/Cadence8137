@@ -19,7 +19,7 @@ class CheckoutPayPal
      */
 
     public static $payPalCart = '#transactionCart';
-    public static $showCartPayPal = 'div.transctionCartDetails';
+    public static $showCartPayPal = '#merchantName';
 
 
     protected $tester;
