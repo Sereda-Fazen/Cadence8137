@@ -57,8 +57,6 @@ class HomeCest
           $I->comment('Expected result: Page is open - Facebook ');
         }
 
-
-
         function footerTwitter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage){
 
           $homePage->homeFooterTwiter();
