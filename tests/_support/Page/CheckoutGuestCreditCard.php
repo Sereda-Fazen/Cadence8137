@@ -17,7 +17,7 @@ class CheckoutGuestCreditCard
      */
 
     public static $waitOrderView = '#opc-review';
-    public static $clickOrder = 'button.button.btn-checkout > span > span';
+    public static $clickOrder = '#review-buttons-container > button.button.btn-checkout > span > span';
     public static $returnPayment = '#opc-payment > div.step-title > h2';
 
     public  static $alertMsg = 'PayPal gateway has rejected request.';
@@ -30,15 +30,14 @@ class CheckoutGuestCreditCard
 
     public function creditCard(){
         $I = $this->tester;
-
         $I->waitForElementVisible(self::$creditCard,30);
     }
     public function orderView(){
         $I = $this->tester;
 
-        $I->waitForElementVisible(self::$clickOrder,30);
+        $I->waitForElementVisible(self::$clickOrder,15);
+        $I->scrollUp(100);
         $I->click(self::$returnPayment);
-
 
     }
 

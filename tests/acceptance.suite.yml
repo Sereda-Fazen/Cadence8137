@@ -17,9 +17,9 @@ modules:
             #host: 'hub.browserstack.com'
             #port: 80
             browser: chrome
-            window_size: 1980x1280
+            window_size: 1980x1680
             restart: false
-            clear_cookies: true
+            #clear_cookies: false
 
             capabilities:
              browserstack.user: 'alex3357'
@@ -28,7 +28,7 @@ modules:
              #applicationCacheEnabled: false
              unexpectedAlertBehaviour: 'accept'
              pageLoadStrategy: 'eager'
-             platform: 'XP'
+             #platform: 'XP'
 
 
     # run all instance

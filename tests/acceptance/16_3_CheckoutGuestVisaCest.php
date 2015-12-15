@@ -1,6 +1,8 @@
 <?php
 use Step\Acceptance;
-
+/**
+ * @group checkoutCreditCard
+ */
 class CheckoutGuestVisaCest
 {
 
@@ -12,15 +14,17 @@ class CheckoutGuestVisaCest
         $I->processAddToCart();
     }
 
-    function paymentInfoVisa (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditVisa) {
+    function paymentInfoVisa(Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditVisa)
+    {
         $creditVisa->creditCard();
         $I->checkVisa();
 
-    }
-    function orderInfoVisa (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
-        $creditCardPageVisa->orderView();
-        $I->comment('Expected result: PayPal gateway has rejected request.');
-    }
+    }}
+            /*
+                    function orderInfoVisa (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
+                        $creditCardPageVisa->orderViewAlert();
+                        $I->comment('Expected result: PayPal gateway has rejected request.');
+                    }
 
 
 

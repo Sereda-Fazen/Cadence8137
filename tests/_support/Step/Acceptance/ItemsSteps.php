@@ -388,7 +388,7 @@ class ItemsSteps extends \AcceptanceTester
         // shippingMethod
 
 
-        $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span');
+        $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span',10);
         $I->click('#shipping-method-buttons-container > button.button.continueRed > span > span');
         $I->waitForElement('#checkout-step-payment');
         $I->comment('Expected result: Go to the Payment information');
@@ -489,7 +489,9 @@ class ItemsSteps extends \AcceptanceTester
         $I->click('#payment-tool-tip-close');
         $I->fillField('#paypal_direct_cc_cid', '1234');
         //continue
-        //  $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        //$I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        $I->waitForElement('div.cart-empty > p:nth-of-type(1)',10);
+
 
     }
 
@@ -515,6 +517,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->fillField('#paypal_direct_cc_cid', '123');
         //continue
         //  $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        $I->waitForElement('div.cart-empty > p:nth-of-type(1)',10);
     }
 
 
@@ -541,6 +544,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->fillField('#paypal_direct_cc_cid', '957');
         //continue
         //   $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        $I->waitForElement('div.cart-empty > p:nth-of-type(1)',10);
     }
 
 

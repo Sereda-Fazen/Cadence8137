@@ -10,7 +10,7 @@ class CheckoutGuestGiffCard
 
     public static $checkBox = '#giftvoucher';
     public static $wait = 'dt.form-group.giftvoucher';
-    public static $useGiffCard = 'dt.form-group.giftvoucher > label';
+    //public static $useGiffCard = 'dt.form-group.giftvoucher > label';
     public static $giffVoucher = '#giftvoucher_code';
     public static $giffAddClick = '#giftvoucher_add > span > span';
     public static $waitMsg = 'ul.success-msg';
@@ -31,15 +31,18 @@ class CheckoutGuestGiffCard
         $this->tester = $I;
     }
 
-    public function paymentInformation ($numGiffCard) {
+    public function paymentInformation($numGiffCard) {
         $I = $this->tester;
 
-
-        $I->click(self::$checkBox);
-        $I->waitForElement(self::$giffVoucher,3);
-        $I->waitForElement(self::$wait,5);
-        $I->click(self::$useGiffCard);
-        $I->waitForElementVisible(self::$giffVoucher, 5);
+        $I->scrollDown(100);
+        $I->waitForElementVisible(self::$checkBox, 10);
+        $I->waitForElementVisible(self::$clickPay, 10);
+        $I->scrollUp(200);
+        $I->checkOption(self::$checkBox); // $I->click(self::$checkBox);
+        //$I->waitForElement(self::$giffVoucher,10);
+        //$I->waitForElement(self::$wait,10);
+        //$I->click(self::$useGiffCard);
+        $I->waitForElementVisible(self::$giffVoucher, 15);
         $I->fillField(self::$giffVoucher, $numGiffCard);
         $I->click(self::$giffAddClick);
         $I->waitForElement(self::$waitMsg);
