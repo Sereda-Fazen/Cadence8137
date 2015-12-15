@@ -6,7 +6,7 @@ use Step\Acceptance;
 class CheckoutUserCest
 {
 
-        function logIn(Step\Acceptance\UserSteps  $I, Helper\Acceptance $I)
+        function logIn(Step\Acceptance\UserSteps  $I)
         {
             $I->stepsLoginIn();
             $I->comment('Expected result: You are entering in your account ');

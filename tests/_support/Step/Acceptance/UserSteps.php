@@ -79,13 +79,8 @@ class UserSteps extends \AcceptanceTester
 
         $I->see('Thank you for your purchase!','h2.sub-title');
 
-        $I->click('ul.links > li.last > a');
-        $I->click('div.block.block-account > div.block-content > ul > li:nth-of-type(4) > a');
-        $I->waitForElement('div.my-account > div:nth-of-type(2) > div.item-left > p.amount',10);
-        $I->see('Processing','em');
 
-
-
+        
     }
 
 
