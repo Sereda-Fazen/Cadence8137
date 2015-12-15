@@ -10,20 +10,17 @@ class CheckoutGuestMasterCardCest
      * Master Card
      */
 
-    function addToCartPageMasterCard(Step\Acceptance\ItemsSteps $I, Page\CheckoutGuestCreditCard $creditCardPage)
+    function addToCartPageAmericanExpress(Step\Acceptance\ItemsSteps  $I,\Page\CheckoutGuestCreditCard $creditCardPageVisa)
     {
         $I->processAddToCart();
 
-        $creditCardPage->creditCard();
+        $creditCardPageVisa->creditCard();
         $I->checkMasterCard();
 
-    }
-/*
-    function orderInfoMasterCard (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
         $creditCardPageVisa->orderView();
         $I->comment('Expected result: PayPal gateway has rejected request.');
     }
-    */
+
 
 
 

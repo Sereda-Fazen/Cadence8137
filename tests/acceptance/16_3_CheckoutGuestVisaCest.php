@@ -10,22 +10,17 @@ class CheckoutGuestVisaCest
      * Visa
      */
 
-    function addToCartPageVisa(Step\Acceptance\ItemsSteps  $I) {
-        $I->processAddToCart();
-    }
 
-    function paymentInfoVisa(Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditVisa)
+    function addToCartPageAmericanExpress(Step\Acceptance\ItemsSteps  $I,\Page\CheckoutGuestCreditCard $creditCardPageVisa)
     {
-        $creditVisa->creditCard();
+        $I->processAddToCart();
+
+        $creditCardPageVisa->creditCard();
         $I->checkVisa();
 
-    }}
-            /*
-                    function orderInfoVisa (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestCreditCard $creditCardPageVisa) {
-                        $creditCardPageVisa->orderViewAlert();
-                        $I->comment('Expected result: PayPal gateway has rejected request.');
-                    }
-
+        $creditCardPageVisa->orderView();
+        $I->comment('Expected result: PayPal gateway has rejected request.');
+    }
 
 
 
