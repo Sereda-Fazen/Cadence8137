@@ -3,7 +3,7 @@ use Step\Acceptance;
 /**
  * @group checkoutUser
  */
-class CheckoutUserGiffCardCest
+class CheckoutUserCest
 {
 
         function logIn(Step\Acceptance\UserSteps  $I)
@@ -14,6 +14,8 @@ class CheckoutUserGiffCardCest
             $I->userProcessCheckout();
             $I->comment('Expected result: Show your addresses');
 
+            $I->checkGiffCard();
+            $I->comment('Expected result: Showing 1 products which in processing');
         }
 
 
