@@ -11,7 +11,7 @@ class CheckoutGuestVisaCest
      */
 
 
-    function addToCartPageAmericanExpress(Step\Acceptance\ItemsSteps  $I,\Page\CheckoutGuestCreditCard $creditCardPageVisa)
+    function addToCartPageVisa(Step\Acceptance\ItemsSteps  $I,\Page\CheckoutGuestCreditCard $creditCardPageVisa)
     {
         $I->processAddToCart();
 
