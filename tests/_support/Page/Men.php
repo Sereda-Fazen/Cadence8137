@@ -1,6 +1,8 @@
 <?php
 namespace Page;
 
+use Exception;
+
 class Men
 {
     public static $URL = '/';
@@ -17,6 +19,8 @@ class Men
     public function men() {
         $I = $this->tester;
         $I->amOnPage(self::$URL);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->click(self::$men);
     }
     public function returnMen(){

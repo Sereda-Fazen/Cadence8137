@@ -45,24 +45,32 @@ class ItemsSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(1)');
-        $I->waitForAjax(10);
+        $I->waitForAjax(20);
+        $I->scrollDown(100);
         $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
         $I->comment('Expected result: Showing of 12 items on one page ');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(2)');
-        $I->waitForAjax(10);
+
+        $I->waitForAjax(20);
+        $I->scrollDown(100);
         $I->comment('Expected result Is not visible block with navigation');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)');
-        $I->waitForAjax(10);
+
+        $I->waitForAjax(20);
+        $I->scrollDown(100);
         $I->comment('Expected result Is not block with navigation');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(4)');
-        $I->waitForAjax(10);
+
+        $I->waitForAjax(20);
+        $I->scrollDown(100);
         $I->comment('Expected result: Showing of 64 items on one page ');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(5)');
-        $I->waitForAjax(10);
+
+        $I->waitForAjax(20);
         $I->waitForElementNotVisible('div.category-products > div.toolbar > div.pager > div.pages');
         $I->comment('Expected result: Showing all items one page ');
 
@@ -82,13 +90,13 @@ class ItemsSteps extends \AcceptanceTester
         */
         $I->scrollDown(100);
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
-        $I->waitForAjax(10);
+        $I->waitForAjax(20);
         $I->scrollDown(50);
         $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > p.special-price > span.price');
         $I->comment('Show category when - Price begins - min');
 
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
-        $I->waitForAjax(10);
+        $I->waitForAjax(20);
         $I->scrollDown(50);
         $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > span.regular-price > span.price');
         $I->comment('Show category when - Price begins - max');
