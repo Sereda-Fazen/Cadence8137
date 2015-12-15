@@ -1,6 +1,8 @@
 <?php
 namespace Step\Acceptance;
 
+use Exception;
+
 class ItemsSteps extends \AcceptanceTester
 {
 
@@ -22,43 +24,43 @@ class ItemsSteps extends \AcceptanceTester
         }
 
     }
-/*
-    public function allShowingItem()
-    {
-        $I = $this;
-        $show = count($I->grabMultiple('//*[@class = "category-products"]/div[1]//a[@class="show_icon"]'));
-        for ($showItem = 1; $showItem <= $show; $showItem++) {
-            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(' . $showItem . ')');
-            $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.item-left > p.amount', 2);
+    /*
+        public function allShowingItem()
+        {
+            $I = $this;
+            $show = count($I->grabMultiple('//*[@class = "category-products"]/div[1]//a[@class="show_icon"]'));
+            for ($showItem = 1; $showItem <= $show; $showItem++) {
+                $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(' . $showItem . ')');
+                $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.item-left > p.amount', 2);
+
+            }
 
         }
-
-    }
-*/
+    */
     public function allShowingItem()
     {
         $I = $this;
-            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(1)');
-            $I->waitForAjax(10);
-            $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
-            $I->comment('Expected result: Showing of 12 items on one page ');
+        $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(1)');
+        $I->waitForAjax(10);
+        $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
+        $I->comment('Expected result: Showing of 12 items on one page ');
 
-            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(2)');
-            $I->waitForAjax(10);
-            $I->comment('Expected result Is not visible block with navigation');
+        $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(2)');
+        $I->waitForAjax(10);
+        $I->comment('Expected result Is not visible block with navigation');
 
-            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)');
-            $I->waitForAjax(10);
-            $I->comment('Expected result Is not block with navigation');
+        $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)');
+        $I->waitForAjax(10);
+        $I->comment('Expected result Is not block with navigation');
 
-            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(4)');
-            $I->waitForAjax(10);
-            $I->comment('Expected result: Showing of 64 items on one page ');
+        $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(4)');
+        $I->waitForAjax(10);
+        $I->comment('Expected result: Showing of 64 items on one page ');
 
-            $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(5)');
-            $I->waitForAjax(10);
-            $I->waitForElementNotVisible('div.category-products > div.toolbar > div.pager > div.pages');
-            $I->comment('Expected result: Showing all items one page ');
+        $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(5)');
+        $I->waitForAjax(10);
+        $I->waitForElementNotVisible('div.category-products > div.toolbar > div.pager > div.pages');
+        $I->comment('Expected result: Showing all items one page ');
 
 
     }
@@ -67,13 +69,13 @@ class ItemsSteps extends \AcceptanceTester
     public function checkSortBy()
     {
         $I = $this;
-/*
-        $I->selectOption('.//select[@onchange]', 'Name');
-        $I->waitForAjax(10);
-        $I->scrollDown(50);
-        $I->waitForText('A', 4, 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
-        $I->comment('Show category when - Name from A');
-*/
+        /*
+                $I->selectOption('.//select[@onchange]', 'Name');
+                $I->waitForAjax(10);
+                $I->scrollDown(50);
+                $I->waitForText('A', 4, 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
+                $I->comment('Show category when - Name from A');
+        */
         $I->scrollDown(100);
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
         $I->waitForAjax(10);
@@ -86,20 +88,20 @@ class ItemsSteps extends \AcceptanceTester
         $I->scrollDown(50);
         $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > span.regular-price > span.price');
         $I->comment('Show category when - Price begins - max');
-/*
-        $I->selectOption('.//select[@onchange]', 'Band Type');
-        $I->waitForAjax(10);
-        $I->scrollDown(50);
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
-        if ($I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a') == $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(2) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > span.regular-price > span.price')){
-        $I->comment('Show category when - Band type');}
+        /*
+                $I->selectOption('.//select[@onchange]', 'Band Type');
+                $I->waitForAjax(10);
+                $I->scrollDown(50);
+                $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
+                if ($I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a') == $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(2) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > span.regular-price > span.price')){
+                $I->comment('Show category when - Band type');}
 
-        $I->selectOption('.//select[@onchange]', 'size');
-        $I->waitForAjax(10);
-        $I->scrollDown(50);
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
-        $I->comment('Show category when - size');
-*/
+                $I->selectOption('.//select[@onchange]', 'size');
+                $I->waitForAjax(10);
+                $I->scrollDown(50);
+                $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
+                $I->comment('Show category when - size');
+        */
     }
 
 
@@ -171,7 +173,7 @@ class ItemsSteps extends \AcceptanceTester
 
         $I->click('//*[@class="desc std"]//a');
         $I->waitForElement('div.main');
-       // $I->click('ul.grid_full > li:nth-of-type(3) > a');
+        // $I->click('ul.grid_full > li:nth-of-type(3) > a');
         $I->moveBack();
     }
 
@@ -202,39 +204,39 @@ class ItemsSteps extends \AcceptanceTester
 
 
 
-/*
-    public function checkWomenListButtonsForItems(){
-        $I = $this;
-        $I->click('div.toolbar-bottom > div.toolbar > div.pager > p.view-mode.item-left > a.list');
-        $I->scrollDown(100);
-        $I->waitForElement('#products-list > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img');
+    /*
+        public function checkWomenListButtonsForItems(){
+            $I = $this;
+            $I->click('div.toolbar-bottom > div.toolbar > div.pager > p.view-mode.item-left > a.list');
+            $I->scrollDown(100);
+            $I->waitForElement('#products-list > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img');
 
-        $I->click('#products-list > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img');
-        $I->waitForElement('li.product > strong');
+            $I->click('#products-list > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img');
+            $I->waitForElement('li.product > strong');
 
-        $I->click('ul.grid_full > li:nth-of-type(2) > a');
-        $I->scrollDown(100);
-        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > button.button.btn-cart.ajx-cart > span > span');
-        $I->waitForElement('i.fa.fa-times');
-        $I->click('i.fa.fa-times');
+            $I->click('ul.grid_full > li:nth-of-type(2) > a');
+            $I->scrollDown(100);
+            $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > button.button.btn-cart.ajx-cart > span > span');
+            $I->waitForElement('i.fa.fa-times');
+            $I->click('i.fa.fa-times');
 
-        $I->scrollDown(100);
-        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > ul.add-to-links.addto-links-icons > li.first > a.fancybox.tooltip_container > span.icon.fa.fa-search-plus');
-        $I->waitForElement('a.fancybox-item.fancybox-close');
-        $I->click('a.fancybox-item.fancybox-close');
+            $I->scrollDown(100);
+            $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > ul.add-to-links.addto-links-icons > li.first > a.fancybox.tooltip_container > span.icon.fa.fa-search-plus');
+            $I->waitForElement('a.fancybox-item.fancybox-close');
+            $I->click('a.fancybox-item.fancybox-close');
 
-        $I->scrollDown(100);
-        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > div.desc.std > a.link-learn');
-        $I->waitForElement('div.main');
-        $I->click('ul.grid_full > li:nth-of-type(2) > a');
+            $I->scrollDown(100);
+            $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > div.desc.std > a.link-learn');
+            $I->waitForElement('div.main');
+            $I->click('ul.grid_full > li:nth-of-type(2) > a');
 
-        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > h2.product-name > a');
-        $I->waitForElement('h1');
-        $I->click('ul.grid_full > li:nth-of-type(2) > a');
+            $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > h2.product-name > a');
+            $I->waitForElement('h1');
+            $I->click('ul.grid_full > li:nth-of-type(2) > a');
 
-        $I->click('div.category-products > div.toolbar > div.pager > p.view-mode.item-left > a.grid');
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
-*/
+            $I->click('div.category-products > div.toolbar > div.pager > p.view-mode.item-left > a.grid');
+            $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
+    */
 
 
 
@@ -267,11 +269,11 @@ class ItemsSteps extends \AcceptanceTester
 
     public function checkCountsForItem(){
         $I = $this;
-            $I->click('tr.first.odd > td:nth-of-type(4) > div.quantity_counter > a.next.quantity');
-            $I->click('button.button.btn-update > span > span');
-            $I->click('tr.first.odd > td:nth-of-type(4) > div.quantity_counter > a.prev.quantity');
-            $I->click('button.button.btn-update > span > span');
-        }
+        $I->click('tr.first.odd > td:nth-of-type(4) > div.quantity_counter > a.next.quantity');
+        $I->click('button.button.btn-update > span > span');
+        $I->click('tr.first.odd > td:nth-of-type(4) > div.quantity_counter > a.prev.quantity');
+        $I->click('button.button.btn-update > span > span');
+    }
 
 
 
@@ -299,28 +301,28 @@ class ItemsSteps extends \AcceptanceTester
         $I = $this;
         $I->scrollDown(1500);
         $count = count($I->grabMultiple('//*[@id="upsell"]/div[1]/div/div'));
-            if ($count <= 4){
-                $I->moveMouseOver('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-                $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-                $I->waitForElement('a.close.cart', 2);
-                $I->click('a.close.cart');
-                $I->waitForElement('div.main', 2);
+        if ($count <= 4){
+            $I->moveMouseOver('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+            $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+            $I->waitForElement('a.close.cart', 2);
+            $I->click('a.close.cart');
+            $I->waitForElement('div.main', 2);
 
 
-            }
-            else if ($count > 4){
-                $I->click('div.owl-prev');
-                $I->waitForElement('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
-                $I->click('div.owl-next');
-                $I->waitForElement('div.owl-wrapper > div:nth-of-type(5) > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
-                $I->moveMouseOver('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-                $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-                $I->waitForElement('a.close.cart', 2);
-                $I->click('a.close.cart');
-                $I->waitForElement('div.main', 2);
+        }
+        else if ($count > 4){
+            $I->click('div.owl-prev');
+            $I->waitForElement('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
+            $I->click('div.owl-next');
+            $I->waitForElement('div.owl-wrapper > div:nth-of-type(5) > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
+            $I->moveMouseOver('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+            $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+            $I->waitForElement('a.close.cart', 2);
+            $I->click('a.close.cart');
+            $I->waitForElement('div.main', 2);
 
 
-            }
+        }
 
 
 
@@ -341,29 +343,32 @@ class ItemsSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/');
-        $I->subForm();
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
+        //$I->subForm();
         $I->scrollDown(150);
         $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
         $I->waitForElement('a.close.continue');
         $I->click('a.close.cart');
         $I->comment('Expected result: Product was added to your shopping cart.');
 
-    //checkoutShoppingCart
+
+        //checkoutShoppingCart
 
 
         $I->waitForElement('div.main',10);
         $I->comment('Expected result: Open page shopping cart');
 
-    // checkout
+        // checkout
 
+        $I->click('button.button.btn-proceed-checkout.btn-checkout');
+        $I->waitForElement('#onepage-guest-register-button', 10);
         $I->scrollDown(100);
-        $I->click('button.button.btn-proceed-checkout.btn-checkout > span > span');
-        $I->waitForElement('#opc-login > div.step-title',10);
 
 
-    // checkBilling
+        // checkBilling
 
-        $I->click('#onepage-guest-register-button > span > span');
+        $I->click(['id' => 'onepage-guest-register-button']);
 
         $billing = '#billing\3A ';
         $I->fillField($billing. 'firstname', 'alex');
@@ -380,7 +385,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->click('#billing-buttons-container > button.button.continueRed > span > span');
         $I->comment('Expected result: Go to the Shipping Method');
 
-    // shippingMethod
+        // shippingMethod
 
 
         $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span');
@@ -468,23 +473,23 @@ class ItemsSteps extends \AcceptanceTester
 
         $I->click('#p_method_paypal_direct');
 
-            // Cards
-            $I->click('#paypal_direct_cc_type');
-            $I->click('//*[@id="paypal_direct_cc_type"]/option[2]');
-            $I->fillField('#paypal_direct_cc_number', '378282246310005');
-            //  month
-            $I->click('#paypal_direct_expiration');
-            $I->click('//*[@id="paypal_direct_expiration"]/option[2]');
-            //year
-            $I->click('#paypal_direct_expiration_yr');
-            $I->click('//*[@id="paypal_direct_expiration_yr"]/option[3]');
-            //what is this
-            $I->click('a.cvv-what-is-this');
-            $I->waitForElement('div.tool-tip-content > img');
-            $I->click('#payment-tool-tip-close');
-            $I->fillField('#paypal_direct_cc_cid', '1234');
-            //continue
-            $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        // Cards
+        $I->click('#paypal_direct_cc_type');
+        $I->click('//*[@id="paypal_direct_cc_type"]/option[2]');
+        $I->fillField('#paypal_direct_cc_number', '378282246310005');
+        //  month
+        $I->click('#paypal_direct_expiration');
+        $I->click('//*[@id="paypal_direct_expiration"]/option[2]');
+        //year
+        $I->click('#paypal_direct_expiration_yr');
+        $I->click('//*[@id="paypal_direct_expiration_yr"]/option[3]');
+        //what is this
+        $I->click('a.cvv-what-is-this');
+        $I->waitForElement('div.tool-tip-content > img');
+        $I->click('#payment-tool-tip-close');
+        $I->fillField('#paypal_direct_cc_cid', '1234');
+        //continue
+        //  $I->click('#payment-buttons-container > button.button.continueRed > span > span');
 
     }
 
@@ -509,7 +514,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->click('#payment-tool-tip-close');
         $I->fillField('#paypal_direct_cc_cid', '123');
         //continue
-        $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        //  $I->click('#payment-buttons-container > button.button.continueRed > span > span');
     }
 
 
@@ -535,7 +540,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->click('#payment-tool-tip-close');
         $I->fillField('#paypal_direct_cc_cid', '957');
         //continue
-        $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        //   $I->click('#payment-buttons-container > button.button.continueRed > span > span');
     }
 
 

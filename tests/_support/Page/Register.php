@@ -1,6 +1,8 @@
 <?php
 namespace Page;
 
+use Exception;
+
 class Register
 {
     public static $URL = '/customer/account/login/';
@@ -26,7 +28,10 @@ class Register
         $I = $this->tester;
 
         $I->amOnPage(self::$URL);
+
         $I->click(self::$createAccount);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->fillField(self::$firsName, $fName);
         $I->fillField(self::$lastName, $lName);
         $I->fillField(self::$email, $email);

@@ -1,6 +1,8 @@
 <?php
 namespace Page;
 
+use Exception;
+
 class Login
 {
     public static $URL = 'customer/account/login/';
@@ -22,6 +24,8 @@ class Login
         $I = $this->tester;
 
         $I->amOnPage(self::$URL);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->fillField(self::$email, $name);
         $I->fillField(self::$pass, $password);
         $I->click(self::$submit);
@@ -32,6 +36,7 @@ class Login
     {
         $I = $this->tester;
         $I->click(self::$logout);
+        $I->wait(5);
 
     }
 

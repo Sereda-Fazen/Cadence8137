@@ -19,8 +19,8 @@ class MyAccount
     public static $current = '#current_password';
     public static $pass = '#password';
     public static $confirmation = '#confirmation';
-    public static $submit = 'div.buttons-set > button.button > span > span';
-    public static $close = 'html/body/div[1]/div/div[5]/span';
+    public static $submit = 'div.buttons-set > button.button';
+
 
     /**
      *  Address Book
@@ -90,8 +90,8 @@ class MyAccount
     public static $URL9 = '/giftvoucher/index/index/';
 
     public static $viewBlock = 'button.form-button.button.addredeem > span > span';
-   // public static $clickHere = 'div.storecredit > div:nth-of-type(2) > a';
-  // public static $redeem = 'div.button-add-list > button:nth-of-type(1) > span > span';
+    // public static $clickHere = 'div.storecredit > div:nth-of-type(2) > a';
+    // public static $redeem = 'div.button-add-list > button:nth-of-type(1) > span > span';
 
     protected $tester;
 
@@ -102,6 +102,8 @@ class MyAccount
     public function accountInfo($fName,$lName,$email,$current, $pass1, $pass2) {
         $I = $this->tester;
         $I->amOnPage(self::$URL);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->fillField(self::$firsName, $fName);
         $I->fillField(self::$lastName, $lName);
         $I->fillField(self::$email, $email);
@@ -109,6 +111,9 @@ class MyAccount
         $I->fillField(self::$current, $current);
         $I->fillField(self::$pass, $pass1);
         $I->fillField(self::$confirmation, $pass2);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
+        $I->scrollDown(100);
         $I->click(self::$submit);
     }
 
@@ -116,7 +121,8 @@ class MyAccount
         $I = $this->tester;
 
         $I->amOnPage(self::$URL2);
-        $I->click(self::$close);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->fillField(self::$firsName, $fName);
         $I->fillField(self::$lastName, $lName);
         $I->fillField(self::$phone, $phone);
@@ -125,7 +131,7 @@ class MyAccount
         $I->fillField(self::$zip, $zip);
         $I->click(self::$state);
         $I->fillField(self::$region, $region);
-        $I->scrollDown();
+        $I->scrollDown(100);
         $I->click(self::$submit2);
     }
 
@@ -192,8 +198,8 @@ class MyAccount
 
         $I->amOnPage(self::$URL9);
         $I->click(self::$viewBlock);
-      //  $I->click(self::$clickHere);
-     //   $I->click(self::$redeem);
+        //  $I->click(self::$clickHere);
+        //   $I->click(self::$redeem);
 
     }
 
