@@ -74,13 +74,11 @@ class UserSteps extends \AcceptanceTester
         $I->waitForElement('button.button.btn-checkout > span > span',10);
 
         $I->click('button.button.btn-checkout > span > span');
-
         $I->waitForElement('h2.sub-title',30);
-
         $I->see('Thank you for your purchase!','h2.sub-title');
 
 
-        
+
     }
 
 
