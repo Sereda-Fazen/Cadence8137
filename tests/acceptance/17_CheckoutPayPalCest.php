@@ -6,19 +6,13 @@ use Step\Acceptance;
 class CheckoutPayPalCest
 {
         /**
-         * @param Acceptance\LoginSteps $I
          * Giff Card
          */
-        function addToCartPage(Step\Acceptance\ItemsSteps  $I) {
+        function addToCartPage(Step\Acceptance\ItemsSteps  $I, Page\CheckoutPayPal $guestPage) {
             $I->processAddToCart();
 
-        }
-
-        function paymentInfo (Step\Acceptance\ItemsSteps $I, \Page\CheckoutPayPal $guestPage) {
             $guestPage->payPal();
-        }
 
-        function orderOfPayPal (Step\Acceptance\ItemsSteps $I, \Page\CheckoutPayPal $guestPage) {
             $guestPage->payPalSite();
             $I->comment('Expected result: You are have your order in PayPal');
 
