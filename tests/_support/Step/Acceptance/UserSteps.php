@@ -40,18 +40,18 @@ class UserSteps extends \AcceptanceTester
         //checkoutShoppingCart
 
 
-        $I->waitForElement('div.main', 10);
+        $I->waitForElement('div.main', 20);
         $I->comment('Expected result: Open page shopping cart');
         $I->click('button.button.btn-proceed-checkout.btn-checkout > span > span');
-        $I->waitForElementVisible('#checkout-step-billing', 10);
+        $I->waitForElementVisible('#checkout-step-billing', 20);
         $I->click('#billing-buttons-container > button.button.continueRed > span > span');
 
-        $I->waitForElementVisible('#checkout-step-shipping_method', 10);
+        $I->waitForElementVisible('#checkout-step-shipping_method', 20);
         $I->click('#shipping-method-buttons-container > button.button.continueRed > span > span');
 
 
         $I->waitForElementVisible('#checkout-step-payment', 20);
-        $I->waitForElement('#payment-buttons-container > button.button.continueRed > span > span', 10);
+        $I->waitForElement('#payment-buttons-container > button.button.continueRed > span > span', 20);
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
 
         $I->wait(2);
@@ -69,16 +69,19 @@ class UserSteps extends \AcceptanceTester
         //$I->see('Your order’s grand total is zero now. No need to add any more Gift code.','ul.success-msg');
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
 
+        $I->scrollDown(200);
         $I->waitForElementVisible('#checkout-step-review',40);
         $I->waitForElement('button.button.btn-checkout > span > span',10);
+
         $I->click('button.button.btn-checkout > span > span');
 
-        $I->waitForElement('div.main',30);
+        $I->waitForElement('h2.sub-title',30);
+
         $I->see('Thank you for your purchase!','h2.sub-title');
 
         $I->click('ul.links > li.last > a');
         $I->click('div.block.block-account > div.block-content > ul > li:nth-of-type(4) > a');
-        $I->waitForElement('div.my-account > div:nth-of-type(2) > div.item-left > p.amount',5);
+        $I->waitForElement('div.my-account > div:nth-of-type(2) > div.item-left > p.amount',10);
         $I->see('Processing','em');
 
 
