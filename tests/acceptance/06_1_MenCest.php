@@ -22,11 +22,11 @@ class MenCest
         $I->comment('Expected result: Navigate to product card ');
 
         $I->clickAddToCart();
-        $I->comment('Expected result: Form is open');}}
-/*
-        $I->clickQuickView();
-        $I->comment('Expected result: Quick view is open ');
+        $I->comment('Expected result: Form is open');
 
+        $I->clickQuickView();
+        $I->comment('Expected result: Quick view is open ');}}
+/*
         $I->clickNameItem();
         $I->comment('Expected result: Navigate to product card ');
 
