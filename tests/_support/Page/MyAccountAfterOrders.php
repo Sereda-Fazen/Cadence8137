@@ -1,8 +1,9 @@
 <?php
 namespace Page;
 
-use Exception;
-
+/**
+ * @group
+ */
 class MyAccountAfterOrders
 {
 

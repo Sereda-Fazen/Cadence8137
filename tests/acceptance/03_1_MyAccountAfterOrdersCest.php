@@ -1,7 +1,7 @@
 <?php
 use Step\Acceptance;
 /**
- * @group account
+ * @group checkoutUser
  */
 class MyAccountAfterOrdersCest
 

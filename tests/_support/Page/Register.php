@@ -29,6 +29,7 @@ class Register
 
         $I->amOnPage(self::$URL);
 
+        $I->waitForElement(self::$createAccount);
         $I->click(self::$createAccount);
         try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
         $I->wait(2);

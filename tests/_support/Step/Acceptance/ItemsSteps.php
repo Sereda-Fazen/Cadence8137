@@ -53,19 +53,16 @@ class ItemsSteps extends \AcceptanceTester
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(2)');
 
         $I->waitForAjax(20);
-        $I->scrollDown(100);
         $I->comment('Expected result Is not visible block with navigation');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)');
 
         $I->waitForAjax(20);
-        $I->scrollDown(100);
         $I->comment('Expected result Is not block with navigation');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(4)');
 
         $I->waitForAjax(20);
-        $I->scrollDown(100);
         $I->comment('Expected result: Showing of 64 items on one page ');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(5)');
@@ -96,7 +93,6 @@ class ItemsSteps extends \AcceptanceTester
 
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
         $I->waitForAjax(20);
-        $I->scrollDown(50);
         $I->waitForElement('//*[@class="regular-price"]');
         $I->comment('Show category when - Price begins - max');
         /*
@@ -124,7 +120,7 @@ class ItemsSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->scrollDown(100);
-        $classics = count($I->grabMultiple('html/body/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/ul/li'));
+        $classics = count($I->grabMultiple('//ul[@class="products-grid category-products-grid columngrid columngrid-adaptive columngrid-3col first last odd"]/li'));
         for ($c = 1; $c <= $classics; $c++) {
             $I->moveMouseOver('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$c.') > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
             $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$c.') > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span',2);
@@ -157,17 +153,6 @@ class ItemsSteps extends \AcceptanceTester
         $I->waitForElement('#products-list > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img',2);
     }
 
-
-
-
-    public function clickAddToCart() {
-        $I = $this;
-
-        $I->scrollDown(50);
-        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > button.button.btn-cart.ajx-cart > span > span');
-        $I->waitForElement('i.fa.fa-times');
-        $I->click('i.fa.fa-times');
-    }
     public function clickQuickView() {
         $I = $this;
 
@@ -177,37 +162,30 @@ class ItemsSteps extends \AcceptanceTester
         $I->click('//*[@class="tooltip"]');
         $I->waitForElement('a.fancybox-item.fancybox-close',4);
         $I->click('a.fancybox-item.fancybox-close');
-        $I->scrollDown(50);
-    }
-
-    public function clickLearnMore() {
-        $I = $this;
-
-        $I->click('//*[@class="desc std"]//a');
-        $I->waitForElement('div.main');
-        // $I->click('ul.grid_full > li:nth-of-type(3) > a');
-        $I->moveBack();
-    }
-
-    public function clickGrid() {
-        $I = $this;
-
-        $I->click('div.category-products > div.toolbar > div.pager > p.view-mode.item-left > a.grid');
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
 
     }
 
 
     public function checkForPriceItems(){
         $I = $this;
-        $I->scrollDown(50);
-        $I->fillField('[name="pricesliderleft"]', 10);
-        $I->waitForElement('dt.block-title > strong > span',2);
-        $I->fillField('[name="pricesliderright"]', 30);
-        $I->waitForElement('dt.block-title > strong > span',2);
+        $I->scrollDown(250);
+        $I->waitForElement('[name="pricesliderleft"]',2);
+        $I->fillField('[name="pricesliderleft"]',20 );
         $I->click('dt.block-title > strong > span');
-        $I->scrollDown(-100);
-        $I->waitForElement('ol > li',2);
+        $I->waitForAjax(30);
+        $I->waitForElement('dt.block-title > strong > span',2);
+
+        $I->fillField('[name="pricesliderright"]', 40);
+        $I->click('dt.block-title > strong > span');
+        $I->waitForElement('dt.block-title > strong > span',2);
+        $I->waitForAjax(20);
+        $I->waitForElement('dt.block-title > strong > span',2);
+
+        $I->waitForElement('ol > li',5);
+        $I->waitForElement('div.actions > a',5);
+        $I->click('div.actions > a');
+        $I->waitForAjax(20);
+        $I->waitForElementNotVisible('ol > li',5);
 
 
     }
