@@ -66,18 +66,32 @@ class UserSteps extends \AcceptanceTester
         $I->fillField('#giftvoucher_code','GIFT-ADFA-12NF0O');
         $I->click('#giftvoucher_add > span > span');
         $I->waitForElementVisible('li > strong',10);
-        //$I->see('Your order’s grand total is zero now. No need to add any more Gift code.','ul.success-msg');
-        $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        $error= $I->grabTextFrom('ul.error-msg');
+        $success = $I->grabTextFrom('ul.success-msg');
 
-        $I->scrollDown(200);
-        $I->waitForElementVisible('#checkout-step-review',40);
-        $I->waitForElement('button.button.btn-checkout > span > span',10);
+        if ($error == 'ul.error-msg' ) {
+            $I->click('#giftvoucher_credit');
+            $I->waitForElementVisible('li.giftvoucher-discount-code');
+            $I->see('Your order’s grand total is zero now. No need to add any more Gift code.','ul.success-msg');
+            $I->scrollDown(200);
+            $I->waitForElementVisible('#checkout-step-review', 40);
+            $I->waitForElement('button.button.btn-checkout > span > span', 10);
 
-        $I->click('button.button.btn-checkout > span > span');
-        $I->waitForElement('h2.sub-title',30);
-        $I->see('Thank you for your purchase!','h2.sub-title');
+            $I->click('button.button.btn-checkout > span > span');
+            $I->waitForElement('h2.sub-title', 30);
+            $I->see('Thank you for your purchase!', 'h2.sub-title');
 
+        } else  {
 
+            $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+            $I->scrollDown(200);
+            $I->waitForElementVisible('#checkout-step-review', 40);
+            $I->waitForElement('button.button.btn-checkout > span > span', 10);
+
+            $I->click('button.button.btn-checkout > span > span');
+            $I->waitForElement('h2.sub-title', 30);
+            $I->see('Thank you for your purchase!', 'h2.sub-title');
+        }
 
     }
 
