@@ -6,6 +6,7 @@ use Exception;
 class MyAccount
 {
 
+
     /**
      * Account Information
      */
@@ -44,6 +45,8 @@ class MyAccount
      * My Orders
      */
     public static $URL3 = '/sales/order/history/';
+    // after orders
+
 
 
     /**
@@ -99,6 +102,7 @@ class MyAccount
         $this->tester = $I;
     }
 
+
     public function accountInfo($fName,$lName,$email,$current, $pass1, $pass2) {
         $I = $this->tester;
         $I->amOnPage(self::$URL);
@@ -137,7 +141,6 @@ class MyAccount
 
     public function accountMyOrders() {
         $I = $this->tester;
-
         $I->amOnPage(self::$URL3);
 
     }

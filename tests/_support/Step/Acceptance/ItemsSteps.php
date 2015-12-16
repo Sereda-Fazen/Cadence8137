@@ -91,14 +91,13 @@ class ItemsSteps extends \AcceptanceTester
         $I->scrollDown(100);
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
         $I->waitForAjax(20);
-        $I->scrollDown(50);
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > p.special-price > span.price');
+        $I->waitForElement('//*[@class="regular-price"]');
         $I->comment('Show category when - Price begins - min');
 
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
         $I->waitForAjax(20);
         $I->scrollDown(50);
-        $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > div.vert > div.price-box > span.regular-price > span.price');
+        $I->waitForElement('//*[@class="regular-price"]');
         $I->comment('Show category when - Price begins - max');
         /*
                 $I->selectOption('.//select[@onchange]', 'Band Type');
@@ -173,9 +172,10 @@ class ItemsSteps extends \AcceptanceTester
         $I = $this;
 
         $I->scrollDown(100);
-        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > ul.add-to-links.addto-links-icons > li.first > a.fancybox.tooltip_container > span.icon.fa.fa-search-plus');
-        $I->waitForAjax(10);
-        $I->waitForElement('div.product-name',10);
+        $I->moveMouseOver('//*[@class="add-to-links addto-links-icons"]//li/a');
+        $I->waitForElementVisible('//*[@class="tooltip"]');
+        $I->click('//*[@class="tooltip"]');
+        $I->waitForElement('a.fancybox-item.fancybox-close',4);
         $I->click('a.fancybox-item.fancybox-close');
         $I->scrollDown(50);
     }
@@ -189,22 +189,6 @@ class ItemsSteps extends \AcceptanceTester
         $I->moveBack();
     }
 
-    public function clickReturnCategory() {
-        $I = $this;
-        $I->click('ul.grid_full > li:nth-of-type(3) > a');
-        $I->scrollDown(50);
-    }
-
-    public function clickNameItem() {
-        $I = $this;
-
-        $I->scrollDown(50);
-        $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > h2.product-name > a');
-        $I->waitForElement('h1');
-        $I->moveBack();
-        $I->scrollDown(50);
-
-    }
     public function clickGrid() {
         $I = $this;
 
@@ -212,46 +196,6 @@ class ItemsSteps extends \AcceptanceTester
         $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
 
     }
-
-
-
-
-    /*
-        public function checkWomenListButtonsForItems(){
-            $I = $this;
-            $I->click('div.toolbar-bottom > div.toolbar > div.pager > p.view-mode.item-left > a.list');
-            $I->scrollDown(100);
-            $I->waitForElement('#products-list > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img');
-
-            $I->click('#products-list > li:nth-of-type(1) > div.product-image-wrapper > a.product-image > img');
-            $I->waitForElement('li.product > strong');
-
-            $I->click('ul.grid_full > li:nth-of-type(2) > a');
-            $I->scrollDown(100);
-            $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > button.button.btn-cart.ajx-cart > span > span');
-            $I->waitForElement('i.fa.fa-times');
-            $I->click('i.fa.fa-times');
-
-            $I->scrollDown(100);
-            $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.right-column > div.right-column-inner > div.actions > ul.add-to-links.addto-links-icons > li.first > a.fancybox.tooltip_container > span.icon.fa.fa-search-plus');
-            $I->waitForElement('a.fancybox-item.fancybox-close');
-            $I->click('a.fancybox-item.fancybox-close');
-
-            $I->scrollDown(100);
-            $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > div.desc.std > a.link-learn');
-            $I->waitForElement('div.main');
-            $I->click('ul.grid_full > li:nth-of-type(2) > a');
-
-            $I->click('#products-list > li:nth-of-type(1) > div.product-shop > div.product-shop-inner > h2.product-name > a');
-            $I->waitForElement('h1');
-            $I->click('ul.grid_full > li:nth-of-type(2) > a');
-
-            $I->click('div.category-products > div.toolbar > div.pager > p.view-mode.item-left > a.grid');
-            $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
-    */
-
-
-
 
 
     public function checkForPriceItems(){

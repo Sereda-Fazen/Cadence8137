@@ -1,6 +1,8 @@
 <?php
 namespace Step\Acceptance;
 
+use Exception;
+
 class LoginSteps extends \AcceptanceTester
 {
 
@@ -23,6 +25,8 @@ class LoginSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/customer/account/login/');
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->fillField('#email', 'fazen7@mail.ru');
         $I->fillField('#pass', '123456');
         $I->click('Login');
@@ -229,7 +233,7 @@ class LoginSteps extends \AcceptanceTester
 
         $I = $this;
         $I->wait(3);
-        $I->amOnUrl("http://mail.ru");
+        $I->amOnUrl("http://gmail.com");
         $I->fillField(['id' => 'mailbox__login'], 'fazen7');
         $I->wait(2);
         $I->fillField(['id' => 'mailbox__password'], 'seredafazen');

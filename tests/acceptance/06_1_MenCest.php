@@ -25,10 +25,7 @@ class MenCest
         $I->comment('Expected result: Form is open');
 
         $I->clickQuickView();
-        $I->comment('Expected result: Quick view is open ');}}
-/*
-        $I->clickNameItem();
-        $I->comment('Expected result: Navigate to product card ');
+        $I->comment('Expected result: Quick view is open ');
 
         $I->clickLearnMore();
         $I->comment('Expected result: Navigate to product card ');
@@ -38,6 +35,7 @@ class MenCest
 
         $I->checkForPriceItems();
         $I->comment('Expected result: Check the price');
-    }
 
+
+    }
 }
