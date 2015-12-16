@@ -228,19 +228,19 @@ class LoginSteps extends \AcceptanceTester
     }
     */
 
-    public function mailAuth()
+    public function gMailAuth()
     {
 
         $I = $this;
-        $I->wait(3);
         $I->amOnUrl("http://gmail.com");
-        $I->fillField(['id' => 'mailbox__login'], 'fazen7');
-        $I->wait(2);
-        $I->fillField(['id' => 'mailbox__password'], 'seredafazen');
-        $I->wait(2);
-        $I->click(['id' => 'mailbox__auth__button']);
-        $I->see('fazen7@mail.ru', 'div.w-x-ph__auth__dropdown__inner');
-        $I->click('Cadence Watch Company');
+        $I->fillField(['id' => 'Email'], 'cadence.test02@gmail.com');
+        $I->click(['id' => 'next']);
+        $I->waitForElement(['id' => 'Passwd'],3);
+        $I->fillField(['id' => 'Passwd'], '!1qwerty');
+        $I->click(['id' => 'signIn']);
+        $I->waitForElement('//*[@class="z0"]',5);
+        $I->see('Test', 'span.gb_P.gb_R');
+      //  $I->click('Cadence Watch Company');
 
     }
 
@@ -260,6 +260,7 @@ class LoginSteps extends \AcceptanceTester
         $I->fillField('#password', '123456');
         $I->fillField('#confirmation', '123456');
         $I->click('Reset a Password');
+        $I->see('Your password has been updated.', 'li.success-msg');
 
     }
 

@@ -9,6 +9,8 @@ class ForgotPass
     public static $mail = '#email_address';
     public static $subSave = 'div.buttons-set > button.button > span > span';
 
+    public static $msg = 'li.success-msg';
+
 
 
     protected $tester;
@@ -25,6 +27,7 @@ class ForgotPass
         $I->click(self::$mail);
         $I->fillField(self::$mail, $mailPass);
         $I->click(self::$subSave);
+        $I->see('If there is an account associated with cadence.test02@gmail.com you will receive an email with a link to reset your password.', self::$msg);
     }
 
 }
