@@ -232,21 +232,23 @@ class LoginSteps extends \AcceptanceTester
     {
 
         $I = $this;
-        $I->amOnUrl("http://gmail.com");
-        $I->fillField(['id' => 'Email'], 'cadence.test02@gmail.com');
-        $I->click(['id' => 'next']);
-        $I->waitForElement(['id' => 'Passwd'],3);
-        $I->fillField(['id' => 'Passwd'], '!1qwerty');
-        $I->click(['id' => 'signIn']);
-        $I->waitForElement('//*[@class="z0"]',5);
-        $I->see('Test', 'span.gb_P.gb_R');
-      //  $I->click('Cadence Watch Company');
+        $I->amOnUrl("https://mail.yahoo.com");
+        $I->fillField('//*[@id="login-username"]', 'cadence.test01@yahoo.com');
+        $I->wait(2);
+        $I->fillField('//*[@id="login-passwd"]', '!1qwerty');
+        $I->wait(2);
+        $I->click('//*[@id="login-signin"]');
+        $I->waitForElement('//*[@class="icon info info-real info-unread "]',5);
+        $I->see('Password Reset Confirmation', '//*[@class="subject bold"]');
+        $I->click('//*[@class="subject bold"]');
 
     }
 
     public function remoteWindow(){
         $I = $this;
-        $I->click('Reset Password');
+
+        $I->click('//*[@id="yui_3_16_0_1_1450361155068_3759"]');
+        $I->acceptPopup();
         $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
             $handles = $webdriver->getWindowHandles();
             $last_window = end($handles);
