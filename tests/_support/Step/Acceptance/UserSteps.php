@@ -65,23 +65,21 @@ class UserSteps extends \AcceptanceTester
         $I->waitForElementVisible('#giftvoucher_code',10);
         $I->fillField('#giftvoucher_code','GIFT-ADFA-12NF0O');
         $I->click('#giftvoucher_add > span > span');
-        $I->waitForElementVisible('li > strong',10);
-        $error= $I->grabTextFrom('ul.error-msg');
-        $success = $I->grabTextFrom('ul.success-msg');
+        $I->waitForElementVisible('ul.error-msg',10);
 
-        if ($error == 'ul.error-msg' ) {
+        if ($I->grabTextFrom('ul.error-msg > li') == 'Gift code "GIFT-ADFA-12NF0O" is no longer available to use.') {
             $I->click('#giftvoucher_credit');
             $I->waitForElementVisible('li.giftvoucher-discount-code');
-            $I->see('Your order’s grand total is zero now. No need to add any more Gift code.','ul.success-msg');
+            $I->waitForElement('ul.success-msg');
+           // $I->see('Your order’s grand total is zero now. No need to add any more Gift code.','ul.success-msg');
             $I->scrollDown(200);
-            $I->waitForElementVisible('#checkout-step-review', 40);
-            $I->waitForElement('button.button.btn-checkout > span > span', 10);
-
-            $I->click('button.button.btn-checkout > span > span');
+            $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span',10);
+            $I->click('#payment-buttons-container > button.button.continueRed > span > span');
             $I->waitForElement('h2.sub-title', 30);
             $I->see('Thank you for your purchase!', 'h2.sub-title');
 
-        } else  {
+        } else if ($I->grabTextFrom('ul.success-msg > li') == 'Your order’s grand total is zero now. No need to add any more Gift code.'){
+
 
             $I->click('#payment-buttons-container > button.button.continueRed > span > span');
             $I->scrollDown(200);
@@ -92,6 +90,8 @@ class UserSteps extends \AcceptanceTester
             $I->waitForElement('h2.sub-title', 30);
             $I->see('Thank you for your purchase!', 'h2.sub-title');
         }
+
+
 
     }
 
