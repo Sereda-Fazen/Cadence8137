@@ -322,7 +322,7 @@ class LoginSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/');
-        $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl');
+        $I->click('div.owl-wrapper > div:nth-of-type(2) > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl');
         $I->waitForElement('div.main', 2);
 
     }
@@ -343,17 +343,18 @@ class LoginSteps extends \AcceptanceTester
         $I = $this;
         $countImg = count($I->grabMultiple('//*[@id="more-images-slider"]/li'));
         for ($i = 1; $i <= $countImg; $i++) {
-            $I->click('#more-images-slider > li:nth-of-type('.$i.')');
-            $this->waitForElement('img.gallery-image.visible',1);
+            $I->click('#more-images-slider > li:nth-of-type(' . $i . ')');
+            $this->waitForElement('img.gallery-image.visible', 1);
+            $I->wait(2);
+            $I->moveMouseOver('img.gallery-image.visible', 10, 50);
+            $I->waitForElement('div.zoomLens', 2);
+            $I->moveMouseOver('img.gallery-image.visible', 100, 200);
+            $I->waitForElement('div.zoomLens', 2);
+            $I->moveMouseOver('img.gallery-image.visible', 50, 10);
+            $I->waitForElement('div.zoomLens', 2);
+            $I->moveMouseOver('img.gallery-image.visible', 30, 200);
+            $I->waitForElement('div.zoomLens', 2);
         }
-        $I->moveMouseOver('img.gallery-image.visible', 10,50);
-        $I->waitForElement('div.zoomLens',2);
-        $I->moveMouseOver('img.gallery-image.visible', 100,200);
-        $I->waitForElement('div.zoomLens',2);
-        $I->moveMouseOver('img.gallery-image.visible', 50,10);
-        $I->waitForElement('div.zoomLens',2);
-        $I->moveMouseOver('img.gallery-image.visible', 30,200);
-        $I->waitForElement('div.zoomLens',2);
 
 
     }
@@ -366,9 +367,9 @@ class LoginSteps extends \AcceptanceTester
             if ($count <= 4){
                 $I->moveMouseOver('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
                 $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-                $I->waitForElement('a.close.cart', 2);
+                $I->waitForElement('a.close.cart');
                 $I->click('a.close.cart');
-                $I->waitForElement('div.main', 2);
+                $I->waitForElement('div.main');
 
 
             }
@@ -379,9 +380,9 @@ class LoginSteps extends \AcceptanceTester
                 $I->waitForElement('div.owl-wrapper > div:nth-of-type(5) > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl', 2);
                 $I->moveMouseOver('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
                 $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
-                $I->waitForElement('a.close.cart', 2);
+                $I->waitForElement('a.close.cart');
                 $I->click('a.close.cart');
-                $I->waitForElement('div.main', 2);
+                $I->waitForElement('div.main');
 
 
             }
