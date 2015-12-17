@@ -10,13 +10,13 @@ class MainPages
     public static $URL = '/';
     public static $men = 'li.parent > a';
     public static $sell = '#sidenav > li:nth-of-type(4) > a > span:nth-of-type(2)';
-    public static $msg = 'div.category-description.std > h3:nth-of-type(1) > img:nth-of-type(2)';
+    public static $msg = 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd';
 
     /**
      * Women
      */
 
-    public static $women = '#sidenav > li:nth-of-type(2) > a > span:nth-of-type(2)';
+    public static $women = '#mega-nav > li:nth-of-type(2) > a';
     public static $wait = 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd';
 
     protected $tester;
@@ -28,14 +28,16 @@ class MainPages
     public function men()
     {
         $I = $this->tester;
-
         $I->amOnPage(self::$URL);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->click(self::$men);
     }
     public function sale()
     {
         $I = $this->tester;
         $I->click(self::$sell);
+        $I->scrollDown(700);
         $I->waitForElement(self::$msg);
     }
     public function women(){

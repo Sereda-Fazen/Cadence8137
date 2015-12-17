@@ -271,6 +271,7 @@ class LoginSteps extends \AcceptanceTester
     public function menLinks(){
         $I = $this;
         $I->amOnPage('/');
+
         $I->click('li.parent > a');
     }
 
@@ -278,12 +279,13 @@ class LoginSteps extends \AcceptanceTester
 
     public function linksMen() {
         $I = $this;
-        $countLinks = count($I->grabMultiple('//*[@id="sidenav"]/li[1]/ul/li'));
+        $countLinks = count($I->grabMultiple('//*[@class="level0"]/li'));
         for ($index = 1; $index < $countLinks; $index++) {
             $I->click('#sidenav > li:nth-of-type(1) > ul > li:nth-of-type('.$index.') > a');
-            $I->waitForElement('div.category-products > div.toolbar > div.sorter > div.item-left > p.amount');
-
+            $I->scrollDown(300);
+            $I->waitForElement('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd');
         }
+
 
     }
 
