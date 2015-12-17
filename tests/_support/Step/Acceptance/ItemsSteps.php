@@ -323,7 +323,7 @@ class ItemsSteps extends \AcceptanceTester
         // shippingMethod
 
 
-        $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span',15);
+        $I->waitForElementVisible('#shipping-method-buttons-container > button.button.continueRed > span > span',45);
         $I->click('#shipping-method-buttons-container > button.button.continueRed > span > span');
         $I->waitForElement('#checkout-step-payment');
         $I->comment('Expected result: Go to the Payment information');
@@ -335,23 +335,13 @@ class ItemsSteps extends \AcceptanceTester
      * Check on validation
      */
 
-    public function checkWithoutPayment()
-    {
-        $I = $this;
-
-        //check is not chosen Payment
-        $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 10);
-        $I->click('#payment-buttons-container > button.button.continueRed > span > span');
-        $I->wait(2);
-        $I->acceptPopup();
-
-    }
 
     public function checkCardType()
     {
         $I = $this;
 
         //check empty all fields
+        $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span',10);
         $I->click('#p_method_paypal_direct');
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
         $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 3);

@@ -75,8 +75,10 @@ class UserSteps extends \AcceptanceTester
             $I->scrollDown(200);
             $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span',10);
             $I->click('#payment-buttons-container > button.button.continueRed > span > span');
-            $I->waitForElement('h2.sub-title', 30);
-            $I->see('Thank you for your purchase!', 'h2.sub-title');
+            $I->waitForElementVisible('button.button.btn-checkout > span > span', 60);
+            $I->click('button.button.btn-checkout > span > span');
+            $I->waitForElementVisible('h1',15);
+
 
         } else if ($I->grabTextFrom('ul.success-msg > li') == 'Your order’s grand total is zero now. No need to add any more Gift code.'){
 

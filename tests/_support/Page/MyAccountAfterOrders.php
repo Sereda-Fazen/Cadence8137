@@ -54,9 +54,12 @@ class MyAccountAfterOrders
     public function ordersDashboard (){
         $I = $this->tester;
         $I->waitForElement(self::$recentOrders,2);
+        $I->scrollUp(200);
         $I->click(self::$viewAll);
         $I->waitForElement(self::$showAll,2);
+        $I->scrollDown(200);
         $I->click(self::$navigation);
+        $I->scrollDown(200);
         $I->click(self::$back);
         $I->click(self::$viewOrder);
         $I->waitForElement(self::$itemsOrders);
