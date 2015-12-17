@@ -9,7 +9,7 @@ class CheckoutValidationOnCreditCardCest
      * American Express
      **/
 
-        function addToCartCreditCard(Step\Acceptance\ItemsSteps  $I) {
+        function checkOnValidationForCreditCard(Step\Acceptance\ItemsSteps  $I) {
             $I->processAddToCart();
             $I->comment('Expected result: Please specify payment method');
 

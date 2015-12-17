@@ -177,15 +177,15 @@ class ItemsSteps extends \AcceptanceTester
 
         $I->fillField('[name="pricesliderright"]', 40);
         $I->click('dt.block-title > strong > span');
-        $I->waitForElement('dt.block-title > strong > span',2);
+        $I->waitForElement('dt.block-title > strong > span',10);
         $I->waitForAjax(20);
-        $I->waitForElement('dt.block-title > strong > span',2);
+        $I->waitForElement('dt.block-title > strong > span',10);
 
-        $I->waitForElement('ol > li',5);
-        $I->waitForElement('div.actions > a',5);
+        $I->waitForElement('ol > li',20);
+        $I->waitForElement('div.actions > a',20);
         $I->click('div.actions > a');
         $I->waitForAjax(20);
-        $I->waitForElementNotVisible('ol > li',5);
+        $I->waitForElementNotVisible('ol > li',20);
 
 
     }
@@ -197,7 +197,7 @@ class ItemsSteps extends \AcceptanceTester
         $I = $this;
         $I->amOnPage('/');
         $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl');
-        $I->waitForElement('div.main', 2);
+        $I->waitForElement('div.main', 10);
 
     }
 

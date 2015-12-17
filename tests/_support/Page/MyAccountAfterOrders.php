@@ -1,9 +1,6 @@
 <?php
 namespace Page;
 
-/**
- * @group
- */
 class MyAccountAfterOrders
 {
 
