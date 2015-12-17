@@ -16,8 +16,8 @@ class CheckoutGuestCreditCardCest
             $creditCardPageVisa->creditCard();
             $I->checkAmericanExpress();
 
-          $creditCardPageVisa->orderView();
-         $I->comment('Expected result: PayPal gateway has rejected request.');
+            $creditCardPageVisa->orderView();
+            $I->comment('Expected result: PayPal gateway has rejected request.');
             }
         }
 

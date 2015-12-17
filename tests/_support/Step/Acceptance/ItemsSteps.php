@@ -281,7 +281,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->wait(2);
         //$I->subForm();
         $I->scrollDown(150);
-        $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+        $I->click('div.owl-wrapper > div:nth-of-type(2) > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
         $I->waitForElement('a.close.continue');
         $I->click('a.close.cart');
         $I->comment('Expected result: Product was added to your shopping cart.');
@@ -398,8 +398,12 @@ class ItemsSteps extends \AcceptanceTester
         //check card verify
 
         $I->fillField('#paypal_direct_cc_cid', 'test');
+        $I->scrollDown(100);
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
         $I->see('Please enter a valid credit card verification number.', '#advice-validate-cc-cvn-paypal_direct_cc_cid');
+
+
+
     }
 
 
