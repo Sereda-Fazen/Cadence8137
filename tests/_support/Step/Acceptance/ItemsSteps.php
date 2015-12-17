@@ -401,8 +401,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->scrollDown(100);
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
         $I->see('Please enter a valid credit card verification number.', '#advice-validate-cc-cvn-paypal_direct_cc_cid');
-
-
+        $I->amOnPage('/');
 
     }
 

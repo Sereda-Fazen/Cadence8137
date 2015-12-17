@@ -1,7 +1,7 @@
 <?php
 use Step\Acceptance;
 /**
- * @group checkoutValidationCreditCard
+ * @group checkoutValidation
  */
 class CheckoutValidationOnCreditCardCest
 {
@@ -22,9 +22,7 @@ class CheckoutValidationOnCreditCardCest
         function checkOnCardType(Step\Acceptance\ItemsSteps  $I){
             $I->checkCardType();
             $I->comment('Expected result: Card type does not match credit card number');
-
         }
-
         function checkOnEmptyNumberCard(Step\Acceptance\ItemsSteps  $I){
             $I->checkEmptyNumberCard();
             $I->comment('Expected result: Card type does not match credit card number');
