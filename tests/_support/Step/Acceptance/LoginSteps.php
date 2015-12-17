@@ -354,6 +354,7 @@ class LoginSteps extends \AcceptanceTester
             $I->waitForElement('div.zoomLens', 2);
             $I->moveMouseOver('img.gallery-image.visible', 30, 200);
             $I->waitForElement('div.zoomLens', 2);
+            $I->see('div.zoomLens');
         }
 
 
