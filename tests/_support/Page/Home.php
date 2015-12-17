@@ -1,6 +1,8 @@
 <?php
 namespace Page;
 
+use Exception;
+
 class Home
 {
     public static $URL = '/';
@@ -188,6 +190,8 @@ class Home
     {
         $I = $this->tester;
         $I->amOnPage(self::$URL2);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->click(self::$facebook);
         $I->waitForText(self::$cadenceWatch, 4);
     }
@@ -195,6 +199,8 @@ class Home
     {
         $I = $this->tester;
         $I->amOnPage(self::$URL2);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->click(self::$instagram);
         $I->waitForText(self::$cadenceInstagram, 4);
     }
@@ -202,6 +208,8 @@ class Home
     {
         $I = $this->tester;
         $I->amOnPage(self::$URL2);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->click(self::$twitter);
         $I->waitForText(self::$cadenceWatch, 4);
     }
@@ -209,6 +217,8 @@ class Home
     {
         $I = $this->tester;
         $I->amOnPage(self::$URL2);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->click(self::$pinterest);
         $I->waitForText(self::$cadenceWatch, 4);
     }

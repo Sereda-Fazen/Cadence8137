@@ -26,10 +26,10 @@ class HomeCest
             $I->waitForElement('div.main');
 
             $homePage->homePageContent();
-
+/*
             $homePage->homePageSubscription('sa@itsvit.org');
             $I->see('Thank you for your subscription.', 'li.success-msg');
-
+*/
             $homePage->homePageFooter();
             $I->getFooterMenu();
             $I->getFooterMenu1();
