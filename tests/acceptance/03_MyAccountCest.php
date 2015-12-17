@@ -14,7 +14,7 @@ class MyAccountCest
         $I->stepsLoginIn();
         $I->see('Hello, alex sereda!', 'p.hello > strong');
 
-        $myAccountPage->accountInfo('alex', 'sereda', 'fazen7@mail.ru', '123456', '123456', '123456');
+        $myAccountPage->accountInfo('alex', 'sereda', 'cadence.test01@yahoo.com', '123456', '123456', '123456');
         $I->see('The account information has been saved.', 'li.success-msg');
 
         $myAccountPage->accountInfo('', '', '', '', '', '');
@@ -32,6 +32,10 @@ class MyAccountCest
 
         $I->waitAlertWindow();
         $I->comment('Expected result: The address has been deleted.');
+
+        $MyAccountPage->accountAddress('alex', 'sereda', '+39063636369', 'Dostoevskogo22v', 'Kharkov', '54423', 'Kharkov');
+        $I->waitForElement('li.success-msg');
+        $I->comment('Expected result: The address has been saved.');
     }
 
     function MyAccountOrders(Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage) {

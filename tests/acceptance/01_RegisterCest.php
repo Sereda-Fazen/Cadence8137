@@ -7,9 +7,6 @@ class RegisterCest
 
 
 
-
-
-
     function registerSuccess(AcceptanceTester $I, \Page\Register $registerPage) {
             $login = rand().'@'.rand().'.ru';
             $registerPage->register('alex', 'sereda',$login,'123456','123456');
