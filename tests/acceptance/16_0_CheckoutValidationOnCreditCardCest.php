@@ -1,7 +1,7 @@
 <?php
 use Step\Acceptance;
 /**
- * @group checkoutValidation
+ * @group checkoutCreditCard
  */
 class CheckoutValidationOnCreditCardCest
 {
