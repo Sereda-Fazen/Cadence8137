@@ -5,7 +5,7 @@
 class LoginCest
 {
         function loginSuccess(AcceptanceTester $I, \Page\Login $loginPage) {
-            $loginPage->login('fazen7@mail.ru', '123456');
+            $loginPage->login('cadence.test01@yahoo.com', '123456');
             $I->amOnPage('/customer/account/index/');
             $I->see('Hello, alex sereda!', 'p.hello > strong');
             $loginPage->logout();
@@ -18,7 +18,7 @@ class LoginCest
         }
 
         function loginEmptyPass(AcceptanceTester $I, \Page\Login $loginPage) {
-            $loginPage->login('sa@itsvit.org', '');
+            $loginPage->login('cadence.test01@yahoo.com', '');
             $I->see( 'This is a required field.','#advice-required-entry-pass');
             $I->comment('Expected result: This is a required field pass.');
         }

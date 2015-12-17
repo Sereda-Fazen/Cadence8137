@@ -30,8 +30,8 @@ class UserSteps extends \AcceptanceTester
         } catch (Exception $e) {
         }
         $I->wait(2);
-        $I->scrollDown(150);
-        $I->click('div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+        $I->scrollDown(200);
+        $I->click('//*[@class="button btn-cart ajx-cart"]');
         $I->waitForElement('a.close.continue');
         $I->click('a.close.cart');
         $I->comment('Expected result: Product was added to your shopping cart.');

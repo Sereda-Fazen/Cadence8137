@@ -246,9 +246,8 @@ class LoginSteps extends \AcceptanceTester
 
     public function remoteWindow(){
         $I = $this;
-
-        $I->click('//*[@id="yui_3_16_0_1_1450361155068_3759"]');
-        $I->acceptPopup();
+        $I->waitForText('RESET PASSWORD',5);
+        $I->click('td > a > span');
         $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
             $handles = $webdriver->getWindowHandles();
             $last_window = end($handles);

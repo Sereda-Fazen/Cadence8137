@@ -5,7 +5,12 @@
 class RegisterCest
 {
 
-        function registerSuccess(AcceptanceTester $I, \Page\Register $registerPage) {
+
+
+
+
+
+    function registerSuccess(AcceptanceTester $I, \Page\Register $registerPage) {
             $login = rand().'@'.rand().'.ru';
             $registerPage->register('alex', 'sereda',$login,'123456','123456');
             $I->see('Thank you for registering with The Cadence Watch Company.', 'li.success-msg');
