@@ -34,7 +34,7 @@ class ShoppingCartCest
         $shoppingCart->checkWrongGiffCard('test');
         $I->comment('Expected result: Gift card "test" is invalid.');
 
-        $shoppingCart->checkGiffCard('GIFT-ADFA-12NF0F');
+        $shoppingCart->checkGiffCard('GIFT-ADFA-12NF0O');
         $I->comment('Expected result: Gift code "GIFT-XXXX-XXXXXX" has been applied successfully.');
 
         $shoppingCart->checkDeleteGiffCard();
