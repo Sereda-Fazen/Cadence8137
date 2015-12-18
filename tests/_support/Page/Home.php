@@ -153,6 +153,7 @@ class Home
     {
         $I = $this->tester;
 
+        $I->waitForElementVisible(self::$link);
         $I->click(self::$link);
         $I->moveBack();
         $I->scrollDown(200);

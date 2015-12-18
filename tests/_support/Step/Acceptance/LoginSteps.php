@@ -326,8 +326,9 @@ class LoginSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/');
-        $I->click('div.owl-wrapper > div:nth-of-type(2) > div.item > div.product-image-wrapper > a.product-image > img.lazyOwl');
-        $I->waitForElement('div.main', 2);
+        $I->scrollDown(200);
+        $I->click('//*[@class="lazyOwl "]');
+        $I->waitForElement('div.main', 10);
 
     }
 
