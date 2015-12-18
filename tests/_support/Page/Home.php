@@ -156,9 +156,9 @@ class Home
         $I->click(self::$link);
         $I->moveBack();
         $I->scrollDown(200);
-        $I->waitForElement(self::$addToCart);
+        $I->waitForElement(self::$addToCart,10);
         $I->click(self::$addToCart);
-        $I->waitForElement(self::$cancel, 2);
+        $I->waitForElement(self::$cancel, 10);
         $I->click(self::$cancel);
         $I->moveBack();
         $I->scrollDown(300);
