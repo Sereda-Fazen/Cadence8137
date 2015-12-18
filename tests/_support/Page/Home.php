@@ -113,7 +113,7 @@ class Home
 
         $I->moveMouseOver(self::$search);
         $I->fillField(self::$input, $search);
-        $I->waitForElement(self::$list, 2);
+        $I->waitForElement(self::$list, 10);
         $I->click(self::$list);
     }
 

@@ -181,11 +181,11 @@ class ItemsSteps extends \AcceptanceTester
         $I->waitForAjax(20);
         $I->waitForElement('dt.block-title > strong > span',10);
 
-        $I->waitForElement('ol > li',20);
-        $I->waitForElement('div.actions > a',20);
+        $I->waitForElement('ol > li',40);
+        $I->waitForElement('div.actions > a',40);
         $I->click('div.actions > a');
-        $I->waitForAjax(20);
-        $I->waitForElementNotVisible('ol > li',20);
+        $I->waitForAjax(40);
+        $I->waitForElementNotVisible('ol > li',40);
 
 
     }
