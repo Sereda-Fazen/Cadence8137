@@ -42,7 +42,7 @@ class CheckoutGuestGiffCard
         $I->waitForElementVisible(self::$giffVoucher, 15);
         $I->fillField(self::$giffVoucher, $numGiffCard);
         $I->click(self::$giffAddClick);
-        $I->waitForElement(self::$waitMsg);
+       // $I->waitForElement(self::$waitMsg);
         $I->click(self::$clickPay);
         $I->waitForElementVisible(self::$waitOrderView,10);
     }

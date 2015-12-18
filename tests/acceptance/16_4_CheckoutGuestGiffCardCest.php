@@ -4,11 +4,10 @@ use Step\Acceptance;
 class CheckoutGuestGiffCardCest
 {
 
-    function addToCartPageForPayPal(Step\Acceptance\ItemsSteps  $I) {
+    function addToCartPageForPayPal(Step\Acceptance\ItemsSteps  $I, Page\CheckoutGuestGiffCard $guestPage) {
         $I->processAddToCart();
 
-    }
-    function giffCardInfo (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestGiffCard $guestPage) {
+
         $guestPage->paymentInformation('GIFT-ADFA-12NF0O');
         $I->comment('Expected result: ');
     }
