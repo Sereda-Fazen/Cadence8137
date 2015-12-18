@@ -13,8 +13,8 @@ class MyAccountAfterOrdersCest
         $MyAccountPage->ordersDashboard();
         $I->comment('Expected result: This product is currently out of stock');
 
-        $MyAccountPage->addGiffCardForOrdersRedeem('GIFT-ADFA-12NF0O');
-        $I->comment('Expected result: GIFT-ADFA-12NF0O - The current balance of this gift code is 0');
+        $MyAccountPage->addGiffCardForOrdersRedeem('GIFT-ADFA-12NF0F');
+        $I->comment('Expected result: GIFT-ADFA-12NF0F - The current balance of this gift code is 0');
 
         $MyAccountPage->addSameGiffCard('GIFT-ADFA-12NF0O');
         $I->comment('Expected result: This gift code has already existed in your list');

@@ -65,34 +65,52 @@ class UserSteps extends \AcceptanceTester
         $I->waitForElementVisible('#giftvoucher_code',10);
         $I->fillField('#giftvoucher_code','GIFT-ADFA-12NF0O');
         $I->click('#giftvoucher_add > span > span');
-        $I->waitForElementVisible('ul.error-msg',10);
-
-        if ($I->grabTextFrom('ul.error-msg > li') == 'Gift code "GIFT-ADFA-12NF0O" is no longer available to use.') {
-            $I->click('#giftvoucher_credit');
-            $I->waitForElementVisible('li.giftvoucher-discount-code');
+            //$I->waitForElementVisible('li.giftvoucher-discount-code');
             $I->waitForElement('ul.success-msg');
-           // $I->see('Your order’s grand total is zero now. No need to add any more Gift code.','ul.success-msg');
+            $I->see('No need to add any more Gift code.', 'ul.success-msg');
             $I->scrollDown(200);
-            $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span',10);
+            $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 10);
             $I->click('#payment-buttons-container > button.button.continueRed > span > span');
             $I->waitForElementVisible('button.button.btn-checkout > span > span', 60);
             $I->click('button.button.btn-checkout > span > span');
-            $I->waitForElementVisible('h1',15);
+            $I->waitForElementVisible('h1', 15);
+        $I->waitForElement('h2.sub-title', 30);
+        $I->see('Thank you for your purchase!', 'h2.sub-title');
 
 
-        } else if ($I->grabTextFrom('ul.success-msg > li') == 'Your order’s grand total is zero now. No need to add any more Gift code.'){
 
 
+
+
+
+        // $I->see('GIFT-XXXX-XXXXXX','li > strong');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+        } else if ($I->grabTextFrom('ul.success-msg > li') == 'No need to add any more Gift code.'){
+
+            $I->scrollDown(200);
             $I->click('#payment-buttons-container > button.button.continueRed > span > span');
             $I->scrollDown(200);
             $I->waitForElementVisible('#checkout-step-review', 40);
             $I->waitForElement('button.button.btn-checkout > span > span', 10);
 
             $I->click('button.button.btn-checkout > span > span');
-            $I->waitForElement('h2.sub-title', 30);
-            $I->see('Thank you for your purchase!', 'h2.sub-title');
-        }
 
+        }
+*/
 
 
     }

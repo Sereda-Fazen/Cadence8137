@@ -17,7 +17,7 @@ class MyAccountAfterOrders
     public static $itemsOrders = 'div.order-items.order-details';
     public static $backMyOrders = 'p.back-link > a';
     public static $invoices = '#order-info-tabs > li.last';
-    public static $waitInvoices = 'div.order-items.order-details > h2:nth-of-type(2)';
+    public static $waitInvoices = 'h2.sub-title';
     public static $reorder = '//*[@class="a-center last"]//a[2]';
     public static $error = 'li.error-msg';
 
@@ -30,7 +30,8 @@ class MyAccountAfterOrders
     public static $viewGiff = 'View';
     public static $waitBlock = 'div.col-main';
 
-    public static $removeCard = '//span[@class="giftvoucher-grid-detail"]/a[4]';
+    public static $removeCard2 = '//*[@class="giftvoucher-grid-detail"]/a[2]';
+    public static $removeCard = '//*[@class="giftvoucher-grid-detail"]/a[4]';
     public static $msg = 'li.success-msg';
 
     //add
@@ -64,9 +65,9 @@ class MyAccountAfterOrders
         $I->scrollDown(200);
         $I->waitForElement(self::$waitInvoices,2);
         $I->click(self::$back);
+        $I->waitForElement(self::$reorder);
         $I->click(self::$reorder);
         $I->waitForElement(self::$error);
-        $I->see('This product is currently out of stock.',self::$error);
         $I->moveBack();
 
     }
@@ -75,13 +76,15 @@ class MyAccountAfterOrders
     public function addGiffCardForOrdersRedeem ($giffCard)
     {
         $I = $this->tester;
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->click(self::$giffCard);
         $I->waitForElement(self::$myBalance,2);
         $I->click(self::$addGiffCard);
         $I->fillField(self::$inputGiff, $giffCard);
         $I->click(self::$redeem);
         $I->waitForElement(self::$error);
-        $I->see('GIFT-ADFA-12NF0O - The current balance of this gift code is 0.',self::$error);
+        $I->see('GIFT-ADFA-12NF0F - The current balance of this gift code is 0.',self::$error);
 
     }
     public function addSameGiffCard($giffCard){
@@ -94,6 +97,8 @@ class MyAccountAfterOrders
 
     public function addGiffCard($giffCard){
         $I = $this->tester;
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->fillField(self::$inputGiff, $giffCard);
         $I->click(self::$addToList);
         $I->waitForElement(self::$msg);
@@ -104,11 +109,17 @@ class MyAccountAfterOrders
     {
         $I = $this->tester;
         $I->waitForText(self::$viewGiff);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->scrollDown(200);
         $I->click(self::$viewGiff);
         $I->waitForElement(self::$waitBlock);
         $I->moveBack();
         $I->click(self::$removeCard);
+        $I->acceptPopup();
+        $I->waitForElement(self::$msg);
+        $I->see('Gift card was successfully removed',self::$msg);
+        $I->click(self::$removeCard2);
         $I->acceptPopup();
         $I->waitForElement(self::$msg);
         $I->see('Gift card was successfully removed',self::$msg);
