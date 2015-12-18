@@ -1,23 +1,17 @@
 <?php
 use Step\Acceptance;
-/**
- * @group checkoutGuestPayPal
- */
+
 class CheckoutGuestGiffCardCest
 {
-        /**
-         * Giff Card
-         */
-        function addToCartPage(Step\Acceptance\ItemsSteps  $I, Page\CheckoutPayPal $guestPage) {
-            $I->processAddToCart();
 
-            $guestPage->payPal();
+    function addToCartPageForPayPal(Step\Acceptance\ItemsSteps  $I) {
+        $I->processAddToCart();
 
-            $guestPage->payPalSite();
-            $I->comment('Expected result: You are have your order in PayPal');
-
-        }
-
+    }
+    function giffCardInfo (Step\Acceptance\ItemsSteps $I, \Page\CheckoutGuestGiffCard $guestPage) {
+        $guestPage->paymentInformation('GIFT-ADFA-12NF0O');
+        $I->comment('Expected result: ');
+    }
 
 
 
