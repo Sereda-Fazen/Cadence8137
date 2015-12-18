@@ -13,7 +13,7 @@ class CheckoutGuestGiffCard
     //public static $useGiffCard = 'dt.form-group.giftvoucher > label';
     public static $giffVoucher = '#giftvoucher_code';
     public static $giffAddClick = '#giftvoucher_add > span > span';
-    public static $waitMsg = '';
+    public static $waitMsg = 'li > strong';
     public static $clickPay = '#payment-buttons-container > button.button.continueRed > span > span';
 
     /**
@@ -42,20 +42,12 @@ class CheckoutGuestGiffCard
         $I->waitForElementVisible(self::$giffVoucher, 15);
         $I->fillField(self::$giffVoucher, $numGiffCard);
         $I->click(self::$giffAddClick);
-       // $I->waitForElement(self::$waitMsg);
+        $I->waitForElementVisible(self::$waitMsg);
         $I->click(self::$clickPay);
-        $I->waitForElementVisible(self::$waitOrderView,10);
+        $I->acceptPopup();
     }
 
-    public function orderView(){
-        $I = $this->tester;
 
-        $I->waitForElementVisible(self::$clickOrder, 8);
-        $I->scrollDown(250);
-        $I->click(self::$clickOrder);
-
-
-    }
 
 
 

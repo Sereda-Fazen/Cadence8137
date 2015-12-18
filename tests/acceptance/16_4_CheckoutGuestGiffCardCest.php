@@ -1,15 +1,16 @@
 <?php
 use Step\Acceptance;
-
+/**
+ * @group checkoutCreditCard
+ */
 class CheckoutGuestGiffCardCest
 {
 
-    function addToCartPageForPayPal(Step\Acceptance\ItemsSteps  $I, Page\CheckoutGuestGiffCard $guestPage) {
+    function checkIfLittleMoneyOnGiffCard(Step\Acceptance\ItemsSteps  $I, Page\CheckoutGuestGiffCard $guestPage) {
         $I->processAddToCart();
 
-
-        $guestPage->paymentInformation('GIFT-ADFA-12NF0O');
-        $I->comment('Expected result: ');
+        $guestPage->paymentInformation('GIFT-ADFA-12NF0Z');
+        $I->comment('Expected result: Prevent this page from creating additional dialogs');
     }
 
 
