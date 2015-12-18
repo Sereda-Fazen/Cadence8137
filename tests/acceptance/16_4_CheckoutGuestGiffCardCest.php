@@ -11,6 +11,7 @@ class CheckoutGuestGiffCardCest
 
         $guestPage->paymentInformation('GIFT-ADFA-12NF0Z');
         $I->comment('Expected result: Prevent this page from creating additional dialogs');
+
     }
 
 
