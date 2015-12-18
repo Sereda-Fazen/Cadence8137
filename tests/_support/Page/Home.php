@@ -160,7 +160,8 @@ class Home
         $I->waitForElement(self::$cancel, 2);
         $I->click(self::$cancel);
         $I->moveBack();
-        $I->scrollDown(200);
+        $I->scrollDown(300);
+        $I->waitForElement(self::$zoom);
         $I->click(self::$zoom);
         $I->moveBack();
     }

@@ -334,10 +334,12 @@ class LoginSteps extends \AcceptanceTester
     public function checkCountsForItem(){
         $I = $this;
             $I->click('tr.first.odd > td:nth-of-type(4) > div.quantity_counter > a.next.quantity');
-            $I->scrollDown(1000);
+            $I->scrollDown(100);
+            $I->waitForElement('button.button.btn-update > span > span');
             $I->click('button.button.btn-update > span > span');
             $I->click('tr.first.odd > td:nth-of-type(4) > div.quantity_counter > a.prev.quantity');
-            $I->scrollDown(1000);
+            $I->scrollDown(100);
+            $I->waitForElement('button.button.btn-update > span > span');
             $I->click('button.button.btn-update > span > span');
         }
 
