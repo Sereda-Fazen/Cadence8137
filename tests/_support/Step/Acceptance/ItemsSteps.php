@@ -280,8 +280,12 @@ class ItemsSteps extends \AcceptanceTester
         try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
         $I->wait(2);
         //$I->subForm();
-        $I->scrollDown(150);
-        $I->click('div.owl-wrapper > div:nth-of-type(2) > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+
+        $I->click('#mega-nav > li:nth-of-type(1) > a');
+        $I->scrollDown(450);
+        $I->moveMouseOver('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(2) > div.product-image-wrapper > a.product-image > img');
+        $I->waitForElementVisible('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(2) > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+        $I->click('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(2) > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
         $I->waitForElement('a.close.continue');
         $I->click('a.close.cart');
         $I->comment('Expected result: Product was added to your shopping cart.');
