@@ -5,12 +5,12 @@ use Exception;
 
 class Login
 {
-    public static $URL = 'customer/account/login/';
+    public static $linkLogIn = 'a.login_click';
 
     public static $email = '#email';
     public static $pass = '#pass';
-    public static $submit = '[name="send"] > span > span';
-    public static $logout = 'ul.links > li.last > a';
+    public static $submit = '//*[@id ="send2"]/span';
+    public static $logout = '//li[@class ="dropit-trigger"]/a';
 
     protected $tester;
 
