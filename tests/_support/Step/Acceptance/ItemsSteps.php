@@ -283,9 +283,9 @@ class ItemsSteps extends \AcceptanceTester
 
         $I->click('#mega-nav > li:nth-of-type(1) > a');
         $I->scrollDown(250);
-        $I->moveMouseOver('//*[@id="product-collection-image-558"]');
-        $I->waitForElementVisible('html/body/div[1]/div/div[2]/div/div[3]/div[1]/div/ul/li[2]/div[1]/div[3]/div/button');
-        $I->click('html/body/div[1]/div/div[2]/div/div[3]/div[1]/div/ul/li[2]/div[1]/div[3]/div/button');
+        $I->moveMouseOver('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(2) > div.product-image-wrapper > a.product-image > img');
+        $I->waitForElementVisible('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(2) > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+        $I->click('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(2) > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
         $I->waitForElement('a.close.continue');
         $I->click('a.close.cart');
         $I->comment('Expected result: Product was added to your shopping cart.');
