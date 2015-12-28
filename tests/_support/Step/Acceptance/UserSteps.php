@@ -21,7 +21,6 @@ class UserSteps extends \AcceptanceTester
 
 
     public function userProcessCheckout()
-
     {
         $I = $this;
         $I->amOnPage('/');
@@ -29,9 +28,12 @@ class UserSteps extends \AcceptanceTester
             $I->click('.closeNewsletter');
         } catch (Exception $e) {
         }
-        $I->wait(2);
-        $I->scrollDown(200);
-        $I->click('div.owl-wrapper > div:nth-of-type(2) > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+        $I->click('li.parent > a');
+        $I->scrollDown(250);
+        $rand = rand(2,count($I->grabMultiple('//*[@class="category-products"]/ul/li')));
+        $I->moveMouseOver('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$rand.') > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+        $I->waitForElementVisible('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$rand.') > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
+        $I->click('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$rand.') > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
         $I->waitForElement('a.close.continue');
         $I->click('a.close.cart');
         $I->comment('Expected result: Product was added to your shopping cart.');
