@@ -325,13 +325,18 @@ class LoginSteps extends \AcceptanceTester
 
     public function productCart()
     {
+
         $I = $this;
         $I->amOnPage('/');
-        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
-        $I->wait(2);
-        //$I->subForm();
-        $I->scrollDown(150);
-        $I->click('div.owl-wrapper > div:nth-of-type(2) > div.item > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
+        try {
+            $I->click('.closeNewsletter');
+        } catch (Exception $e) {
+        }
+        $I->click('li.parent > a');
+        $I->scrollDown(250);
+        $rand = rand(2,count($I->grabMultiple('//*[@class="category-products"]/ul/li')));
+        $I->waitForElementVisible('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$rand.') > div.product-image-wrapper > a.product-image > img');
+        $I->click('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$rand.') > div.product-image-wrapper > a.product-image > img');
 
     }
 
