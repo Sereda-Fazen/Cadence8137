@@ -20,8 +20,8 @@ settings:
 
 modules:
     config:
-        Db:
-            dsn: ''
-            user: ''
-            password: ''
-            dump: tests/_data/dump.sql
+       Db:
+           dsn: 'mysql:host=192.168.205.131;dbname=cadence'
+           user: 'magento'
+           password: 'magento'
+           cleanup: false
