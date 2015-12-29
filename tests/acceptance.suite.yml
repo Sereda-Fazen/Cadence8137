@@ -14,8 +14,8 @@ modules:
 
       # run in browserstack
 
-            host: 'hub.browserstack.com'
-            port: 80
+            #host: 'hub.browserstack.com'
+           # port: 80
             browser: chrome
             window_size: 1980x1680
             restart: false
@@ -33,14 +33,6 @@ modules:
              resolution: 1920x1080
 
 
-    # run all instance
-env:
-    INST_8131:
 
 
 
-    INST_PROD:
-        modules:
-            config:
-                WebDriver:
-                  url: 'https://cadencewatch.com'

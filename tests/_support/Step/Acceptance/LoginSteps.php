@@ -7,13 +7,6 @@ class LoginSteps extends \AcceptanceTester
 {
 
 
-    public function deleteCookies(){
-        $I= $this;
-        $I->seeCookie('PHPSESSID');
-        $I->resetCookie('dev1.cadencewatch.com');
-        $I->reloadPage();
-    }
-
     public function logOut(){
         $I= $this;
         $I->amOnPage('/');
@@ -27,7 +20,7 @@ class LoginSteps extends \AcceptanceTester
         $I->amOnPage('/customer/account/login/');
         try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
         $I->wait(2);
-        $I->fillField('#email', 'cadence.test01@yahoo.com');
+        $I->fillField('#email', 'cadence_watch@yahoo.com');
         $I->wait(2);
         $I->fillField('#pass', '123456');
         $I->click('Login');
@@ -125,22 +118,6 @@ class LoginSteps extends \AcceptanceTester
         $I->click('span.closeNewsletter');
     }
 
-    public function getSecondOpen() {
-
-        $I = $this;
-        $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
-            $handles = $webdriver->getWindowHandles();
-            $last_window = end($handles);
-            $webdriver->switchTo()->window($last_window);
-        });
-
-
-    }
-
-
-
-
-
     public function getZoom()
     {
         $I = $this;
@@ -180,69 +157,16 @@ class LoginSteps extends \AcceptanceTester
     }
 
 
-    /*
-    public function getHeaderMenu()
-    {
-
-        $I = $this;
-
-        for ($i = 2; $i <= 9; $i++) {
-            $I->click('#nav > li:nth-of-type(' . $i . ') > a.level-top > span');
-            $rows = count($I->grabMultiple('//div/div[3]/ul'));
-            for ($r = 1; $r <= $rows; $r++) {
-
-                $cels = count($I->grabMultiple('//div/div[3]/ul[' . $r . ']/li'));
-                for ($c = 1; $c <= $cels; $c++) {
-                    $I->moveMouseOver('//div/div[3]/ul[' . $r . ']/li[' . $c . ']', 70, 150);
-                    $I->moveMouseOver('//div/div[3]/ul[' . $r . ']/li[' . $c . ']', 150, 30);
-                    $I->moveMouseOver('//div/div[3]/ul[' . $r . ']/li[' . $c . ']', 30, 70);
-
-                }
-            }
-
-        }
-        $I->click('li.last.level-top > a.level-top > span');
-        $rows = count($I->grabMultiple('//div/div[3]/ul'));
-        for ($s = 1; $s <= $rows; $s++) {
-
-            $cels = count($I->grabMultiple('//div/div[3]/ul[' . $s . ']/li'));
-            for ($c = 1; $c <= $cels; $c++) {
-                $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 70, 150);
-                $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 150, 30);
-                $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 30, 70);
-            }
-        }
-        $I->click('li.home > a');
-
-        $I->click('li.first.level-top > a.level-top > span');
-        $rows = count($I->grabMultiple('//div/div[3]/ul'));
-        for ($s = 1; $s <= $rows; $s++) {
-
-            $cels = count($I->grabMultiple('//div/div[3]/ul[' . $s . ']/li'));
-            for ($c = 1; $c <= $cels; $c++) {
-                $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 70, 150);
-                $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 150, 30);
-                $I->moveMouseOver('//div/div[3]/ul[' . $s . ']/li[' . $c . ']', 30, 70);
-            }
-        }
-        $I->click('li.home > a');
-    }
-    */
-
     public function gMailAuth()
     {
-
         $I = $this;
         $I->amOnUrl("https://mail.yahoo.com");
-        $I->fillField('//*[@id="login-username"]', 'cadence.test01@yahoo.com');
-        $I->wait(2);
+        $I->fillField('//*[@id="login-username"]', 'cadence_watch@yahoo.com');
         $I->fillField('//*[@id="login-passwd"]', '!1qwerty');
-        $I->wait(2);
         $I->click('//*[@id="login-signin"]');
         $I->waitForElement('//*[@class="icon info info-real info-unread "]',5);
         $I->see('Password Reset Confirmation', '//*[@class="subject bold"]');
         $I->click('//*[@class="subject bold"]');
-
     }
 
     public function remoteWindow(){
@@ -263,7 +187,6 @@ class LoginSteps extends \AcceptanceTester
         $I->fillField('#confirmation', '123456');
         $I->click('Reset a Password');
         $I->see('Your password has been updated.', 'li.success-msg');
-
     }
 
 

@@ -7,17 +7,6 @@ class ItemsSteps extends \AcceptanceTester
 {
 
 
-
-
-
-
-    public function subForm(){
-        $I = $this;
-
-        $I->fillField('//*[@id="newsletter"]', 'fazen7@mail.ru');
-        $I->click('//*[@id="subs"]');
-    }
-
     public function linksMen() {
         $I = $this;
         $countLinks = count($I->grabMultiple('//*[@id="sidenav"]/li[1]/ul/li'));
