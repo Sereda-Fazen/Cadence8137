@@ -11,6 +11,7 @@ class Register
     public static $firsName = '#firstname';
     public static $lastName = '#lastname';
     public static $email = '#email_address';
+    public static $signUpNewsletter = '#is_subscribed';
     public static $pass = '#password';
     public static $confirmation = '#confirmation';
     public static $submit = 'Submit';
@@ -40,6 +41,36 @@ class Register
 
         return $this;
     }
+
+    public function registerForNewsletter($fName,$lName,$email, $pass1, $pass2)
+    {
+        $I = $this->tester;
+
+        $I->amOnPage(self::$URL);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
+        $I->click(self::$createAccount);
+        $I->fillField(self::$firsName, $fName);
+        $I->fillField(self::$lastName, $lName);
+        $I->fillField(self::$email, $email);
+        $I->click(self::$signUpNewsletter);
+        $I->fillField(self::$pass, $pass1);
+        $I->fillField(self::$confirmation, $pass2);
+        $I->click(self::$submit);
+
+        return $this;
+    }
+
+
+
+
+
+
+
+
+
+
+
     public function logout()
     {
         $I = $this->tester;
