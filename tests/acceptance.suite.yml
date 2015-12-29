@@ -29,10 +29,7 @@ modules:
              #applicationCacheEnabled: false
              unexpectedAlertBehaviour: 'accept'
              pageLoadStrategy: 'eager'
-           #  platform: 'MAC'
-            # resolution: 1920x1080
-
-
-
+             platform: 'MAC'
+             resolution: 1920x1080
 
 
