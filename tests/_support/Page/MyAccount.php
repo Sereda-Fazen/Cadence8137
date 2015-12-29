@@ -79,15 +79,6 @@ class MyAccount
 
 
     /**
-     * Newsletter Subscriptions
-     */
-
-    public static $URL8 = '/monkey/customer_account/index/';
-
-    public static $buttonSave = 'div.buttons-set > button.button > span > span';
-    public static $clickCheck = 'input.monkey-list-subscriber';
-
-    /**
      * Giff Card
      */
     public static $URL9 = '/giftvoucher/index/index/';
@@ -175,26 +166,9 @@ class MyAccount
 
     }
 
-    public function accountNewsletterSave() {
-        $I = $this->tester;
 
-        $I->amOnPage(self::$URL8);
-        $I->click(self::$buttonSave);
-    }
 
-    public function accountNewsletterDelete() {
-        $I = $this->tester;
 
-        $I->click(self::$clickCheck);
-        $I->click(self::$buttonSave);
-    }
-
-    public function accountReturnChecks(){
-        $I = $this->tester;
-
-        $I->click(self::$clickCheck);
-        $I->click(self::$buttonSave);
-    }
 
     public function accountGiftCard(){
         $I = $this->tester;

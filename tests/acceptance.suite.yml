@@ -10,17 +10,17 @@ modules:
     config:
         WebDriver:
             url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8137'
-
+            browser: chrome
 
       # run in browserstack
 
             #host: 'hub.browserstack.com'
            # port: 80
-            browser: chrome
+            browser: fifefox
             window_size: 1980x1680
             restart: false
             #wait: 1
-            clear_cookies: false
+            #clear_cookies: false
 
             capabilities:
              browserstack.user: 'alex3357'

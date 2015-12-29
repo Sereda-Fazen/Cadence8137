@@ -68,16 +68,7 @@ class MyAccountCest
         $MyAccountPage->accountDownloads();
         $I->getVisibleText('You have not purchased any downloadable products yet.');
     }
-    /*
-        function MyAccountNewsletter(AcceptanceTester $I, \Page\MyAccount $MyAccountPage){
-            $MyAccountPage->accountNewsletterSave();
-            $I->see('Your profile has been updated!', 'li.success-msg');
-            $MyAccountPage->accountNewsletterDelete();
-            $I->see('You have been removed from Newsletter.', 'li.success-msg');
-            $MyAccountPage->accountReturnChecks();
-        }
 
-    */
     function MyAccountGiftCard(Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage)
     {
         $I->stepsLoginIn();
