@@ -118,6 +118,17 @@ class LoginSteps extends \AcceptanceTester
         $I->click('span.closeNewsletter');
     }
 
+    public function getSecondOpen() {
+        $I = $this;
+        $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
+            $handles = $webdriver->getWindowHandles();
+            $last_window = end($handles);
+            $webdriver->switchTo()->window($last_window);
+        });
+    }
+
+
+
     public function getZoom()
     {
         $I = $this;

@@ -153,6 +153,7 @@ class Home
     {
         $I = $this->tester;
 
+        $I->scrollDown(400);
         $I->waitForElementVisible(self::$link);
         $I->click(self::$link);
         $I->moveBack();
@@ -161,10 +162,6 @@ class Home
         $I->click(self::$addToCart);
         $I->waitForElement(self::$cancel, 10);
         $I->click(self::$cancel);
-        $I->moveBack();
-        $I->scrollDown(300);
-        $I->waitForElement(self::$zoom);
-        $I->click(self::$zoom);
         $I->moveBack();
     }
 
