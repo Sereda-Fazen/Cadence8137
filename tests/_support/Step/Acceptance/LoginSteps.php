@@ -21,7 +21,6 @@ class LoginSteps extends \AcceptanceTester
         try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
         $I->wait(2);
         $I->fillField('#email', 'cadence_watch@yahoo.com');
-        $I->wait(2);
         $I->fillField('#pass', '123456');
         $I->click('Login');
 

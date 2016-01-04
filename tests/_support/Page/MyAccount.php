@@ -97,8 +97,6 @@ class MyAccount
     public function accountInfo($fName,$lName,$email,$current, $pass1, $pass2) {
         $I = $this->tester;
         $I->amOnPage(self::$URL);
-        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
-        $I->wait(2);
         $I->fillField(self::$firsName, $fName);
         $I->fillField(self::$lastName, $lName);
         $I->fillField(self::$email, $email);
@@ -116,8 +114,6 @@ class MyAccount
         $I = $this->tester;
 
         $I->amOnPage(self::$URL2);
-        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
-        $I->wait(2);
         $I->fillField(self::$firsName, $fName);
         $I->fillField(self::$lastName, $lName);
         $I->fillField(self::$phone, $phone);
