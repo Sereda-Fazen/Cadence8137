@@ -33,9 +33,9 @@ class ItemsSteps extends \AcceptanceTester
     public function allShowingItem()
     {
         $I = $this;
+        $I->scrollUp(200);
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(1)');
         $I->waitForAjax(20);
-        $I->scrollDown(100);
         $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
         $I->comment('Expected result: Showing of 12 items on one page ');
 
@@ -157,7 +157,7 @@ class ItemsSteps extends \AcceptanceTester
 
     public function checkForPriceItems(){
         $I = $this;
-        $I->scrollDown(250);
+        $I->scrollDown(100);
         $I->waitForElement('[name="pricesliderleft"]',2);
         $I->fillField('[name="pricesliderleft"]',20 );
         $I->click('dt.block-title > strong > span');

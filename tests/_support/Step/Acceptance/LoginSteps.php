@@ -72,10 +72,10 @@ class LoginSteps extends \AcceptanceTester
     {
 
         $I = $this;
-        for ($i = 2; $i <= 5; $i++) {
+        $countLinks = $I->grabMultiple('//*[@class="mega-container"]/ul/li');
+        for ($i = 2; $i <= 7; $i++) {
             $I->click('#mega-nav > li:nth-of-type(' . $i . ') > a');
         }
-        $I->click('li.home > a');
     }
 
     public  function invalidURL(){
@@ -210,6 +210,14 @@ class LoginSteps extends \AcceptanceTester
         $I->click('li.parent > a');
     }
 
+    public function headerLinks(){
+        $I = $this;
+        $headerLinks = count($I->grabMultiple('//*[@class="childCategory"]/a'));
+        for ($header = 1; $header <= $headerLinks; $header++){
+            $I->click('//*[@class="childCategory"]/a['.$header.']');
+            $I->waitForElement('ul.grid_full > li:nth-of-type(3) > strong');
+        }
+    }
 
 
     public function linksMen() {
