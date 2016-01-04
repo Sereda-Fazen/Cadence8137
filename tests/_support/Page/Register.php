@@ -63,6 +63,7 @@ class Register
         $I->wait(2);
         $I->click(self::$submit);
 
+
         return $this;
     }
 

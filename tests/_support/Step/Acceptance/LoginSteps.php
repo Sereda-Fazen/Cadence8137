@@ -206,7 +206,6 @@ class LoginSteps extends \AcceptanceTester
     public function menLinks(){
         $I = $this;
         $I->amOnPage('/');
-
         $I->click('li.parent > a');
     }
 

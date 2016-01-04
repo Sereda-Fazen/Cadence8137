@@ -8,21 +8,12 @@ class RegisterCest
 
     function registerSuccess(AcceptanceTester $I, \Page\Register $registerPage)
     {
-        $login = rand() . '@' . rand() . '.ru';
-        $registerPage->register('alex', 'sereda', $login, '123456', '123456');
+        $registerPage->register('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456');
         $I->see('Thank you for registering with The Cadence Watch Company.', 'li.success-msg');
         $I->comment('You are registering to Cadence Watch Company.');
         $registerPage->logout();
     }
-
-    function deleteNewUserFromAdminPanel(AcceptanceTester $I,\Page\Register $registerPage){
-            $registerPage->authPanel('admin', 'Corn54Goat93');
-            $I->comment('Expected result: Admin has entered in the admin panel');
-
-            $registerPage->deleteUser();
-            $I->comment('Expected result: The customer has been deleted');
-    }
-
+    
     function registerWrongEmail(AcceptanceTester $I, \Page\Register $registerPage) {
             $registerPage->register('alex', 'sereda','sereda222.ru','123456','123456');
             $I->see('Please enter a valid email address. For example johndoe@domain.com.','#advice-validate-email-email_address');
@@ -53,8 +44,9 @@ class RegisterCest
             $I->comment('Expected result: This is a required first field.');
         }
 
-        function registerEmptySecondPass(AcceptanceTester $I, \Page\Register $registerPage) {
-            $registerPage->register('alex', 'sereda','fazen7@mail.ru','123456','');
+        function registerEmptySecondPass(AcceptanceTester $I, \Page\Register $registerPage)
+        {
+            $registerPage->register('alex', 'sereda', 'fazen7@mail.ru', '123456', '');
             $I->see('This is a required field.', '#advice-required-entry-confirmation');
             $I->comment('Expected result: This is a required second field.');
         }
