@@ -116,8 +116,7 @@ class MyAccount
         $I = $this->tester;
 
         $I->amOnPage(self::$URL2);
-        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
-        $I->wait(2);
+
         $I->fillField(self::$firsName, $fName);
         $I->fillField(self::$lastName, $lName);
         $I->fillField(self::$phone, $phone);
@@ -127,6 +126,8 @@ class MyAccount
         $I->click(self::$state);
         $I->fillField(self::$region, $region);
         $I->scrollDown(100);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->click(self::$submit2);
     }
 

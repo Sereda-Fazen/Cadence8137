@@ -9,7 +9,8 @@ class HomeCest
     function homeHeader(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
     {
 
-        $homePage->homePageHeader();
+        $homePage->homePageHeader();}
+        /*
         $homePage->homePageMainMenu();
         $I->getHeaderMenu();
     }
@@ -32,36 +33,38 @@ class HomeCest
         $homePage->homeHeaderCart();
         $I->getVisibleText('You have no items in your shopping cart.');
     }
+*/
+        function homeContent(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
+        {
+            $homePage->homeSlide();
+            $homePage->homePageContent();
+        }
+        /*
+            function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
+            {
+                $homePage->homePageFooter();
+                $I->getFooterMenu();
+                $I->getFooterMenu1();
+                $I->getFooterMenu2();
+            }
 
-    function homeContent(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
-    {
-        $homePage->homeSlide();
-        $homePage->homePageContent();
-    }
+            function homeFooterSocialLinks(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
+            {
+                $homePage->homeFooterFacebook();
+                $I->getSecondOpen();
+                $I->comment('Expected result: Page is open - Facebook ');
+                $homePage->homeFooterTwiter();
+                $I->getSecondOpen();
+                $I->comment('Expected result: Page is open - Twitter ');
+                $homePage->homeFooterPinterest();
+                $I->getSecondOpen();
+                $I->comment('Expected result: Page is open - Pinterest ');
+                $homePage->homeFooterInstagram();
+                $I->getSecondOpen();
+                $I->comment('Expected result: Page is open - Instargam ');
+            }
 
-    function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
-    {
-        $homePage->homePageFooter();
-        $I->getFooterMenu();
-        $I->getFooterMenu1();
-        $I->getFooterMenu2();
-    }
-
-    function homeFooterSocialLinks(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
-    {
-        $homePage->homeFooterFacebook();
-        $I->getSecondOpen();
-        $I->comment('Expected result: Page is open - Facebook ');
-        $homePage->homeFooterTwiter();
-        $I->getSecondOpen();
-        $I->comment('Expected result: Page is open - Twitter ');
-        $homePage->homeFooterPinterest();
-        $I->getSecondOpen();
-        $I->comment('Expected result: Page is open - Pinterest ');
-        $homePage->homeFooterInstagram();
-        $I->getSecondOpen();
-        $I->comment('Expected result: Page is open - Instargam ');
-    }
+        */
 
 
 }

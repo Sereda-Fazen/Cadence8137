@@ -42,7 +42,7 @@ class Home
      * Slide
      */
 
-    public static $slide = 'div.owl-wrapper > div:nth-of-type(4) > li.item > a > img';
+    public static $slide = 'div.owl-wrapper > div:first-child > li.item > a > img';
     public static $rightClick = 'ul.banner-slider.owl-theme > div.owl-controls.clickable > div.owl-buttons > div.owl-next';
     public static $leftClick = 'ul.banner-slider.owl-theme > div.owl-controls.clickable > div.owl-buttons > div.owl-next';
 
@@ -135,11 +135,15 @@ class Home
     public function homeSlide()
     {
         $I = $this->tester;
-        $I->click(self::$logo);
+        $I->moveBack();
         $I->click(self::$slide);
         $I->moveBack();
+        $I->moveMouseOver(self::$slide);
         $I->click(self::$rightClick);
+        $I->wait(2);
         $I->click(self::$leftClick);
+        $I->wait(2);
+
     }
 
     public function homePageSubscription($email)
