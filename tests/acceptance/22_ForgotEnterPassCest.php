@@ -1,7 +1,7 @@
 <?php
 use \Step\Acceptance;
 /**
- * @group checkNewPassword
+ * @group enter
  */
 class EnterPassCest {
 
@@ -18,5 +18,7 @@ class EnterPassCest {
         $deleteMsg->deleteMsg();
         $I->comment('Expected result: Your message was deleted');
     }
+
+
 
 }

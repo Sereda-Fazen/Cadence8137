@@ -14,6 +14,7 @@ class RegisterCest
         $registerPage->logout();
     }
 
+
     function registerWrongEmail(AcceptanceTester $I, \Page\Register $registerPage) {
             $registerPage->register('alex', 'sereda','sereda222.ru','123456','123456');
             $I->see('Please enter a valid email address. For example johndoe@domain.com.','#advice-validate-email-email_address');

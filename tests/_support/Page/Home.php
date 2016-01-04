@@ -42,8 +42,9 @@ class Home
      * Slide
      */
 
-    public static $slide = 'li.item > a > img';
-
+    public static $slide = 'div.owl-wrapper > div:nth-of-type(4) > li.item > a > img';
+    public static $rightClick = 'ul.banner-slider.owl-theme > div.owl-controls.clickable > div.owl-buttons > div.owl-next';
+    public static $leftClick = 'ul.banner-slider.owl-theme > div.owl-controls.clickable > div.owl-buttons > div.owl-next';
 
     /**
      * Content
@@ -136,7 +137,9 @@ class Home
         $I = $this->tester;
         $I->click(self::$logo);
         $I->click(self::$slide);
-        $I->click(self::$logo);
+        $I->moveBack();
+        $I->click(self::$rightClick);
+        $I->click(self::$leftClick);
     }
 
     public function homePageSubscription($email)

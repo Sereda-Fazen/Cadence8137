@@ -4,6 +4,7 @@ use \Step\Acceptance;
  * @group account
  */
 class ForgotPassCest {
+
     function forgotSuccess(Step\Acceptance\LoginSteps $I, \Page\ForgotPass $forgotPage)
     {
         $forgotPage->forgot('cadence_watch@yahoo.com');
