@@ -9,8 +9,7 @@ class HomeCest
     function homeHeader(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
     {
 
-        $homePage->homePageHeader();}
-        /*
+        $homePage->homePageHeader();
         $homePage->homePageMainMenu();
         $I->getHeaderMenu();
     }
@@ -33,13 +32,13 @@ class HomeCest
         $homePage->homeHeaderCart();
         $I->getVisibleText('You have no items in your shopping cart.');
     }
-*/
+
         function homeContent(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
         {
             $homePage->homeSlide();
             $homePage->homePageContent();
         }
-        /*
+
             function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
             {
                 $homePage->homePageFooter();
@@ -63,8 +62,6 @@ class HomeCest
                 $I->getSecondOpen();
                 $I->comment('Expected result: Page is open - Instargam ');
             }
-
-        */
 
 
 }
