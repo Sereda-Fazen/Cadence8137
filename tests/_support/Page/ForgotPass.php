@@ -31,9 +31,12 @@ class ForgotPass
         $I->click(self::$subSave);
         $I->see('If there is an account associated with cadence_watch@yahoo.com you will receive an email with a link to reset your password.', self::$msg);
     }
-    public function deleteMsg(){
+    public function deleteMsg($mail,$pasw){
         $I = $this->tester;
         $I->amOnUrl(self::$URL2);
+        $I->fillField(self::$email, $mail);
+        $I->fillField(self::$pass, $pasw);
+        $I->click(self::$enter);
         $I->waitForElementNotVisible(self::$waitMsg,5);
         $I->wait(3);
         $I->click(self::$clickOldMsg);
