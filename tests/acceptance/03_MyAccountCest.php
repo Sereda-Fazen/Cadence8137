@@ -8,7 +8,6 @@ class MyAccountCest
 
 {
 
-/*
     function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccountPage)
     {
         $I->stepsLoginIn();
@@ -22,7 +21,7 @@ class MyAccountCest
         $I->comment('Expected result: These are required fields');
 
     }
-*/
+
     function MyAccountAddress(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage)
     {
         $I->stepsLoginIn();
@@ -36,8 +35,8 @@ class MyAccountCest
         $MyAccountPage->accountAddress('alex', 'sereda', '+39063636369', 'Dostoevskogo22v', 'Kharkov', '54423', 'Kharkov');
         $I->waitForElement('li.success-msg');
         $I->comment('Expected result: The address has been saved.');
-    }}
-/*
+    }
+
     function MyAccountOrders(Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage) {
         $I->stepsLoginIn();
         $MyAccountPage->accountMyOrders();
