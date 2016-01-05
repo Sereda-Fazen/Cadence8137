@@ -10,8 +10,8 @@ class EnterPassCest {
     {
         $I->gMailAuth();
         $I->remoteWindow();
-        $I->newPass();
-        $I->comment('Expected result: Your password has been updated');
+       // $I->newPass();
+        //$I->comment('Expected result: Your password has been updated');
     }
 
     function deleteOldMsg(Step\Acceptance\LoginSteps $I, Page\ForgotPass $deleteMsg){
