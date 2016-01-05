@@ -15,7 +15,7 @@ class EnterPassCest {
     }
 
     function deleteOldMsg(Step\Acceptance\LoginSteps $I, Page\ForgotPass $deleteMsg){
-        $deleteMsg->deleteMsg('cadence_watch@yahoo.com', '!1qwerty');
+        $deleteMsg->deleteMsg();
         $I->comment('Expected result: Your message was deleted');
     }
 
