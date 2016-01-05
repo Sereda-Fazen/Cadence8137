@@ -124,6 +124,7 @@ class Home
 
         $I->moveMouseOver(self::$cart);
         $I->click(self::$viewCart);
+        $I->click(self::$logo);
     }
 
     public function homePageMainMenu()
@@ -135,7 +136,6 @@ class Home
     public function homeSlide()
     {
         $I = $this->tester;
-        $I->moveBack();
         $I->click(self::$slide);
         $I->moveBack();
         $I->moveMouseOver(self::$slide);
