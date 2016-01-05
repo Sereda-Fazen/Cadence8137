@@ -1,7 +1,7 @@
 <?php
 use \Step\Acceptance;
 /**
- * @group enterAndDeleteNewPass
+ * @group account
  */
 class EnterPassCest {
 
