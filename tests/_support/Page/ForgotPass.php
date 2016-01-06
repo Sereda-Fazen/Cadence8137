@@ -14,7 +14,7 @@ class ForgotPass
     public static $email = '//*[@id="login-username"]';
     public static $pass = '//*[@id="login-passwd"]';
     public static $enter = '//*[@id="login-signin"]';
-    public static $waitMsg = '//*[@class="icon info info-real info-unread "]';
+    public static $waitMsg = 'div.list-view-item.list-view-item-master.unread.btn-msglist.resize-columns';
     public static $clickOldMsg = 'div.cbox > input';
     public static $delete = '#btn-delete > span.icon-text';
     public static $msgRemove = '//p[@class="empty-folder-footer"]';
@@ -37,7 +37,7 @@ class ForgotPass
         $I->fillField(self::$email, $mail);
         $I->fillField(self::$pass, $pasw);
         $I->click(self::$enter);
-        $I->waitForElementNotVisible(self::$waitMsg);
+        $I->waitForElementVisible(self::$waitMsg,30);
         $I->click(self::$clickOldMsg);
         $I->waitForElementVisible(self::$delete);
         $I->click(self::$delete);
@@ -50,7 +50,7 @@ class ForgotPass
         $I->fillField(self::$email, $mail);
         $I->fillField(self::$pass, $pasw);
         $I->click(self::$enter);
-        $I->waitForElementNotVisible(self::$waitMsg,5);
+        $I->waitForElementNotVisible(self::$waitMsg,30);
         $I->wait(3);
         $I->click(self::$clickOldMsg);
         $I->waitForElementVisible(self::$delete);
