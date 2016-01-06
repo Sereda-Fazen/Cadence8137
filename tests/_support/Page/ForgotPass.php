@@ -44,4 +44,18 @@ class ForgotPass
         $I->click(self::$delete);
         $I->waitForElement(self::$msgRemove);
     }
+
+    public function newRegisterUser($mail,$pasw){
+        $I = $this->tester;
+        $I->amOnUrl(self::$URL2);
+        $I->fillField(self::$email, $mail);
+        $I->fillField(self::$pass, $pasw);
+        $I->click(self::$enter);
+        $I->waitForElementNotVisible(self::$waitMsg,5);
+        $I->wait(3);
+        $I->click(self::$clickOldMsg);
+        $I->waitForElementVisible(self::$delete);
+        $I->click(self::$delete);
+        $I->waitForElement(self::$msgRemove);
+    }
 }

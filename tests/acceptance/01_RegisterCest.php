@@ -11,7 +11,12 @@ class RegisterCest
         $registerPage->register('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456');
         $I->see('Thank you for registering with The Cadence Watch Company.', 'li.success-msg');
         $I->comment('You are registering to Cadence Watch Company.');
-        $registerPage->logout();
+        $registerPage->logout();}
+
+        function deleteOldMsg(Step\Acceptance\LoginSteps $I, Page\ForgotPass $deleteMsg){
+            $deleteMsg->deleteMsg('cadence_watch@yahoo.com', '!1qwerty');
+            $I->comment('Expected result: Your message was deleted');
+
     }
 
 
