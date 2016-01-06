@@ -18,11 +18,7 @@ class CheckoutUserCest
             $I->comment('Expected result: Showing 1 products which in processing');
         }
 
-        function deleteOldMsg(Step\Acceptance\LoginSteps $I, Page\ForgotPass $deleteMsg)
-        {
-            $deleteMsg->deleteMsg('cadence_watch@yahoo.com', '!1qwerty');
-            $I->comment('Expected result: Your message was deleted');
-        }
+
 
 
 
