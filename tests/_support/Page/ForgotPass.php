@@ -37,8 +37,7 @@ class ForgotPass
         $I->fillField(self::$email, $mail);
         $I->fillField(self::$pass, $pasw);
         $I->click(self::$enter);
-        $I->waitForElementNotVisible(self::$waitMsg,5);
-        $I->wait(3);
+        $I->waitForElementNotVisible(self::$waitMsg);
         $I->click(self::$clickOldMsg);
         $I->waitForElementVisible(self::$delete);
         $I->click(self::$delete);
