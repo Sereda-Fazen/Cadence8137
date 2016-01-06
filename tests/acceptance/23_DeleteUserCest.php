@@ -1,6 +1,6 @@
 <?php
 /**
- * @group deleteUserFromAdmin
+ * @group checkoutUser
  */
 class DeleteUserCest
 {
