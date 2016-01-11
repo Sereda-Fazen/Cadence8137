@@ -192,6 +192,21 @@ class LoginSteps extends \AcceptanceTester
         });
     }
 
+    public function remoteWindow2(){
+        $I = $this;
+
+        $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
+            $handles = $webdriver->getWindowHandles();
+            $last_window = end($handles);
+            $webdriver->switchTo()->window($last_window);
+        });
+
+        $I->fillField('#email', 'cadence_watch@yahoo.com');
+        $I->fillField('#pass', '123456');
+        $I->click('Login');
+
+    }
+
     public function newPass() {
         $I = $this;
         $I->waitForText('Reset a Password', 15, 'h1');

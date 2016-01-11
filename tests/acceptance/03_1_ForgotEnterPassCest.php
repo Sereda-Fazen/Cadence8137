@@ -4,13 +4,12 @@ use \Step\Acceptance;
  * @group account
  */
 class EnterPassCest {
-
-    /*
+/*
     function enterNewPass (Step\Acceptance\LoginSteps $I)
     {
         $I->gMailAuth();
         $I->comment('Expected result: Password Reset Confirmation');
-       // $I->remoteWindow();
+       $I->remoteWindow();
        // $I->newPass();
        // $I->comment('Expected result: Your password has been updated');
     }

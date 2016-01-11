@@ -6,6 +6,7 @@ use Exception;
 class RegisterNewsletter
 {
     public static $URL = '/customer/account/login/';
+    public static $URL2 = 'https://mail.yahoo.com';
 
     public static $createAccount = 'Create an Account';
     public static $firsName = '#firstname';
@@ -16,6 +17,19 @@ class RegisterNewsletter
     public static $confirmation = '#confirmation';
     public static $submit = 'Submit';
     public static $logout = 'ul.links > li.last > a';
+    /**
+     * Mail
+     */
+
+    public static $email2 = '//*[@id="login-username"]';
+    public static $pass2 = '//*[@id="login-passwd"]';
+    public static $enter = '//*[@id="login-signin"]';
+    public static $waitMsg = '//*[@class="icon info info-real info-unread "]';
+    public static $waitMsg2 = 'div.name.first';
+    public static $clickMsg = 'div.cbox > input';
+    public static $clickNewUser = '#btn-delete > span.icon-text';
+    public static $msgRemove = '//p[@class="empty-folder-footer"]';
+    public static $text = 'My Account';
 
     /**
      * Newsletter Subscriptions
@@ -53,6 +67,24 @@ class RegisterNewsletter
         return $this;
     }
 
+    public function activeUserThroughMail($mail, $pasw)
+    {
+        $I = $this->tester;
+
+        $I->amOnUrl(self::$URL2);
+        $I->fillField(self::$email2, $mail);
+        $I->fillField(self::$pass2, $pasw);
+        $I->click(self::$enter);
+        $I->waitForElement(self::$waitMsg2);
+        $I->click(self::$waitMsg2);
+        $I->waitForText(self::$text,30);
+        $I->click(self::$text);
+
+
+
+    }
+
+
     public function accountNewsletterSave() {
         $I = $this->tester;
 
@@ -60,9 +92,19 @@ class RegisterNewsletter
         $I->waitForElementVisible(self::$clickCheck,20);
         $I->click(self::$clickCheck);
         $I->click(self::$buttonSave);
-        $I->waitForElementVisible(self::$msg);
         $I->see('You have been removed from Newsletter.',self::$msg);
     }
+
+
+    public function activeNewAccount(){
+        $I = $this->tester;
+
+        $I->click(self::$clickNewsletter);
+       // $I->waitForElementVisible(self::$clickCheck,20);
+        //$I->click(self::$clickCheck);
+    }
+
+
 
 
 
