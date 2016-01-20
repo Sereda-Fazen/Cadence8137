@@ -1,7 +1,5 @@
 <?php
-/**
- * @group account
- */
+
 class RegisterNewsletterCest
 {
 
