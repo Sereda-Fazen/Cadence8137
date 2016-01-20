@@ -26,11 +26,7 @@ class MyAccountAfterOrdersCest
         $I->comment('Expected result: Gift card was successfully removed');
         }
 
-        function deleteOldMsg(Step\Acceptance\LoginSteps $I, Page\ForgotPass $deleteMsg)
-        {
-            $deleteMsg->deleteMsg('cadence_watch@yahoo.com', '!1qwerty');
-            $I->comment('Expected result: Your message was deleted');
-        }
+
 
 
 
