@@ -9,7 +9,7 @@ modules:
 
     config:
         WebDriver:
-            url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8134/'
+            url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8142/'
             browser: chrome
 
       # run in browserstack
@@ -23,8 +23,8 @@ modules:
             #clear_cookies: false
 
             capabilities:
-             browserstack.user: 'alex3357'
-             browserstack.key: 't73oeyZX8FDMPgnGFUCh'
+             browserstack.user: 'alex3340'
+             browserstack.key: 'BBqF7izJpbQk2nWfsF8z'
              browserstack.debug: 'true'
              #applicationCacheEnabled: false
              unexpectedAlertBehaviour: 'accept'
