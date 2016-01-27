@@ -15,7 +15,7 @@ modules:
       # run in browserstack
 
             #host: 'hub.browserstack.com'
-           # port: 80
+            #port: 80
             browser: fifefox
             window_size: 1980x1680
             restart: false
