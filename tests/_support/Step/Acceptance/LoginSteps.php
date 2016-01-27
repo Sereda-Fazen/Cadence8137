@@ -72,8 +72,8 @@ class LoginSteps extends \AcceptanceTester
 
         $I = $this;
         $countLinks = $I->grabMultiple('//*[@class="mega-container"]/ul/li');
-        for ($i = 1; $i <= 8; $i++) {
-            $I->click('#mega-nav > li:nth-of-type(' . $i . ') > a');
+        for ($i = 1; $i <= $countLinks; $i++) {
+            $I->click('//*[@class="mega-container"]/ul/li['.$i.']');
         }
     }
 
