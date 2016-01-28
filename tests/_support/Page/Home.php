@@ -136,8 +136,8 @@ class Home
     public function homeSlide()
     {
         $I = $this->tester;
-        $I->waitForElementVisible(self::$slide);
-        $I->click(self::$slide);
+        //$I->waitForElementVisible(self::$slide);
+       // $I->click(self::$slide);
         $I->moveBack();
         $I->moveMouseOver(self::$slide);
         $I->click(self::$rightClick);
