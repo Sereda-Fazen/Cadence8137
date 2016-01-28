@@ -8,7 +8,7 @@ class MainPages
      */
     public static $URL = '/';
     public static $men = 'li.parent > a';
-    public static $sell = '#sidenav > li:nth-of-type(4) > a > span:nth-of-type(2)';
+    public static $sell = '#sidenav > li:nth-of-type(3) > a > span:nth-of-type(2)';
     public static $msg = 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd';
     /**
      * New
@@ -22,7 +22,7 @@ class MainPages
     /**
      * Giff Card
      */
-    public static $giffCard = '#sidenav > li:nth-of-type(5) > a > span:nth-of-type(2)';
+    public static $giffCard = '#sidenav > li:nth-of-type(3) > a > span:nth-of-type(2)';
     protected $tester;
     public function __construct(\AcceptanceTester $I) {
         $this->tester = $I;
