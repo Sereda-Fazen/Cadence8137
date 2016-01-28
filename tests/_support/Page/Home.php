@@ -42,7 +42,7 @@ class Home
      * Slide
      */
 
-    public static $slide = 'div.owl-wrapper > div:first-child > li.item > a > img';
+    public static $slide = '//li[@class="item"]/a/img';
     public static $rightClick = 'ul.banner-slider.owl-theme > div.owl-controls.clickable > div.owl-buttons > div.owl-next';
     public static $leftClick = 'ul.banner-slider.owl-theme > div.owl-controls.clickable > div.owl-buttons > div.owl-next';
 
