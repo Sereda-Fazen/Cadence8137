@@ -3,6 +3,7 @@ use Step\Acceptance;
 /**
  * @group main
  */
+/*
 class HomeCest
 {
 
@@ -16,3 +17,4 @@ class HomeCest
 
 
 }
+*/
