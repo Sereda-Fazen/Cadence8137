@@ -42,7 +42,7 @@ class Home
      * Slide
      */
 
-    public static $slide = '//li[@class="item"]/a/img';
+    public static $slide = '//*[@class="owl-wrapper"]/div[2]/li/a/img';
     public static $rightClick = 'ul.banner-slider.owl-theme > div.owl-controls.clickable > div.owl-buttons > div.owl-next';
     public static $leftClick = 'ul.banner-slider.owl-theme > div.owl-controls.clickable > div.owl-buttons > div.owl-next';
 
@@ -136,9 +136,12 @@ class Home
     public function homeSlide()
     {
         $I = $this->tester;
-        //$I->waitForElementVisible(self::$slide);
-       // $I->click(self::$slide);
-        $I->moveBack();
+        $I->amOnPage(self::$URL);
+        $I->waitForElementVisible(self::$slide);
+        $I->click(self::$slide);
+
+        //$I->moveBack();
+
         $I->moveMouseOver(self::$slide);
         $I->click(self::$rightClick);
         $I->wait(2);

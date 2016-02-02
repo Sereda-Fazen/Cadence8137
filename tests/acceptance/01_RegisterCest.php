@@ -13,12 +13,13 @@ class RegisterCest
         $I->comment('You are registering to Cadence Watch Company.');
         $registerPage->logout();}
 
+    /*
     function deleteOldMsg(Step\Acceptance\LoginSteps $I, Page\ForgotPass $deleteMsg){
         $deleteMsg->deleteMsg('cadence_watch@yahoo.com', '!1qwerty');
         $I->comment('Expected result: Your message was deleted');
 
     }
-
+*/
     function registerDouble(AcceptanceTester $I, \Page\Register $registerPage)
     {
         $registerPage->register('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456');
