@@ -18,6 +18,30 @@ class CheckoutUserCest
             $I->comment('Expected result: Showing 1 products which in processing');
         }
 
+    function logIn2(Step\Acceptance\UserSteps  $I)
+    {
+        $I->stepsLoginIn();
+        $I->comment('Expected result: You are entering in your account ');
+
+        $I->userProcessCheckout();
+        $I->comment('Expected result: Show your addresses');
+
+        $I->checkGiffCard();
+        $I->comment('Expected result: Showing 1 products which in processing');
+    }
+
+    function logIn3(Step\Acceptance\UserSteps  $I)
+    {
+        $I->stepsLoginIn();
+        $I->comment('Expected result: You are entering in your account ');
+
+        $I->userProcessCheckout();
+        $I->comment('Expected result: Show your addresses');
+
+        $I->checkGiffCard();
+        $I->comment('Expected result: Showing 1 products which in processing');
+    }
+
 
 
 
