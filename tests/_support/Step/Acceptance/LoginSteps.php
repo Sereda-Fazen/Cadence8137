@@ -184,6 +184,8 @@ class LoginSteps extends \AcceptanceTester
 
     }
 
+
+
     public function remoteWindow(){
         $I = $this;
         $I->waitForText('RESET PASSWORD',5);
