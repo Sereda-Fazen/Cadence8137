@@ -17,15 +17,30 @@ class AdminPanelCest
     }
 */
 
+/*
+    function checkOrderIsComplete(\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
+
+        $I->loginCustomer();
+        $I->checkOrder();
+        $adminPanel->orderComplete();
+    }
 
     function loginAdmin (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
 
         $I->loginCustomer();
-        $adminPanel->orders();
-        $adminPanel->invoiceEmail();
-        $adminPanel->creditMemo();
-      //  $I->yahooMail();
+        $I->checkOrder();
+        $adminPanel->checkCreditMemo();
     }
+*/
+    function checkShipment (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
+
+        $I->loginCustomer();
+        $I->checkOrder();
+        $adminPanel->checkShipment('123456');
+    }
+
+
+
 
 
 

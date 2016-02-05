@@ -30,12 +30,13 @@ class Admin
     public static $orders = '//*[@id="nav"]/li[2]/ul/li/a';
     public static $seeOrders = '//h3[@class="icon-head head-sales-order"]';
     public static $user = 'alex sereda';
-    public static $clickStatus = './/tr[contains(@style, "background-color: #CCFFFF")]/td[contains(text(), "alex  sereda")]/../td/input';
+    public static $clickStatus = 'tbody > tr:nth-of-type(1) > td.a-center > input.massaction-checkbox';
     public static $actions = '//*[@id="sales_order_grid_massaction-select"]';
     public static $changeOrderStatus = '//*[@id="sales_order_grid_massaction-select"]/option[3]';
     public static $orderStatus = '//span[@id="sales_order_grid_massaction-form-additional"]';
     public static $complete = '//select[@id="order_status"]/option[6]';
     public static $submit = '//*[@class="scalable"]/span';
+
     public static $success = 'li.success-msg';
 
 
@@ -58,8 +59,10 @@ class Admin
 
     //invoice email
 
-    public static $view = 'tbody > tr:nth-of-type(2) > td.last > a';
-    public static $seeUser = 'div.hor-scroll > table.form-list > tbody > tr:first-child > td.value > strong';
+    public static $view = 'tbody > tr:nth-of-type(1) > td.last > a';
+    public static $view2 = 'tbody > tr:nth-of-type(2) > td.last > a';
+    public static $view3 = 'tbody > tr:nth-of-type(3) > td.last > a';
+    public static $seeUser = 'tbody > tr:first-child > td.value > a > strong';
     public static $invoice = '//*[@class="tab-item-link"]/span';
     public static $seeInvoice = '//div[@class="main-col-inner"]';
     public static $invoiceOrder = '//*[@class="icon-head head-sales-order-creditmemo"]';
@@ -71,6 +74,19 @@ class Admin
 
     public static $clickEmailCopy = '//*[@id="send_email"]';
     public static $refund = '//*[@class="scalable save submit-button"]/span';
+
+
+    // Shipment
+
+    public static $ship = '//*[@class="content-header"]//button[6]/span';
+    public static $seeNewShip = '//*[@class="content-header"]/h3';
+    public static $addTrackingNumber = '//*[@class="scalable validation-passed"]/span';
+    public static $clickCarrier = '//*[@id="trackingC1"]';
+    public static $selectCarrier = '//*[@id="trackingC1"]/option[9]';
+    public static $number = '//*[@id="trackingN1"]';
+    public static $clickEmailCopyShipment = '//*[@name="shipment[send_email]"]';
+    public static $submitShipment = '//*[@class="scalable save submit-button"]/span';
+
 
     protected $tester;
 
@@ -165,14 +181,9 @@ class Admin
 
 
 
-    public function orders()
+    public function orderComplete()
     {
         $I = $this->tester;
-        $I->moveMouseOver(self::$sales);
-        $I->waitForElementVisible(self::$orders);
-        $I->click(self::$orders);
-        $I->see('Orders', self::$seeOrders);
-        $I->waitForText(self::$user);
 
         $I->click(self::$clickStatus);
         $I->click(self::$actions);
@@ -185,10 +196,10 @@ class Admin
 
     }
 
-    public function invoiceEmail()
+    public function checkCreditMemo()
     {
         $I = $this->tester;
-        $I->click(self::$view);
+        $I->click(self::$view3);
         $I->see('alex sereda',self::$seeUser);
         $I->click(self::$invoice);
         $I->see('alex sereda',self::$seeInvoice);
@@ -197,15 +208,36 @@ class Admin
         $I->see('New Credit Memo for Order',self::$invoiceOrder);
         $I->see('alex sereda', self::$seeUserMemo);
 
-    }
-    public function creditMemo()
-    {
-        $I = $this->tester;
+
         $I->scrollDown(200);
         $I->click(self::$clickEmailCopy);
         $I->click(self::$refund);
         $I->see('The credit memo has been created.',self::$success);
     }
+
+    public function checkShipment($number)
+    {
+        $I = $this->tester;
+        $I->click(self::$view3);
+        $I->see('alex sereda', self::$seeUser);
+        $I->click(self::$ship);
+        $I->seeElement(self::$seeNewShip);
+        $I->scrollDown(200);
+        $I->click(self::$seeNewShip);
+        $I->click(self::$clickCarrier);
+        $I->click(self::$selectCarrier);
+        $I->fillField(self::$number, $number);
+        $I->click(self::$clickEmailCopyShipment);
+        $I->click(self::$submitShipment);
+        $I->see('The shipment has been created.', self::$success);
+    }
+
+
+
+
+
+
+
 
 
 
