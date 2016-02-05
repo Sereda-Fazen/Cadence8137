@@ -38,6 +38,7 @@ class Admin
     public static $submit = '//*[@class="scalable"]/span';
 
     public static $success = 'li.success-msg';
+    public static $success2 = '#success-msg';
 
 
     // search user and active
@@ -60,11 +61,11 @@ class Admin
     //invoice email
 
     public static $view = 'tbody > tr:nth-of-type(1) > td.last > a';
-    public static $view2 = 'tbody > tr:nth-of-type(2) > td.last > a';
-    public static $view3 = 'tbody > tr:nth-of-type(3) > td.last > a';
+    public static $view2 = 'tbody > tr:nth-of-type(3) > td.last > a';
+    public static $view3 = 'tbody > tr:nth-of-type(4) > td.last > a';
     public static $seeUser = 'tbody > tr:first-child > td.value > a > strong';
     public static $invoice = '//*[@class="tab-item-link"]/span';
-    public static $seeInvoice = '//div[@class="main-col-inner"]';
+    public static $seeInvoice = 'tr.pointer.on-mouse > td:nth-of-type(2)';
     public static $invoiceOrder = '//*[@class="icon-head head-sales-order-creditmemo"]';
 
     public static $creditMemo = '//*[@class="scalable go"]/span';
@@ -78,14 +79,30 @@ class Admin
 
     // Shipment
 
-    public static $ship = '//*[@class="content-header"]//button[6]/span';
+    public static $ship = 'div.main-col-inner > div.content-header > p.form-buttons > button:nth-of-type(5) > span';
     public static $seeNewShip = '//*[@class="content-header"]/h3';
-    public static $addTrackingNumber = '//*[@class="scalable validation-passed"]/span';
+    public static $addTrackingNumber = 'td.a-center.last > button.scalable';
     public static $clickCarrier = '//*[@id="trackingC1"]';
     public static $selectCarrier = '//*[@id="trackingC1"]/option[9]';
     public static $number = '//*[@id="trackingN1"]';
     public static $clickEmailCopyShipment = '//*[@name="shipment[send_email]"]';
     public static $submitShipment = '//*[@class="scalable save submit-button"]/span';
+
+
+    //export report
+
+    public static $moveCatalog = '#nav > li:nth-of-type(3) > a > span';
+    public static $moveProductExport = '#nav > li:nth-of-type(3) > ul > li.parent.last > a > span';
+    public static $clickManualReport = '#nav > li:nth-of-type(3) > ul > li.parent.last > ul > li.last > a > span';
+    public static $seeProductExport = '#page\3Amain-container';
+
+    public static $clickProfile = '#profile_id';
+    public static $checkInventory = '//*[@id = "profile_id"]/optgroup/option[2]';
+    public static $clickExport = '#export_button';
+
+
+
+
 
 
     protected $tester;
@@ -199,16 +216,14 @@ class Admin
     public function checkCreditMemo()
     {
         $I = $this->tester;
-        $I->click(self::$view3);
+        $I->click(self::$view);
         $I->see('alex sereda',self::$seeUser);
         $I->click(self::$invoice);
-        $I->see('alex sereda',self::$seeInvoice);
+       // $I->see('alex sereda',self::$seeInvoice);
 
+       // $I->see('New Credit Memo for Order',self::$invoiceOrder);
+      //  $I->see('alex sereda', self::$seeUserMemo);
         $I->click(self::$creditMemo);
-        $I->see('New Credit Memo for Order',self::$invoiceOrder);
-        $I->see('alex sereda', self::$seeUserMemo);
-
-
         $I->scrollDown(200);
         $I->click(self::$clickEmailCopy);
         $I->click(self::$refund);
@@ -218,12 +233,13 @@ class Admin
     public function checkShipment($number)
     {
         $I = $this->tester;
-        $I->click(self::$view3);
+        $I->click(self::$view);
         $I->see('alex sereda', self::$seeUser);
         $I->click(self::$ship);
         $I->seeElement(self::$seeNewShip);
-        $I->scrollDown(200);
         $I->click(self::$seeNewShip);
+        $I->scrollDown(200);
+        $I->click(self::$addTrackingNumber);
         $I->click(self::$clickCarrier);
         $I->click(self::$selectCarrier);
         $I->fillField(self::$number, $number);
@@ -232,13 +248,24 @@ class Admin
         $I->see('The shipment has been created.', self::$success);
     }
 
+    public function checkExportReport()
+    {
+        $I = $this->tester;
 
+        $I->moveMouseOver(self::$moveCatalog);
+        $I->waitForElementVisible(self::$moveProductExport);
+        $I->moveMouseOver(self::$moveProductExport);
+        $I->waitForElementVisible(self::$clickManualReport);
+        $I->click(self::$clickManualReport);
+        $I->seeElement(self::$seeProductExport);
 
+        $I->click(self::$clickProfile);
+        $I->click(self::$checkInventory);
+        $I->click(self::$clickExport);
+        $I->waitForElementVisible(self::$success2);
+        $I->see('Click here to download exported files.', self::$success2);
 
-
-
-
-
+    }
 
 
 

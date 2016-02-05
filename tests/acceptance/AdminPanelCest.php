@@ -15,9 +15,11 @@ class AdminPanelCest
 
 
     }
+
+
+
 */
 
-/*
     function checkOrderIsComplete(\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
 
         $I->loginCustomer();
@@ -31,13 +33,21 @@ class AdminPanelCest
         $I->checkOrder();
         $adminPanel->checkCreditMemo();
     }
-*/
+
     function checkShipment (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
 
         $I->loginCustomer();
         $I->checkOrder();
         $adminPanel->checkShipment('123456');
     }
+
+    function checkExportReport (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
+
+        $I->loginCustomer();
+        $adminPanel->checkExportReport();
+    }
+
+
 
 
 

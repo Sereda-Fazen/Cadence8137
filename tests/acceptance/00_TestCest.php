@@ -3,18 +3,16 @@ use Step\Acceptance;
 /**
  * @group main
  */
-/*
-class HomeCest
+
+class TestCest
 {
 
+    function checkExportReport (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
 
-        function homeContent(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
-        {
-            $homePage->homeSlide();
-            $homePage->homePageContent();
-        }
+        $I->loginCustomer();
+        $adminPanel->checkExportReport();
+    }
 
 
 
 }
-*/
