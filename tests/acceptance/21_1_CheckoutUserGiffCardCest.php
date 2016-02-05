@@ -6,7 +6,7 @@ use Step\Acceptance;
 class CheckoutUserCest
 {
 
-        function logIn(Step\Acceptance\UserSteps  $I)
+        function checkGiftCardForUser(Step\Acceptance\UserSteps  $I)
         {
             $I->stepsLoginIn();
             $I->comment('Expected result: You are entering in your account ');
@@ -18,7 +18,7 @@ class CheckoutUserCest
             $I->comment('Expected result: Showing 1 products which in processing');
         }
 
-    function logIn2(Step\Acceptance\UserSteps  $I)
+    function checkGiftCardForUser2(Step\Acceptance\UserSteps  $I)
     {
         $I->stepsLoginIn();
         $I->comment('Expected result: You are entering in your account ');
@@ -30,7 +30,7 @@ class CheckoutUserCest
         $I->comment('Expected result: Showing 1 products which in processing');
     }
 
-    function logIn3(Step\Acceptance\UserSteps  $I)
+    function checkGiftCardForUser3(Step\Acceptance\UserSteps  $I)
     {
         $I->stepsLoginIn();
         $I->comment('Expected result: You are entering in your account ');
