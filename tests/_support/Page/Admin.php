@@ -6,6 +6,14 @@ use Exception;
 class Admin
 {
 
+    // add to gift cart
+
+    public static $moveGiftCard = '#nav > li:nth-of-type(11) > a > span';
+    public static $clickManageGiftCards = '#nav > li:nth-of-type(11) > ul > li:nth-of-type(1) > a > span';
+    public static $addGiftCard = '//td[@class="form-buttons"]/button[2]/span';
+    public static $giftCode = '#gift_code';
+    public static $giftValue = '#balance';
+
     //create new user
 
     public static $system = '//*[@id="nav"]/li[15]/a/span';
@@ -111,6 +119,24 @@ class Admin
     {
         $this->tester = $I;
     }
+
+    public function createAddToGiftCard($giftCard)
+    {
+        $I = $this->tester;
+
+        $I->moveMouseOver(self::$system);
+        $I->waitForElementVisible(self::$permissions);
+        $I->moveMouseOver(self::$permissions);
+        $I->waitForElementVisible(self::$users);
+        $I->click(self::$users);
+        $I->see('Add New User', self::$seeAddNewUser);
+    }
+
+
+
+
+
+
 
     public function createNewAdminUser($uName,$fName,$lName,$email,$currentPass,$pass1,$pass2){
         $I = $this->tester;
@@ -266,6 +292,8 @@ class Admin
         $I->see('Click here to download exported files.', self::$success2);
 
     }
+
+
 
 
 
