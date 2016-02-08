@@ -1,16 +1,15 @@
 <?php
 use Step\Acceptance;
-/**
- * @group main
- */
+
 
 class TestCest
 {
 
-    function checkExportReport (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
+    function createNewAdminUser (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel)
+    {
 
-        $I->loginCustomer();
-        $adminPanel->checkExportReport();
+        $I->loginAdmin();
+        $adminPanel->createNewAdminUser('test', 'test', 'test', 'test@mail.com', 'Corn54Goat93', '!1qwerty', '!1qwerty');
     }
 
 

@@ -16,8 +16,6 @@ class AdminPanelCest
 
     }
 
-
-
 */
 
     function checkOrderIsComplete(\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {

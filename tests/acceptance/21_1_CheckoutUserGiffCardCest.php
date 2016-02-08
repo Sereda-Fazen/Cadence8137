@@ -5,7 +5,7 @@ use Step\Acceptance;
  */
 class CheckoutUserCest
 {
-/*
+
         function checkGiftCardForUser(Step\Acceptance\UserSteps  $I)
         {
             $I->stepsLoginIn();
@@ -24,7 +24,7 @@ class CheckoutUserCest
             $I->checkOrder();
             $adminPanel->orderComplete();
         }
-*/
+
         function checkGiftCardForUser2(Step\Acceptance\UserSteps  $I)
         {
             $I->stepsLoginIn();
@@ -37,13 +37,13 @@ class CheckoutUserCest
             $I->comment('Expected result: Showing 1 products which in processing');
         }
 
-        function loginAdmin (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
+        function checkCreditMemo (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
 
             $I->loginCustomer();
             $I->checkOrder();
             $adminPanel->checkCreditMemo();
         }
-/*
+
 
         function checkGiftCardForUser3(Step\Acceptance\UserSteps  $I)
         {
@@ -63,7 +63,16 @@ class CheckoutUserCest
             $I->checkOrder();
             $adminPanel->checkShipment('123456');
         }
-*/
+
+        function checkExportReport (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
+
+        $I->loginCustomer();
+        $adminPanel->checkExportReport();
+        }
+
+
+
+
 
 
 

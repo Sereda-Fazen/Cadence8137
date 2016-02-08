@@ -13,6 +13,13 @@ class Admin
     public static $addGiftCard = '//td[@class="form-buttons"]/button[2]/span';
     public static $giftCode = '#gift_code';
     public static $giftValue = '#balance';
+    public static $template = '#giftcard_template_id';
+    public static $imgForGift = 'div > img';
+    public static $cadenceGiftCard = '//select[@id="giftcard_template_id"]/option[3]';
+    public static $status = '#status';
+    public static $active = '//select[@id="status"]/option[2]';
+    public static $comment = '#giftvoucher_comments';
+    public static $saveCard = '//div[@class="content-header"]/p/button[3]';
 
     //create new user
 
@@ -46,7 +53,15 @@ class Admin
     public static $submit = '//*[@class="scalable"]/span';
 
     public static $success = 'li.success-msg';
+    public static $successText = 'The user has been saved.';
     public static $success2 = '#success-msg';
+    public static $error = 'li.error-msg';
+    public static $errorText = 'A user with the same user name or email aleady exists.';
+
+    ///
+
+    ///
+
 
 
     // search user and active
@@ -120,22 +135,27 @@ class Admin
         $this->tester = $I;
     }
 
-    public function createAddToGiftCard($giftCard)
+    public function createAddToGiftCard($giftCardCode, $giftValue, $comment)
     {
         $I = $this->tester;
 
-        $I->moveMouseOver(self::$system);
-        $I->waitForElementVisible(self::$permissions);
-        $I->moveMouseOver(self::$permissions);
-        $I->waitForElementVisible(self::$users);
-        $I->click(self::$users);
-        $I->see('Add New User', self::$seeAddNewUser);
+        $I->moveMouseOver(self::$moveGiftCard);
+        $I->waitForElementVisible(self::$clickManageGiftCards);
+        $I->click(self::$clickManageGiftCards);
+        $I->waitForElementVisible(self::$addGiftCard);
+        $I->click(self::$addGiftCard);
+        $I->fillField(self::$giftCode, $giftCardCode);
+        $I->fillField(self::$giftValue, $giftValue);
+        $I->click(self::$template);
+        $I->click(self::$cadenceGiftCard);
+        $I->waitForElementVisible(self::$imgForGift);
+        $I->click(self::$status);
+        $I->waitForElementVisible(self::$active);
+        $I->click(self::$active);
+        $I->fillField(self::$comment, $comment);
+        $I->click(self::$saveCard);
+        $I->see('Gift Code was successfully saved', self::$success);
     }
-
-
-
-
-
 
 
     public function createNewAdminUser($uName,$fName,$lName,$email,$currentPass,$pass1,$pass2){
@@ -160,22 +180,31 @@ class Admin
         $I->click(self::$userRole);
         $I->click(self::$customer);
         $I->click(self::$saveUser);
-        $I->see('The user has been saved.',self::$success);
+        $grabMsg = $I->grabTextFrom(self::$success);
+        $grabMsgError = $I->grabTextFrom(self::$error);
 
+        if ($grabMsgError == 'A user with the same user name or email aleady exists.')
+        {
+            $I->see('A user with the same user name or email aleady exists.', self::$error);
+        }
+
+        elseif ($grabMsg == 'The user has been saved.') {
+            $I->see('The user has been saved.', self::$success);
+        }
 
     }
 
     public function searchNewUserActive($inputSearch,$currentPass,$pass1,$pass2){
 
         $I = $this->tester;
-        /*
+
         $I->moveMouseOver(self::$system);
         $I->waitForElementVisible(self::$permissions);
         $I->moveMouseOver(self::$permissions);
         $I->waitForElementVisible(self::$users);
         $I->click(self::$users);
         $I->see('Add New User',self::$seeAddNewUser);
-*/
+
 
         $I->fillField(self::$inputSearch, $inputSearch);
         $I->click(self::$search);
