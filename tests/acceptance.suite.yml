@@ -10,26 +10,36 @@ modules:
     config:
         WebDriver:
             url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8131'
-            browser: chrome
 
-      # run in browserstack
+            browser: chrome
+            window_size: 1980x1780
+            restart: false
+             #http_proxy: direct
+             #clear_cookies: false
+             #wait: 1
+
+             # run in browserstack
 
             #host: 'hub.browserstack.com'
             #port: 80
-            browser: fifefox
-            window_size: 1980x1680
+            browser: chrome
+             #window_size: 600x8002
+            resolution: 1980x1780
             restart: false
-            #wait: 1
-            #clear_cookies: false
+             #wait: 13
+             #clear_cookies: false
 
             capabilities:
              browserstack.user: 'cadencewatch1'
              browserstack.key: 'RG12s8tJvQ9p3pZuxWzf'
+              #browserstack.user: 'vladshalda1'
+              #browserstack.key: 'vMqut6yLFsfbhDzhB643'
+
              browserstack.debug: 'true'
-             #applicationCacheEnabled: false
+              #applicationCacheEnabled: false
              unexpectedAlertBehaviour: 'accept'
              pageLoadStrategy: 'eager'
-             platform: 'MAC'
-             resolution: 1920x1080
+             os: 'WINDOWS'
+             os_version: 7
 
 
