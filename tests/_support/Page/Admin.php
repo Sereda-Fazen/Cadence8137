@@ -180,6 +180,7 @@ class Admin
         $I->click(self::$userRole);
         $I->click(self::$customer);
         $I->click(self::$saveUser);
+        /*
         $grabMsg = $I->grabTextFrom(self::$success);
         $grabMsgError = $I->grabTextFrom(self::$error);
 
@@ -189,8 +190,9 @@ class Admin
         }
 
         elseif ($grabMsg == 'The user has been saved.') {
+        */
             $I->see('The user has been saved.', self::$success);
-        }
+
 
     }
 
