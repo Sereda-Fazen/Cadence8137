@@ -9,7 +9,7 @@ modules:
 
     config:
         WebDriver:
-            url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8146/'
+            url: 'https://vanya:43terminal59Pass@dev1.wholesale.cadencewatch.com:8146'
             browser: chrome
 
       # run in browserstack
