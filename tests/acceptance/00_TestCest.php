@@ -5,11 +5,11 @@ use Step\Acceptance;
 class TestCest
 {
 
-    function createNewAdminUser (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel)
+    function registerSuccess(\Page\Register $registerPage, \Step\Acceptance\LoginSteps $I)
     {
-
-        $I->loginAdmin();
-        $adminPanel->createNewAdminUser('test', 'test', 'test', 'test@mail.com', 'Corn54Goat93', '!1qwerty', '!1qwerty');
+        $registerPage->register('alex', 'sereda', 'cadence_test@yahoo.com', '123456', '123456');
+        $I->checkExistUser();
+        $registerPage->logout();
     }
 
 

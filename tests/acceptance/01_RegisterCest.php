@@ -6,12 +6,12 @@ class RegisterCest
 {
 
 
-    function registerSuccess(AcceptanceTester $I, \Page\Register $registerPage)
+    function registerSuccess(\Page\Register $registerPage, \Step\Acceptance\LoginSteps $I)
     {
-        $registerPage->register('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456');
-        $I->see('Thank you for registering with The Cadence Watch Company.', 'li.success-msg');
-        $I->comment('You are registering to Cadence Watch Company.');
-        $registerPage->logout();}
+        $registerPage->register('alex', 'sereda', 'cadence_test@yahoo.com', '123456', '123456');
+        $I->checkExistUser();
+        $registerPage->logout();
+    }
 
     /*
     function deleteOldMsg(Step\Acceptance\LoginSteps $I, Page\ForgotPass $deleteMsg){
