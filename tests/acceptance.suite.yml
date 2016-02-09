@@ -43,14 +43,20 @@ modules:
              os_version: 7
 
 
-env:
-    INST_8147:
-        config:
+    env:
+
+      INST_8147:
+
+        modules:
+          config:
             WebDriver:
               url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8147'
-    INST_8150:
-        config:
+
+      INST_8150:
+
+        modules:
+          config:
             WebDriver:
               url: 'https://dev1.cadencewatch.com:8150'
 
-
+        INST_8131:
