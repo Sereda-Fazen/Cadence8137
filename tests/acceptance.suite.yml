@@ -9,7 +9,7 @@ modules:
 
     config:
         WebDriver:
-            url: 'https://cadencewatch.com'
+            url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8131'
 
             browser: chrome
             window_size: 1980x1780
@@ -41,5 +41,16 @@ modules:
              pageLoadStrategy: 'eager'
              os: 'WINDOWS'
              os_version: 7
+
+
+env:
+    INST_8147:
+        config:
+            WebDriver:
+              url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8147'
+    INST_8150:
+        config:
+            WebDriver:
+              url: 'https://dev1.cadencewatch.com:8150'
 
 
