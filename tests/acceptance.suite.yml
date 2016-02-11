@@ -93,3 +93,9 @@ env:
         config:
           WebDriver:
             url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8147'
+
+  INST_8143:
+        modules:
+          config:
+            WebDriver:
+              url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8143'
