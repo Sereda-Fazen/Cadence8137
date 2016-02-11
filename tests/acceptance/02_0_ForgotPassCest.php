@@ -10,13 +10,7 @@ class ForgotPassCest {
         $forgotPage->forgot('cadence_watch@yahoo.com');
         $I->comment('Expected result: If there is an account associated with cadence_watch@yahoo.com you will receive an email with a link to reset your password.');
     }
-    function enterNewPass (Step\Acceptance\LoginSteps $I)
-    {
-        $I->gMailAuth();
-        $I->comment('Expected result: Password Reset Confirmation');
-        $I->remoteWindow();
-        $I->newPass();
-    }
+
 /*
     function deleteOldMsg(Step\Acceptance\LoginSteps $I, Page\ForgotPass $deleteMsg)
     {
