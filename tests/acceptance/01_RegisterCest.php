@@ -19,14 +19,14 @@ class RegisterCest
         $I->comment('Expected result: Your message was deleted');
 
     }
-*/
+
     function registerDouble(AcceptanceTester $I, \Page\Register $registerPage)
     {
         $registerPage->register('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456');
-        $I->see('There is already an account with this email address.', 'li.error-msg');
+        $I->see('There is already an account with this email address. If you are sure that it is your email address,', 'li.error-msg');
         $I->comment('There is already an account with this email address.');
     }
-
+*/
     function registerWrongEmail(AcceptanceTester $I, \Page\Register $registerPage) {
             $registerPage->register('alex', 'sereda','sereda222.ru','123456','123456');
             $I->see('Please enter a valid email address. For example johndoe@domain.com.','#advice-validate-email-email_address');
