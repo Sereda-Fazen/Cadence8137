@@ -5,7 +5,7 @@
 class AdminPanelCest
 {
 
-/*
+
     function createNewAdminUser (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
 
         $I->loginAdmin();
@@ -15,9 +15,7 @@ class AdminPanelCest
 
 
     }
-
-*/
-
+    
     function checkOrderIsComplete(\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
 
         $I->loginCustomer();
