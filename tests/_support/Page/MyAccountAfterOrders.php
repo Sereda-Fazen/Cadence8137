@@ -69,7 +69,7 @@ class MyAccountAfterOrders
         $I->click(self::$back);
         $I->waitForElement(self::$reorder);
         $I->click(self::$reorder);
-        $I->waitForElement(self::$error);
+        //$I->waitForElement(self::$error);
         $I->moveBack();
 
     }
@@ -85,16 +85,16 @@ class MyAccountAfterOrders
         $I->click(self::$addGiffCard);
         $I->fillField(self::$inputGiff, $giffCard);
         $I->click(self::$redeem);
-        $I->waitForElement(self::$error);
-        $I->see('GIFT-ADFA-12NF0F - The current balance of this gift code is 0.',self::$error);
+        //$I->waitForElement(self::$error);
+        $I->waitForText('GIFT-ADFA-12NF0F - The current balance of this gift code is 0.');
 
     }
     public function addSameGiffCard($giffCard){
         $I = $this->tester;
         $I->fillField(self::$inputGiff, $giffCard);
         $I->click(self::$addToList);
-        $I->waitForElement(self::$error);
-        $I->see('This gift code has already existed in your list.',self::$error);
+        //$I->waitForElement(self::$error);
+        $I->waitForText('This gift code has already existed in your list.');
     }
 
     public function addGiffCard($giffCard){
@@ -103,8 +103,8 @@ class MyAccountAfterOrders
         $I->wait(2);
         $I->fillField(self::$inputGiff, $giffCard);
         $I->click(self::$addToList);
-        $I->waitForElement(self::$msg);
-        $I->see('The gift code has been added to your list successfully.',self::$msg);
+        //$I->waitForElement(self::$msg);
+        $I->waitForText('The gift code has been added to your list successfully.',10);
     }
 
     public function giffCardOfOrders ()
