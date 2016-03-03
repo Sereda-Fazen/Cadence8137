@@ -189,6 +189,8 @@ class LoginSteps extends \AcceptanceTester
         $I = $this;
         $I->amOnUrl("https://mail.yahoo.com");
         $I->fillField('//*[@id="login-username"]', 'cadence_watch@yahoo.com');
+        $I->click('//*[@id="login-signin"]');
+        $I->waitForElementVisible('//*[@id="login-passwd"]');
         $I->fillField('//*[@id="login-passwd"]', '!1qwerty');
         $I->click('//*[@id="login-signin"]');
         $I->waitForElement('//*[@class="icon info info-real info-unread "]',5);
@@ -197,6 +199,8 @@ class LoginSteps extends \AcceptanceTester
         $I->waitForText('RESET PASSWORD',5);
 
     }
+
+
 
 
 
