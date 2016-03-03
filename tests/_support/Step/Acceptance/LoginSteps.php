@@ -71,7 +71,7 @@ class LoginSteps extends \AcceptanceTester
             $card = rand();
             $I->fillField('#gift-voucher-code', $card);
             $I->click('div.text-left > button:nth-of-type(1) > span > span');
-            $I->waitForText('Gift card "' . $card . '" is invalid.You have ' . $c . ' time(s) remaining to re-enter Gift Card code.', 3, '.error-msg');
+            $I->waitForText('Gift card "' . $card . '" is invalid.You have ' . $c . ' time(s) remaining to re-enter Gift Card code.', 3);
         }
         $I->fillField('#gift-voucher-code', $card);
         $I->click('div.text-left > button:nth-of-type(1) > span > span');

@@ -5,19 +5,14 @@ use Step\Acceptance;
 class TestCest
 {
 
-    function forgotSuccess(Step\Acceptance\LoginSteps $I, \Page\ForgotPass $forgotPage)
+    function MyAccountGiftCard(Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage)
     {
-        $forgotPage->forgot('cadence_watch@yahoo.com');
-        $I->comment('Expected result: If there is an account associated with cadence_watch@yahoo.com you will receive an email with a link to reset your password.');
-    }
+        $I->stepsLoginIn();
+        $MyAccountPage->accountGiftCard();
+        $I->giftCardEmpty();
+        $I->getVisibleText('The maximum number of times to enter gift card code is 5!', '.error-msg');
+        $I->logOut();
 
-    function enterNewPass (Step\Acceptance\LoginSteps $I)
-    {
-        $I->gMailAuth();
-        $I->comment('Expected result: Password Reset Confirmation');
-        $I->remoteWindow();
-        $I->newPass();
-        $I->comment('Expected result: Your password has been updated');
     }
 
 }
