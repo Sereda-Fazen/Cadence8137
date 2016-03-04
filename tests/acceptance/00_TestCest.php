@@ -5,16 +5,24 @@ use Step\Acceptance;
 class TestCest
 {
 
-    function checkGiftCardForUser(Step\Acceptance\UserSteps  $I)
-    {
+    function MyAccountOrders(Step\Acceptance\LoginSteps $I, \Page\MyAccountAfterOrders $MyAccountPage) {
         $I->stepsLoginIn();
-        $I->comment('Expected result: You are entering in your account ');
+        /*
+        $MyAccountPage->ordersDashboard();
+        $I->comment('Expected result: This product is currently out of stock');
+*/
+        $MyAccountPage->addGiffCardForOrdersRedeem('GIFT-ADFA-12NF0F');
+        $I->comment('Expected result: GIFT-ADFA-12NF0F - The current balance of this gift code is 0');
 
-        $I->userProcessCheckout();
-        $I->comment('Expected result: Show your addresses');
+        $MyAccountPage->addSameGiffCard('GIFT-ADFA-12NF0O');
+        $I->comment('Expected result: This gift code has already existed in your list');
 
-        $I->checkGiffCard();
-        $I->comment('Expected result: Showing 1 products which in processing');
+        $MyAccountPage->addGiffCard('GIFT-ADFA-12NF0F');
+        $I->comment('Expected result: The gift code has been added to your list successfully');
+
+        $MyAccountPage->giffCardOfOrders();
+        $I->comment('Expected result: Gift card was successfully removed');
     }
+
 
 }

@@ -10,9 +10,10 @@ class MyAccountAfterOrdersCest
 
     function MyAccountOrders(Step\Acceptance\LoginSteps $I, \Page\MyAccountAfterOrders $MyAccountPage) {
         $I->stepsLoginIn();
+        /*
         $MyAccountPage->ordersDashboard();
         $I->comment('Expected result: This product is currently out of stock');
-
+*/
         $MyAccountPage->addGiffCardForOrdersRedeem('GIFT-ADFA-12NF0F');
         $I->comment('Expected result: GIFT-ADFA-12NF0F - The current balance of this gift code is 0');
 
