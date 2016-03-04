@@ -124,8 +124,8 @@ class MyAccountAfterOrders
         $I->see('Gift card was successfully removed',self::$msg);
         $I->click(self::$removeCard2);
         $I->acceptPopup();
-        $I->waitForElement(self::$msg);
-        $I->see('Gift card was successfully removed',self::$msg);
+        //$I->waitForElement(self::$msg);
+        $I->waitForText('Gift card was successfully removed',self::$msg);
 
     }
 
