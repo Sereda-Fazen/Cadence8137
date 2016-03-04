@@ -44,7 +44,11 @@ class UserSteps extends \AcceptanceTester
 
         $I->waitForElement('div.main', 20);
         $I->comment('Expected result: Open page shopping cart');
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
+        $I->waitForElement('button.button.btn-proceed-checkout.btn-checkout > span > span');
         $I->click('button.button.btn-proceed-checkout.btn-checkout > span > span');
+
         $I->waitForElementVisible('#checkout-step-billing', 20);
         $I->click('#billing-buttons-container > button.button.continueRed > span > span');
 
