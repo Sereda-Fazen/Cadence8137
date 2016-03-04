@@ -121,11 +121,11 @@ class MyAccountAfterOrders
         $I->click(self::$removeCard);
         $I->acceptPopup();
         //$I->waitForElement(self::$msg);
-        $I->waitForText('Gift card was successfully removed',self::$msg);
+        $I->waitForText('Gift card was successfully removed');
         $I->click(self::$removeCard2);
         $I->acceptPopup();
         //$I->waitForElement(self::$msg);
-        $I->waitForText('Gift card was successfully removed',self::$msg);
+        $I->waitForText('Gift card was successfully removed');
 
     }
 
