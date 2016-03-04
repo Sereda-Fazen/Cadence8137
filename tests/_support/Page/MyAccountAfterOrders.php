@@ -104,7 +104,7 @@ class MyAccountAfterOrders
         $I->fillField(self::$inputGiff, $giffCard);
         $I->click(self::$addToList);
         //$I->waitForElement(self::$msg);
-        $I->waitForText('The gift code has been added to your list successfully.');
+        $I->waitForText('The gift code has been added to your list successfully.',50);
         //$I->waitForText('This gift code has already existed in your list.');
     }
 
