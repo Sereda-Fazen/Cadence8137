@@ -105,6 +105,7 @@ class MyAccountAfterOrders
         $I->click(self::$addToList);
         //$I->waitForElement(self::$msg);
         $I->waitForText('The gift code has been added to your list successfully.',10);
+        //$I->waitForText('This gift code has already existed in your list.');
     }
 
     public function giffCardOfOrders ()
