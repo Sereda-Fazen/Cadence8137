@@ -77,8 +77,8 @@ class UserSteps extends \AcceptanceTester
             $I->scrollDown(200);
             $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 10);
             $I->click('#payment-buttons-container > button.button.continueRed > span > span');
-            $I->waitForElementVisible('button.button.btn-checkout > span > span', 60);
-            $I->click('button.button.btn-checkout > span > span');
+            $I->waitForElement('//*[@id="review-buttons-container"]/button/span', 60);
+            $I->click('//*[@id="review-buttons-container"]/button/span');
             $I->waitForElementVisible('h1', 15);
         $I->waitForElement('h2.sub-title', 30);
         $I->see('Thank you for your purchase!', 'h2.sub-title');
