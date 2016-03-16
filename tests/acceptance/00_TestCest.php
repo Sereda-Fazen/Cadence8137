@@ -5,67 +5,24 @@ use Step\Acceptance;
 class TestCest
 {
 
-    function checkGiftCardForUser(Step\Acceptance\UserSteps  $I)
+    function forgotSuccess(Step\Acceptance\LoginSteps $I, \Page\ForgotPass $forgotPage)
     {
-        $I->stepsLoginIn();
-        $I->comment('Expected result: You are entering in your account ');
-
-        $I->userProcessCheckout();
-        $I->comment('Expected result: Show your addresses');
-
-        $I->checkGiffCard();
-        $I->comment('Expected result: Showing 1 products which in processing');
+        $forgotPage->forgot('cadence_watch@yahoo.com');
+        $I->comment('Expected result: If there is an account associated with cadence_watch@yahoo.com you will receive an email with a link to reset your password.');
     }
 
-    function checkOrderIsComplete(\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
 
-        $I->loginCustomer();
-        $I->checkOrder();
-        $adminPanel->orderComplete();
-    }
-
-    function checkGiftCardForUser2(Step\Acceptance\UserSteps  $I)
+    function enterNewPass (Step\Acceptance\LoginSteps $I)
     {
-        $I->stepsLoginIn();
-        $I->comment('Expected result: You are entering in your account ');
-
-        $I->userProcessCheckout();
-        $I->comment('Expected result: Show your addresses');
-
-        $I->checkGiffCard();
-        $I->comment('Expected result: Showing 1 products which in processing');
+        $I->gMailAuth();
+        $I->remoteWindow();
+        $I->newPass();
+        $I->comment('Expected result: Your password has been updated');
     }
-
-    function checkCreditMemo (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
-
-        $I->loginCustomer();
-        $I->checkOrder();
-        $adminPanel->checkCreditMemo();
-    }
-
-
-    function checkGiftCardForUser3(Step\Acceptance\UserSteps  $I)
+    function invalidRepeatPass (Step\Acceptance\LoginSteps $I)
     {
-        $I->stepsLoginIn();
-        $I->comment('Expected result: You are entering in your account ');
-
-        $I->userProcessCheckout();
-        $I->comment('Expected result: Show your addresses');
-
-        $I->checkGiffCard();
-        $I->comment('Expected result: Showing 1 products which in processing');
-    }
-
-    function checkShipment (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
-
-        $I->loginCustomer();
-        $I->checkOrder();
-        $adminPanel->checkShipment('123456');
-    }
-
-    function checkExportReport (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
-
-        $I->loginCustomer();
-        $adminPanel->checkExportReport();
+        $I->moveBack();
+        $I->see('Your password reset link has expired.','li.error-msg');
+        $I->comment('Expected result: Your password has been updated');
     }
 }

@@ -8,18 +8,16 @@ class EnterPassCest {
     function enterNewPass (Step\Acceptance\LoginSteps $I)
     {
         $I->gMailAuth();
-        $I->comment('Expected result: Password Reset Confirmation');
-       $I->remoteWindow();
-       $I->newPass();
-       $I->comment('Expected result: Your password has been updated');
+        $I->remoteWindow();
+        $I->newPass();
+        $I->comment('Expected result: Your password has been updated');
     }
-/*
-    function deleteOldMsg(Step\Acceptance\LoginSteps $I, Page\ForgotPass $deleteMsg)
+    function invalidRepeatPass (Step\Acceptance\LoginSteps $I)
     {
-        $deleteMsg->deleteMsg('cadence_watch@yahoo.com', '!1qwerty');
-        $I->comment('Expected result: Your message was deleted');
+        $I->moveBack();
+        $I->see('Your password reset link has expired.','li.error-msg');
+        $I->comment('Expected result: Your password has been updated');
     }
-*/
 
 
 }

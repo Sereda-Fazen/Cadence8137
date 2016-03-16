@@ -196,7 +196,6 @@ class LoginSteps extends \AcceptanceTester
         $I->waitForElement('//*[@class="icon info info-real info-unread "]',5);
         $I->see('Password Reset Confirmation', '//*[@class="subject bold"]');
         $I->click('//*[@class="subject bold"]');
-        $I->waitForText('RESET PASSWORD',5);
 
     }
 
