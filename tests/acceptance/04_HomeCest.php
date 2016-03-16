@@ -32,13 +32,13 @@ class HomeCest
         $homePage->homeHeaderCart();
         $I->getVisibleText('You have no items in your shopping cart.');
     }
-
+/*
         function homeContent(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
         {
             $homePage->homeSlide();
             $homePage->homePageContent();
         }
-
+*/
             function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
             {
                 $homePage->homePageFooter();

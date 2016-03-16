@@ -11,7 +11,7 @@ class MyAccount
      * Account Information
      */
 
-    public static $URL = 'default/customer/account/edit';
+    public static $URL = '/customer/account/edit';
 
     public static $firsName = '#firstname';
     public static $lastName = '#lastname';
