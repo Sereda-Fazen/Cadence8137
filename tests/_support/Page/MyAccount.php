@@ -27,7 +27,7 @@ class MyAccount
      *  Address Book
      */
 
-    public static $URL2 = 'default/customer/address/new/';
+    public static $URL2 = '/customer/address/new/';
 
 
     public static $addressName = '#firstname';
@@ -52,7 +52,7 @@ class MyAccount
     /**
      *  Billing Agreements
      */
-    public static $URL4 = 'default/sales/billing_agreement/';
+    public static $URL4 = '/sales/billing_agreement/';
 
     public static $payment = '#payment_method';
     public static $payCheck = '//*[@id="payment_method"]/option[2]';
@@ -81,7 +81,7 @@ class MyAccount
     /**
      * Giff Card
      */
-    public static $URL9 = 'default/giftvoucher/index/index/';
+    public static $URL9 = '/giftvoucher/index/index/';
 
     public static $viewBlock = 'button.form-button.button.addredeem > span > span';
     // public static $clickHere = 'div.storecredit > div:nth-of-type(2) > a';

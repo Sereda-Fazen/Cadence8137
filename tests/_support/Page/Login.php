@@ -5,7 +5,7 @@ use Exception;
 
 class Login
 {
-    public static $URL = '/default/customer/account/login/';
+    public static $URL = '/customer/account/login/';
 
     public static $email = '#email';
     public static $pass = '#pass';

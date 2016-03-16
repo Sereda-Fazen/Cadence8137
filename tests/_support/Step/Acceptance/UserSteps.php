@@ -10,7 +10,7 @@ class UserSteps extends \AcceptanceTester
     public function stepsLoginIn()
     {
         $I = $this;
-        $I->amOnPage('/default/customer/account/login/');
+        $I->amOnPage('/customer/account/login/');
         try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
         $I->wait(2);
         $I->fillField('#email', 'cadence_watch@yahoo.com');
