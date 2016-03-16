@@ -94,7 +94,7 @@ class MyAccountAfterOrders
         $I->fillField(self::$inputGiff, $giffCard);
         $I->click(self::$addToList);
         //$I->waitForElement(self::$error);
-        $I->waitForText('This gift code has already existed in your list.');
+        $I->waitForText('This gift code has already existed in your list.',60);
     }
 
     public function addGiffCard($giffCard){
@@ -105,7 +105,7 @@ class MyAccountAfterOrders
         $I->click(self::$addToList);
         //$I->waitForElement(self::$msg);
         //$I->waitForText('The gift code has been added to your list successfully.',50);
-        $I->waitForText('This gift code has already existed in your list.');
+        $I->waitForText('This gift code has already existed in your list.',60);
         $I->amOnPage('/giftvoucher/index/index/');
     }
 
