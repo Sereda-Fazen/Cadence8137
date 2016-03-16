@@ -258,6 +258,7 @@ class Admin
         $I->click(self::$changeOrderStatus);
         $I->waitForElementVisible(self::$orderStatus);
         $I->click(self::$orderStatus);
+        $I->waitForElement(self::$complete);
         $I->click(self::$complete);
         $I->click(self::$submit);
         $I->see('Total of 1 order(s) were modified.',self::$success);

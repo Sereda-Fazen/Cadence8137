@@ -5,24 +5,23 @@ use Step\Acceptance;
 class TestCest
 {
 
-    function forgotSuccess(Step\Acceptance\LoginSteps $I, \Page\ForgotPass $forgotPage)
-    {
-        $forgotPage->forgot('cadence_watch@yahoo.com');
-        $I->comment('Expected result: If there is an account associated with cadence_watch@yahoo.com you will receive an email with a link to reset your password.');
+    function MyAccountOrders(Step\Acceptance\LoginSteps $I, \Page\MyAccountAfterOrders $MyAccountPage) {
+        $I->stepsLoginIn();
+
+        $MyAccountPage->ordersDashboard();
+        $I->comment('Expected result: This product is currently out of stock');
+
+        $MyAccountPage->addGiffCardForOrdersRedeem('GIFT-ADFA-12NF0F');
+        $I->comment('Expected result: GIFT-ADFA-12NF0F - The current balance of this gift code is 0');
+
+        $MyAccountPage->addSameGiffCard('GIFT-ADFA-12NF0O');
+        $I->comment('Expected result: This gift code has already existed in your list');
+
+        $MyAccountPage->addGiffCard('GIFT-ADFA-12NF0F');
+        $I->comment('Expected result: The gift code has been added to your list successfully');
+
+        $MyAccountPage->giffCardOfOrders();
+        $I->comment('Expected result: Gift card was successfully removed');
     }
 
-
-    function enterNewPass (Step\Acceptance\LoginSteps $I)
-    {
-        $I->gMailAuth();
-        $I->remoteWindow();
-        $I->newPass();
-        $I->comment('Expected result: Your password has been updated');
-    }
-    function invalidRepeatPass (Step\Acceptance\LoginSteps $I)
-    {
-        $I->moveBack();
-        $I->see('Your password reset link has expired.','li.error-msg');
-        $I->comment('Expected result: Your password has been updated');
-    }
 }
