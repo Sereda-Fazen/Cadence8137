@@ -5,10 +5,29 @@ use Step\Acceptance;
 class TestCest
 {
 
-    function checkOrderIsComplete(\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
+    function menPage(Step\Acceptance\ItemsSteps $I, \Page\Men $menPage)
+    {
+        $menPage->men();
+        $I->checkForPriceItems();
+        $I->comment('Expected result: Check the price');
 
-        $I->loginCustomer();
-        $I->checkOrder();
-        $adminPanel->orderComplete();
+        $I->allShowingItem();
+        $I->comment('Expected result: Showing products and check select options');
+
+        $I->checkSortBy();
+        $I->comment('Expected result: Sorting is working');
+
+        $I->checkGridButtonsForItems();
+        $I->comment('Expected result: In the grid the buttons are active');
+
+        $I->clickOnImg();
+        $I->comment('Expected result: Navigate to product card ');
+
+        $I->clickQuickView();
+        $I->comment('Expected result: Quick view is open ');
+
+
+
+
     }
 }
