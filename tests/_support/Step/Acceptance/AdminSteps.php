@@ -22,7 +22,7 @@ class AdminSteps extends \AcceptanceTester
     public function loginCustomer(){
         $I= $this;
 
-        $I->amOnPage('/index.php/secret/');
+        $I->amOnPage('/secret/');
         $I->fillField('#username', 'test');
         $I->fillField('#login', '!1qwerty');
         $I->click('input.form-button');
