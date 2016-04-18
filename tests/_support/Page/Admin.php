@@ -154,7 +154,7 @@ class Admin
         $I->click(self::$active);
         $I->fillField(self::$comment, $comment);
         $I->click(self::$saveCard);
-        $I->see('Gift Code was successfully saved', self::$success);
+        //$I->see('Gift Code was successfully saved', self::$success);
     }
 
 
@@ -180,12 +180,7 @@ class Admin
         $I->click(self::$userRole);
         $I->click(self::$customer);
         $I->click(self::$saveUser);
-        $grabMsg = $I->grabTextFrom('//*[@id="messages"]');
-        if (preg_match('/The user has been saved./i', $grabMsg) == 1) {
-            $I->see('The user has been saved.', '//*[@id="messages"]');
-        } else {
-            $I->see('A user with the same user name or email aleady exists.', '//*[@id="messages"]');
-        }
+
 
 
     }
@@ -206,7 +201,6 @@ class Admin
         $I->click(self::$search);
         $I->wait(2);
         $I->see('test',self::$findUser);
-        $I->see('test@mail.com',self::$findMail);
         $I->see('Active', self::$findStatus);
         $I->click(self::$clickUser);
 

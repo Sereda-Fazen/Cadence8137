@@ -10,6 +10,7 @@ class AdminCest
 
         $I->loginAdmin();
         $adminPanel->createNewAdminUser('test','test','test','test@mail.com','Corn54Goat93','!1qwerty','!1qwerty');
+        $I->checkExistUserAdmin();
         // $adminPanel->deleteCustomerUser('test');
     }
 
@@ -23,8 +24,11 @@ class AdminCest
     function createAddToGiftCards (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel) {
         $I->loginAdmin();
         $adminPanel->createAddToGiftCard('GIFT-ADFA-12NF0O','100000','test1' );
+        $I->checkExistGiftCard();
         $adminPanel->createAddToGiftCard('GIFT-ADFA-12NF0Z','10','test2' );
+        $I->checkExistGiftCard();
         $adminPanel->createAddToGiftCard('GIFT-ADFA-12NF0F','0','test3' );
+        $I->checkExistGiftCard();
     }
 
 }
