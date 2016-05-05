@@ -14,26 +14,26 @@ modules:
             browser: chrome
             window_size: 1980x1780
             restart: false
-             #http_proxy: direct
-             #clear_cookies: false
-             #wait: 1
+
 
              # run in browserstack
 
             host: 'hub.browserstack.com'
             port: 80
             browser: chrome
-             #window_size: 600x8002
-            resolution: 1920x1080
+
+
             restart: false
              #wait: 13
              #clear_cookies: false
 
             capabilities:
+             browserstack.autoWait: 60
              browserstack.user: 'cadencewatch1'
              browserstack.key: 'RG12s8tJvQ9p3pZuxWzf'
              #browserstack.user: 'vladshalda1'
              #browserstack.key: 'vMqut6yLFsfbhDzhB643'
+             resolution: 1920x1080
 
              browserstack.debug: 'true'
              #applicationCacheEnabled: false
@@ -128,4 +128,4 @@ env:
           modules:
             config:
               WebDriver:
-                url: 'http://vanya:43terminal59Pass@dev1.cadencewatch.com'
+                url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com'

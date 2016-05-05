@@ -53,6 +53,8 @@ class Register
         $I = $this->tester;
 
         $I->amOnPage(self::$URL);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->click(self::$createAccount);
         $I->fillField(self::$firsName, $fName);
         $I->fillField(self::$lastName, $lName);
