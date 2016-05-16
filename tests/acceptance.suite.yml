@@ -9,7 +9,7 @@ modules:
 
     config:
         WebDriver:
-            url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8131'
+            url: 'https://vanya:43terminal59Pass@dev4.cadencewatch.com:8893'
 
             browser: chrome
             window_size: 1980x1780
