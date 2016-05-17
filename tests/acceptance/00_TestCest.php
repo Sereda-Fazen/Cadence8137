@@ -8,10 +8,11 @@ use Step\Acceptance;
 class TestCest
 {
 
-    function registerSuccess(\Page\Register $registerPage, \Step\Acceptance\LoginSteps $I)
-    {
-        $registerPage->register('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456');
-        $I->checkExistUser();
-        $registerPage->logout();
+    function checkIfLittleMoneyOnGiffCard(Step\Acceptance\ItemsSteps  $I, Page\CheckoutGuestGiffCard $guestPage) {
+        $I->processAddToCart();
+
+        $guestPage->paymentInformation('GIFT-ADFA-12NF0Z');
+        $I->comment('Expected result: Prevent this page from creating additional dialogs');
+
     }
 }

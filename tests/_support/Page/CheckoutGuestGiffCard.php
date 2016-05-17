@@ -44,8 +44,10 @@ class CheckoutGuestGiffCard
         $I->click(self::$giffAddClick);
         $I->waitForElementVisible(self::$waitMsg);
         $I->see('GIFT-XXXX-XXXXXX', self::$waitMsg);
+        /*
         $I->click(self::$clickPay);
         $I->acceptPopup();
+        */
     }
 
 
