@@ -7,6 +7,17 @@ class ItemsSteps extends \AcceptanceTester
 {
 
 
+
+
+
+
+    public function subForm(){
+        $I = $this;
+
+        $I->fillField('//*[@id="newsletter"]', 'fazen7@mail.ru');
+        $I->click('//*[@id="subs"]');
+    }
+
     public function linksMen() {
         $I = $this;
         $countLinks = count($I->grabMultiple('//*[@id="sidenav"]/li[1]/ul/li'));
@@ -36,26 +47,22 @@ class ItemsSteps extends \AcceptanceTester
         $I->scrollUp(200);
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(1)');
         $I->waitForAjax(20);
-        $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
+        $I->waitForElementVisible('div.category-products > div.toolbar > div.pager > div.pages');
         $I->comment('Expected result: Showing of 12 items on one page ');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(2)');
-
         $I->waitForAjax(20);
         $I->comment('Expected result Is not visible block with navigation');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)');
-
         $I->waitForAjax(20);
         $I->comment('Expected result Is not block with navigation');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(4)');
-
         $I->waitForAjax(20);
         $I->comment('Expected result: Showing of 64 items on one page ');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(5)');
-
         $I->waitForAjax(20);
         $I->waitForElementNotVisible('div.category-products > div.toolbar > div.pager > div.pages');
         $I->comment('Expected result: Showing all items one page ');
@@ -74,15 +81,15 @@ class ItemsSteps extends \AcceptanceTester
                 $I->waitForText('A', 4, 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
                 $I->comment('Show category when - Name from A');
         */
-        $I->scrollDown(100);
+
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
         $I->waitForAjax(20);
-        $I->waitForElement('//*[@class="regular-price"]');
+        $I->waitForElement('//span[@class="price"]');
         $I->comment('Show category when - Price begins - min');
 
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
         $I->waitForAjax(20);
-        $I->waitForElement('//*[@class="regular-price"]');
+        $I->waitForElement('//span[@class="price"]');
         $I->comment('Show category when - Price begins - max');
         /*
                 $I->selectOption('.//select[@onchange]', 'Band Type');
@@ -157,24 +164,23 @@ class ItemsSteps extends \AcceptanceTester
 
     public function checkForPriceItems(){
         $I = $this;
-        $I->scrollDown(100);
+        $I->scrollDown(250);
         $I->waitForElement('[name="pricesliderleft"]',2);
-        $I->fillField('[name="pricesliderleft"]',20 );
+        $I->fillField('[name="pricesliderleft"]',10 );
         $I->click('dt.block-title > strong > span');
         $I->waitForAjax(30);
         $I->waitForElement('dt.block-title > strong > span',2);
 
-        $I->fillField('[name="pricesliderright"]', 40);
+        $I->fillField('[name="pricesliderright"]', 30);
         $I->click('dt.block-title > strong > span');
         $I->waitForElement('dt.block-title > strong > span',10);
-        $I->waitForAjax(20);
-        $I->waitForElement('dt.block-title > strong > span',10);
 
-        $I->waitForElement('ol > li',40);
+        //$I->waitForElement('ol > li',40);
         $I->waitForElement('div.actions > a',40);
         $I->click('div.actions > a');
         $I->waitForAjax(40);
         $I->waitForElementNotVisible('ol > li',40);
+        $I->scrollUp(200);
 
 
     }
@@ -259,9 +265,6 @@ class ItemsSteps extends \AcceptanceTester
     }
 
 
-
-    //GUEST
-
     public function getAddRandomItems(){
         $I = $this;
         $I->click('li.parent > a');
@@ -271,6 +274,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->click('ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type('.$rand.') > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span');
     }
 
+    //GUEST
 
     public function processAddToCart()
     {
@@ -411,7 +415,7 @@ class ItemsSteps extends \AcceptanceTester
         // Cards
         $I->click('#stripe_cc_type');
         $I->click('//*[@id="stripe_cc_type"]/option[2]');
-        $I->fillField('#stripe_cc_number', '371449635398431');
+        $I->fillField('#stripe_cc_number', '378282246310005');
         //  month
         $I->click('#stripe_expiration');
         $I->click('//*[@id="stripe_expiration"]/option[2]');

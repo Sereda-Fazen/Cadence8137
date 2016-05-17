@@ -8,14 +8,29 @@ use Step\Acceptance;
 class TestCest
 {
 
-    function addToCartPageAmericanExpress(Step\Acceptance\ItemsSteps  $I,\Page\CheckoutGuestCreditCard $creditCardPageVisa)
+    function menPage(Step\Acceptance\ItemsSteps $I, \Page\Men $menPage)
     {
-        $I->processAddToCart();
+        $menPage->men();
+        $I->checkForPriceItems();
+        $I->comment('Expected result: Check the price');
 
-        $creditCardPageVisa->creditCard();
-        $I->checkAmericanExpress();
+        $I->allShowingItem();
+        $I->comment('Expected result: Showing products and check select options');
 
-        $creditCardPageVisa->ordered();
-        $I->comment('Expected result: PayPal gateway has rejected request.');
+        $I->checkSortBy();
+        $I->comment('Expected result: Sorting is working');
+
+        $I->checkGridButtonsForItems();
+        $I->comment('Expected result: In the grid the buttons are active');
+
+        $I->clickOnImg();
+        $I->comment('Expected result: Navigate to product card ');
+
+        $I->clickQuickView();
+        $I->comment('Expected result: Quick view is open ');
+
+
+
+
     }
 }
