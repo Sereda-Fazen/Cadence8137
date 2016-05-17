@@ -4,23 +4,11 @@ use Step\Acceptance;
 
 class TestCest
 {
-    function MyAccountAddress(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage)
-    {
-        $I->stepsLoginIn();
-        $MyAccountPage->accountAddress('alex', 'sereda', '+39063636369', 'Dostoevskogo22v', 'Kharkov', '54423', 'Kharkov');
-        $I->waitForElement('li.success-msg');
-        $I->comment('Expected result: The address has been saved.');
 
-        $MyAccountPage->accountAddress('alex', 'sereda', '+39063636369', 'Dostoevskogo22v', 'Kharkov', '54423', 'Kharkov');
-        $I->waitForElement('li.success-msg');
-        $I->comment('Expected result: The address has been saved.');
-
-        $I->waitAlertWindow();
-        $I->comment('Expected result: The address has been deleted.');
-
-        $MyAccountPage->accountAddress('alex', 'sereda', '+39063636369', 'Dostoevskogo22v', 'Kharkov', '54423', 'Kharkov');
-        $I->waitForElement('li.success-msg');
-        $I->comment('Expected result: The address has been saved.');
-
+    function loginSuccess(AcceptanceTester $I, \Page\Login $loginPage) {
+        $loginPage->login('cadence_watch@yahoo.com', '123456');
+        $I->amOnPage('/customer/account/index/');
+        $I->see('Hello, alex sereda!', 'p.hello > strong');
+        $loginPage->logout();
     }
 }
