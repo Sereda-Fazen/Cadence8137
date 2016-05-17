@@ -22,6 +22,12 @@ class CheckoutGuestCreditCard
 
     public  static $alertMsg = 'PayPal gateway has rejected request.';
 
+    // ordered
+
+    public static $seeOrdered = '//div[@class="page-title"]/h1';
+    public static $continue = '//div[@class="buttons-set"]/button';
+    public static $myAccount = '//li[@class="first"]';
+
     protected $tester;
 
     public function __construct(\AcceptanceTester $I) {
@@ -35,8 +41,8 @@ class CheckoutGuestCreditCard
     public function orderView(){
         $I = $this->tester;
 
-        $I->waitForElementVisible(self::$waitOrderView,60);
-        $I->waitForElementVisible(self::$clickOrder,60);
+        $I->waitForElementVisible(self::$waitOrderView,260);
+        $I->waitForElementVisible(self::$clickOrder,260);
         $I->scrollUp(100);
         $I->click(self::$returnPayment);
 
@@ -48,8 +54,21 @@ class CheckoutGuestCreditCard
         $I->waitForElementVisible(self::$clickOrder,30);
         $I->waitForElement(self::$clickOrder);
         $I->click(self::$clickOrder);
-        $I->wait(15);
+        $I->wait(7);
         $I->acceptPopup();
+
+    }
+
+    public function ordered(){
+        $I = $this->tester;
+
+        $I->waitForElementVisible(self::$clickOrder,30);
+        $I->waitForElement(self::$clickOrder);
+        $I->click(self::$clickOrder);
+        $I->waitForText('Thank you for your purchase!', 20);
+        $I->see('Your order has been received.', self::$seeOrdered);
+        $I->click(self::$continue);
+        $I->waitForElement(self::$myAccount);
 
     }
 

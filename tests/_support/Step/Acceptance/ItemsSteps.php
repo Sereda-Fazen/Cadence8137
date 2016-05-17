@@ -411,7 +411,7 @@ class ItemsSteps extends \AcceptanceTester
         // Cards
         $I->click('#stripe_cc_type');
         $I->click('//*[@id="stripe_cc_type"]/option[2]');
-        $I->fillField('#stripe_cc_number', '378282246310005');
+        $I->fillField('#stripe_cc_number', '371449635398431');
         //  month
         $I->click('#stripe_expiration');
         $I->click('//*[@id="stripe_expiration"]/option[2]');
