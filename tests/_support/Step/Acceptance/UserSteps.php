@@ -58,10 +58,12 @@ class UserSteps extends \AcceptanceTester
 
         $I->waitForElementVisible('#checkout-step-payment', 20);
         $I->waitForElement('#payment-buttons-container > button.button.continueRed > span > span', 20);
+        /*
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
 
         $I->wait(2);
         $I->acceptPopup();
+        */
     }
 
     public function checkGiffCard(){
