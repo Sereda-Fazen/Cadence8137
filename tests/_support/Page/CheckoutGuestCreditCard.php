@@ -65,7 +65,7 @@ class CheckoutGuestCreditCard
         $I->waitForElementVisible(self::$clickOrder,30);
         $I->waitForElement(self::$clickOrder);
         $I->click(self::$clickOrder);
-        $I->waitForText('Thank you for your purchase!', 20);
+        $I->waitForText('Thank you for your purchase!', 40);
         $I->see('Your order has been received.', self::$seeOrdered);
         $I->click(self::$continue);
         $I->waitForElement(self::$myAccount);

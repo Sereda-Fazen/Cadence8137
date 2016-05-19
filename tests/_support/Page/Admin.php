@@ -6,6 +6,21 @@ use Exception;
 class Admin
 {
 
+    // key payment method
+
+    public static $config = '//*[@id="nav"]/li[15]/ul/li[19]/a/span';
+    public static $seeConfig = '//div[@class="side-col"]';
+    public static $paymentMethod = '//*[@id="system_config_tabs"]/li[11]//dd[9]';
+    public static $seePagePayment = '//div[@class="content-header"]//h3';
+    public static $netgainsStripe = '//div[@class="entry-edit"]//div[14]';
+    public static $apiStripe = '//*[@id="payment_stripe"]//tbody/tr[3]/td[2]/input';
+    public static $savePayment = '//div[@class="content-header-floating"]//td[2]/button/span';
+
+
+
+
+
+
     // add to gift cart
 
     public static $moveGiftCard = '#nav > li:nth-of-type(11) > a > span';
@@ -310,6 +325,31 @@ class Admin
         $I->click(self::$clickExport);
         $I->waitForElementVisible(self::$success2);
         $I->see('Click here to download exported files.', self::$success2);
+
+    }
+
+    public function checkKeyInPaymentMethod($key){
+        $I = $this->tester;
+        $I->moveMouseOver(self::$system);
+        $I->waitForElement(self::$config);
+        $I->click(self::$config);
+        $I->waitForElement(self::$seeConfig);
+        $I->scrollDown(500);
+        $I->waitForElement(self::$paymentMethod);
+        $I->click(self::$paymentMethod);
+        $I->see('Payment Method',self::$seePagePayment);
+        $I->scrollDown(300);
+        $I->waitForElement(self::$netgainsStripe);
+        $I->click(self::$netgainsStripe);
+        $I->scrollDown(200);
+
+        $I->waitForElement(self::$apiStripe);
+        //$I->click(self::$apiStripe);
+        $I->fillField(self::$apiStripe, $key);
+        $I->getVisibleText($key);
+        $I->click(self::$savePayment);
+        $I->waitForElement(self::$success);
+        $I->see('The configuration has been saved.',self::$success);
 
     }
 

@@ -31,4 +31,13 @@ class AdminCest
         $I->checkExistGiftCard();
     }
 
+    function checkKeyInPaymentMethod (\Step\Acceptance\AdminSteps $I, \Page\Admin $adminPanel)
+    {
+        $I->loginAdmin();
+        $adminPanel->checkKeyInPaymentMethod('sk_test_1Iit3vyT9czoatD2Ujrj0dS6');
+
+    }
+
+    
+
 }
